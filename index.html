@@ -20,14 +20,14 @@
         left: 0;
         right: 0;
         z-index: 50;
-        transition: background 0.3s ease;
+        transition: background-color 0.25s ease, box-shadow 0.25s ease;
       }
       .header-transparent {
         background: transparent;
         color: #fff;
       }
       .header-solid {
-        background: #10b981;
+        background: #14532d;
         color: #fff;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       }
@@ -87,6 +87,13 @@
       .roll-active::before {
         opacity: 1;
         transform: translateY(0);
+      }
+      .cta {
+        border-width: 4px;
+        border-color: #14532d;
+        background: #22c55e;
+        box-shadow: inset 4px 4px 0 #34d399, inset -4px -4px 0 #16a34a,
+          0 6px 0 #14532d, 0 10px 0 #00000022;
       }
     </style>
   </head>
@@ -180,8 +187,35 @@
       class="relative -mt-[100svh] z-[2] h-[100svh] bg-white text-slate-800"
     >
       <div id="rollBox" class="roll-wrap h-full">
-        <div class="roll-content h-full grid place-items-center">
-          <p class="text-xl">Section 2 dengan roll reveal + navbar solid</p>
+        <div class="roll-content h-full">
+          <div
+            class="relative z-10 max-w-6xl mx-auto px-4 h-full grid md:grid-cols-2 items-center gap-6 md:gap-10"
+          >
+            <div class="min-w-0">
+              <h2
+                class="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight text-slate-900"
+              >
+                GREENCYCLE
+              </h2>
+              <p class="mt-3 sm:mt-4 text-slate-600 text-base sm:text-lg">
+                Gerakan edukasi lewat <strong>game sortir sampah</strong> untuk
+                keluarga di Indonesia, dengan perempuan sebagai motor perubahan.
+                Main sebentar, pahami kategori organik, kertas, daur ulang, dan
+                sampah residu, lalu praktikkan di rumah dan lingkungan sekitar.
+              </p>
+              <a
+                href="#how"
+                class="inline-block mt-5 sm:mt-6 px-5 py-3 text-white cta"
+                >Mulai main</a
+              >
+            </div>
+            <div
+              id="stageSlot"
+              class="min-h-0 h-[min(40svh,360px)] md:h-[60%] lg:h-[65%] bg-slate-50 rounded-xl border border-slate-200 grid place-items-center"
+            >
+              <span class="text-slate-400">Canvas slot</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -198,8 +232,7 @@
           prevEl: ".swiper-button-prev",
         },
       });
-    </script>
-    <script>
+
       const header = document.getElementById("siteHeader");
       const section2 = document.getElementById("heroFrame");
       const rollBox = document.getElementById("rollBox");
@@ -220,6 +253,30 @@
         { threshold: 0.1 }
       );
       io.observe(section2);
+
+      let ticking = false;
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            const stage = document
+              .getElementById("pin-stage")
+              .getBoundingClientRect();
+            if (
+              stage.bottom < window.innerHeight * 0.9 &&
+              stage.bottom > window.innerHeight * 0.1
+            ) {
+              document
+                .getElementById("heroFrame")
+                .scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+            ticking = false;
+          });
+        },
+        { passive: true }
+      );
     </script>
   </body>
 </html>
