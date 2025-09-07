@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Gerakan edukasi sortir sampah yang dipimpin perempuan—mainkan game pilah organik, kertas, daur ulang, dan sampah residu. Ajak keluarga, jaga lingkungan."
+    />
+    <title>GreenCycle - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+      }
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #fff;
+      }
+      .swiper-pagination-bullet {
+        background: #fff;
+        opacity: 0.6;
+      }
+      .swiper-pagination-bullet-active {
+        background: #10b981;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-100 text-slate-800">
+    <header class="header bg-transparent">
+      <div
+        class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between"
+      >
+        <div class="font-bold">GreenCycle</div>
+        <nav class="hidden md:block">
+          <ul class="flex gap-6">
+            <li>
+              <a href="index.html" class="hover:text-emerald-600">Home</a>
+            </li>
+            <li>
+              <a href="overview.html" class="hover:text-emerald-600"
+                >Overview</a
+              >
+            </li>
+            <li><a href="game.html" class="hover:text-emerald-600">Game</a></li>
+            <li>
+              <a href="tips-and-trick.html" class="hover:text-emerald-600"
+                >Tips and Trick</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="hover:text-emerald-600"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="relative h-[200svh]" id="pin-stage">
+      <section class="sticky top-0 h-[100svh] z-[1]">
+        <div class="swiper h-full">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide relative">
+              <img
+                src="assets/slider1.jpg"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div class="overlay"></div>
+              <div
+                class="relative z-10 max-w-6xl mx-auto h-full px-4 flex items-center"
+              >
+                <h1 class="text-4xl md:text-6xl font-extrabold">
+                  Perubahan besar dimulai dari langkah kecil.
+                </h1>
+              </div>
+            </div>
+            <div class="swiper-slide relative">
+              <img
+                src="assets/slider2.jpg"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div class="overlay"></div>
+              <div
+                class="relative z-10 max-w-6xl mx-auto h-full px-4 flex items-center"
+              >
+                <h1 class="text-4xl md:text-6xl font-extrabold">
+                  Perempuan berdaya, lingkungan terjaga.
+                </h1>
+              </div>
+            </div>
+            <div class="swiper-slide relative">
+              <img
+                src="assets/slider3.jpg"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div class="overlay"></div>
+              <div
+                class="relative z-10 max-w-6xl mx-auto h-full px-4 flex items-center"
+              >
+                <h1 class="text-4xl md:text-6xl font-extrabold">
+                  Rumah tangga sadar, masa depan terpelihara.
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination !bottom-6"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </section>
+    </div>
+    <main class="min-h-[120vh] bg-white"></main>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const hero = new Swiper(".swiper", {
+        loop: true,
+        autoplay: { delay: 4500 },
+        speed: 700,
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>
