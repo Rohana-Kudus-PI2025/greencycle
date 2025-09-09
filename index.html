@@ -95,6 +95,9 @@
         box-shadow: inset 4px 4px 0 #34d399, inset -4px -4px 0 #16a34a,
           0 6px 0 #14532d, 0 10px 0 #00000022;
       }
+      canvas {
+        display: block;
+      }
     </style>
   </head>
   <body class="text-slate-800">
@@ -211,9 +214,16 @@
             </div>
             <div
               id="stageSlot"
-              class="min-h-0 h-[min(40svh,360px)] md:h-[60%] lg:h-[65%] bg-slate-50 rounded-xl border border-slate-200 grid place-items-center"
+              class="relative min-h-0 h-[min(40svh,360px)] md:h-[60%] lg:h-[65%] rounded-xl overflow-hidden border border-slate-200"
             >
-              <span class="text-slate-400">Canvas slot</span>
+              <canvas
+                id="frameBG"
+                class="absolute inset-0 w-full h-full"
+              ></canvas>
+              <canvas
+                id="frameFG"
+                class="absolute inset-0 w-full h-full pointer-events-none"
+              ></canvas>
             </div>
           </div>
         </div>
@@ -277,6 +287,104 @@
         },
         { passive: true }
       );
+
+      // canvas section 2
+      const frame = document.getElementById("heroFrame");
+      const stage = document.getElementById("stageSlot");
+      const bgCanvas = document.getElementById("frameBG");
+      const fgCanvas = document.getElementById("frameFG");
+      const bg = bgCanvas.getContext("2d");
+      const fg = fgCanvas.getContext("2d");
+      let FW = 0,
+        FH = 0,
+        SW = 0,
+        SH = 0,
+        SOX = 0,
+        SOY = 0,
+        t = 0;
+      let beamY = 80;
+      function fitCanvas(c, ctx, w, h) {
+        const d = window.devicePixelRatio || 1;
+        c.width = Math.floor(w * d);
+        c.height = Math.floor(h * d);
+        ctx.setTransform(d, 0, 0, d, 0, 0);
+      }
+      function rr(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+      }
+      function measure() {
+        const fr = frame.getBoundingClientRect(),
+          sr = stage.getBoundingClientRect();
+        FW = fr.width;
+        FH = fr.height;
+        fitCanvas(bgCanvas, bg, FW, FH);
+        fitCanvas(fgCanvas, fg, FW, FH);
+        SW = sr.width;
+        SH = sr.height;
+        SOX = sr.left - fr.left;
+        SOY = sr.top - fr.top;
+        beamY = Math.max(48, SH * 0.16);
+      }
+      new ResizeObserver(measure).observe(frame);
+      new ResizeObserver(measure).observe(stage);
+      window.addEventListener("resize", measure);
+      measure();
+      function drawBG() {
+        bg.clearRect(0, 0, FW, FH);
+        const x0 = SOX,
+          y0 = SOY;
+        bg.fillStyle = "#eef2ff";
+        bg.fillRect(0, 0, FW, FH);
+        bg.fillStyle = "#9aa0a6";
+        bg.fillRect(x0, y0 + beamY - 8, SW, 8);
+        bg.fillStyle = "#b4bac2";
+        bg.fillRect(x0, y0 + beamY - 14, SW, 6);
+      }
+      function drawFG() {
+        fg.clearRect(0, 0, FW, FH);
+        t++;
+        const x0 = SOX,
+          y0 = SOY;
+        const minX = x0 + 24,
+          maxX = x0 + SW - 24;
+        const phase = (t * 0.003) % 2;
+        const ratio = phase < 1 ? phase : 2 - phase;
+        const trolleyX = minX + ratio * (maxX - minX);
+        const hookBaseY = y0 + beamY + 6;
+        const swing = Math.sin(t * 0.08) * 12;
+        const hookX = trolleyX + swing,
+          hookY = hookBaseY + 140;
+        fg.strokeStyle = "#94a3b8";
+        fg.lineWidth = 3;
+        fg.beginPath();
+        fg.moveTo(trolleyX, hookBaseY);
+        fg.lineTo(hookX, hookY - 18);
+        fg.stroke();
+        const bw = 26,
+          bh = 22,
+          bx = hookX - bw / 2,
+          by = hookY - 22;
+        fg.fillStyle = "#6b7280";
+        rr(fg, bx, by, bw, bh, 6);
+        fg.fill();
+        fg.strokeStyle = "#374151";
+        fg.lineWidth = 5;
+        fg.beginPath();
+        fg.moveTo(hookX, hookY - 4);
+        fg.lineTo(hookX, hookY + 8);
+        fg.stroke();
+      }
+      (function loop() {
+        drawBG();
+        drawFG();
+        requestAnimationFrame(loop);
+      })();
     </script>
   </body>
 </html>
