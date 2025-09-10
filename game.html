@@ -263,52 +263,83 @@
                 </section>
 
                 <!-- BINS -->
-                <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 text-center">
+
+                    <!-- ========== Food Scraps ========== -->
                     <button id="bin-food" data-category="food"
-                        class="bin group relative overflow-hidden rounded-2xl bg-white border border-slate-200 px-5 pt-8 pb-5 shadow-soft transition">
-                        <div
-                            class="absolute -top-0 left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200">
-                            Food Scraps
+                        class="bin flex flex-col items-center rounded-2xl bg-[#DADADA] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+
+                        <!-- icon + label (atas) -->
+                        <div class="mb-2 flex flex-col items-center gap-1">
+                            <span class="text-[15px] font-semibold text-slate-700">Food Scraps</span>
                         </div>
-                        <div
-                            class="h-40 rounded-xl bg-gradient-to-b from-binFoodFrom to-binFoodTo group-hover:from-emerald-100 group-hover:to-emerald-50 transition">
+
+                        <!-- tong -->
+                        <div class="relative w-[92px]">
+                            <!-- tutup -->
+                            <div class="mx-auto h-[14px] w-[92px] rounded-md bg-[#337C4E]"></div>
+                            <!-- garis bayangan halus tepat di bawah tutup -->
+                            <div class="mx-auto -mt-[2px] mb-[2px] h-[6px] w-[86px] rounded-[6px] bg-black/5"></div>
+                            <!-- badan (sedikit mengecil ke bawah) -->
+                            <div class="mx-auto h-[126px] w-[92px] rounded-b-2xl bg-[#337C4E]"
+                                style="clip-path: polygon(6% 0, 94% 0, 88% 100%, 12% 100%);">
+                            </div>
                         </div>
                     </button>
 
+                    <!-- ========== Recyclable Containers ========== -->
                     <button id="bin-recycle" data-category="recycle"
-                        class="bin group relative overflow-hidden rounded-2xl bg-white border border-slate-200 px-5 pt-8 pb-5 shadow-soft transition">
-                        <div
-                            class="absolute -top-0 w-auto left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200 whitespace-nowrap">
-                            Recyclable Containers
+                        class="bin flex flex-col items-center rounded-2xl bg-[#DADADA] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+
+                        <div class="mb-2 flex flex-col items-center gap-1">
+                            <span class="text-[15px] font-semibold text-slate-700">Recyclable Containers</span>
                         </div>
 
-                        <div
-                            class="h-40 rounded-xl bg-gradient-to-b from-binRecycleFrom to-binRecycleTo group-hover:from-emerald-100 group-hover:to-emerald-50 transition">
+                        <div class="relative w-[92px]">
+                            <div class="mx-auto h-[14px] w-[92px] rounded-md bg-[#f8e135]"></div>
+                            <div class="mx-auto -mt-[2px] mb-[2px] h-[6px] w-[86px] rounded-[6px] bg-black/5"></div>
+                            <div class="mx-auto h-[126px] w-[92px] rounded-b-2xl bg-[#f8e135]"
+                                style="clip-path: polygon(6% 0, 94% 0, 88% 100%, 12% 100%);">
+                            </div>
                         </div>
                     </button>
 
+                    <!-- ========== Paper ========== -->
                     <button id="bin-paper" data-category="paper"
-                        class="bin group relative overflow-hidden rounded-2xl bg-white border border-slate-200 px-5 pt-8 pb-5 shadow-soft transition">
-                        <div
-                            class="absolute top-5 left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200">
-                            Paper
+                        class="bin flex flex-col items-center rounded-2xl bg-[#DADADA] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+
+                        <div class="mb-2 flex flex-col items-center gap-1">
+                            <span class="text-[15px] font-semibold text-slate-700">Paper</span>
                         </div>
-                        <div
-                            class="h-40 rounded-xl bg-gradient-to-b from-binPaperFrom to-binPaperTo group-hover:from-orange-100 group-hover:to-orange-50 transition">
+
+                        <div class="relative w-[92px]">
+                            <div class="mx-auto h-[14px] w-[92px] rounded-md bg-[#1C7DDC]"></div>
+                            <div class="mx-auto -mt-[2px] mb-[2px] h-[6px] w-[86px] rounded-[6px] bg-black/5"></div>
+                            <div class="mx-auto h-[126px] w-[92px] rounded-b-2xl bg-[#1C7DDC]"
+                                style="clip-path: polygon(6% 0, 94% 0, 88% 100%, 12% 100%);">
+                            </div>
                         </div>
                     </button>
 
+                    <!-- ========== Garbage ========== -->
                     <button id="bin-trash" data-category="trash"
-                        class="bin group relative overflow-hidden rounded-2xl bg-white border border-slate-200 px-5 pt-8 pb-5 shadow-soft transition">
-                        <div
-                            class="absolute top-5 left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200">
-                            Garbage
+                        class="bin flex flex-col items-center rounded-2xl bg-[#DADADA] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+
+                        <div class="mb-2 flex flex-col items-center gap-1">
+                            <span class="text-[15px] font-semibold text-slate-700">Garbage</span>
                         </div>
-                        <div
-                            class="h-40 rounded-xl bg-gradient-to-b from-binTrashFrom to-binTrashTo group-hover:from-slate-200 group-hover:to-slate-100 transition">
+
+                        <div class="relative w-[92px]">
+                            <div class="mx-auto h-[14px] w-[92px] rounded-md bg-[#5E5E59]"></div>
+                            <div class="mx-auto -mt-[2px] mb-[2px] h-[6px] w-[86px] rounded-[6px] bg-black/5"></div>
+                            <div class="mx-auto h-[126px] w-[92px] rounded-b-2xl bg-[#5E5E59]"
+                                style="clip-path: polygon(6% 0, 94% 0, 88% 100%, 12% 100%);">
+                            </div>
                         </div>
                     </button>
+
                 </section>
+
             </div>
         </section>
     </main>
@@ -361,37 +392,39 @@
 
     <!-- MODAL: Level Up -->
     <!-- MODAL: Level Up -->
-<div id="levelup-modal" class="fixed inset-0 z-[120] hidden items-center justify-center">
-  <div class="absolute inset-0 bg-black/60"></div>
-  <div class="relative max-w-lg w-[92%] bg-white border border-slate-200 rounded-2xl p-6 text-slate-800 shadow-[0_8px_24px_rgba(15,23,42,.08)]">
-    <h3 class="text-xl font-extrabold mb-1">Good job! Naik Level 🎉</h3>
-    <p class="text-sm text-slate-600 mb-4">
-      Level <span id="levelup-prev">1</span> → <b id="levelup-next">2</b>
-    </p>
+    <div id="levelup-modal" class="fixed inset-0 z-[120] hidden items-center justify-center">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div
+            class="relative max-w-lg w-[92%] bg-white border border-slate-200 rounded-2xl p-6 text-slate-800 shadow-[0_8px_24px_rgba(15,23,42,.08)]">
+            <h3 class="text-xl font-extrabold mb-1">Good job! Naik Level 🎉</h3>
+            <p class="text-sm text-slate-600 mb-4">
+                Level <span id="levelup-prev">1</span> → <b id="levelup-next">2</b>
+            </p>
 
-    <div class="bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3 mb-4">
-      <div class="text-xs text-emerald-800/80">Skor total</div>
-      <div class="text-3xl font-extrabold text-emerald-700"><span id="levelup-score">0</span></div>
-    </div>
+            <div class="bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3 mb-4">
+                <div class="text-xs text-emerald-800/80">Skor total</div>
+                <div class="text-3xl font-extrabold text-emerald-700"><span id="levelup-score">0</span></div>
+            </div>
 
-    <div id="quote-box" class="rounded-xl bg-slate-50 border border-slate-200 p-4 mb-5">
-      <div id="quote-loading" class="flex items-center gap-2 text-slate-500">
-        <svg class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4A4 4 0 004 12z"></path>
-        </svg>
-        <span>Ngambil fun fact...</span>
-      </div>
-      <blockquote id="quote-text" class="hidden italic text-slate-700"></blockquote>
-      <div id="quote-author" class="hidden mt-1 text-sm text-slate-500"></div>
-    </div>
+            <div id="quote-box" class="rounded-xl bg-slate-50 border border-slate-200 p-4 mb-5">
+                <div id="quote-loading" class="flex items-center gap-2 text-slate-500">
+                    <svg class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4A4 4 0 004 12z"></path>
+                    </svg>
+                    <span>Ngambil fun fact...</span>
+                </div>
+                <blockquote id="quote-text" class="hidden italic text-slate-700"></blockquote>
+                <div id="quote-author" class="hidden mt-1 text-sm text-slate-500"></div>
+            </div>
 
-    <div class="flex justify-between gap-3">
-      <button id="levelup-share" class="pixel pixel-btn">Share</button>
-      <button id="levelup-continue" class="pixel pixel-btn">Lanjut Level</button>
+            <div class="flex justify-between gap-3">
+                <button id="levelup-share" class="pixel pixel-btn">Share</button>
+                <button id="levelup-continue" class="pixel pixel-btn">Lanjut Level</button>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
 
 
@@ -407,7 +440,7 @@
     <script src="./js/data.js" defer></script>
     <script>
         // opsional: biar fetch ke API Ninjas jalan
-        window.API_NINJAS_KEY = ''
+        window.API_NINJAS_KEY = 'IpDtw+Wntva8tDjf9w8jKg==8cAnPgygDBegLIWm'
     </script>
     <script src="./js/sfx.js" defer></script>
     <script src="./js/bgm.js"></script>
