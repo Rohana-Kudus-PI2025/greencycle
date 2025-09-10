@@ -15,7 +15,7 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: '#16a34a',   
+                        brand: '#16a34a',
                         ink: '#0f172a',
                         binFoodFrom: '#ecfdf5',
                         binFoodTo: '#d1fae5',
@@ -84,6 +84,13 @@
         }
 
         /* Pixel CTA (reuse dari Overview) */
+        .pixel-btn.yellow {
+        --p-bg: #facc15;   
+        --p-light: #fde047; 
+        --p-dark: #ca8a04;  
+        --p-border: #713f12; 
+        }
+
         .pixel-btn {
             --p-bg: #22c55e;
             --p-light: #34d399;
@@ -132,7 +139,7 @@
                     <li><a class="navlink" href="home.html">Home</a></li>
                     <li><a class="navlink" href="overview.html">Overview</a></li>
                     <li><a class="navlink pixel text-slate-900" href="game.html">Play Game</a></li>
-                    <li><a class="navlink" href="contactus.html">Contact Us</a></li>
+                    <li><a class="navlink" href="contact-us.html">Contact Us</a></li>
                 </ul>
             </nav>
 
@@ -155,13 +162,69 @@
             <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#eefcf5] via-[#f3fdf8] to-transparent"></div>
 
             <div class="max-w-6xl mx-auto px-4 pt-8 md:pt-12 pb-10">
+
                 <!-- HUD -->
-                <section class="grid grid-cols-12 gap-4 items-start mb-6">
-                    <!-- Level -->
-                    <div
-                        class="col-span-12 sm:col-span-3 bg-white border border-slate-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-soft">
-                        <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span id="hud-level" class="font-semibold">Level 1</span>
+                <section class="grid grid-rows-1.5 gap-4 items-start mb-6">
+
+                    <!-- Level + Daily Streak -->
+                    <div class="col-span-6 sm:col-span-3 grid gap-2 items-center">
+                        <div
+                            class="bg-white border border-slate-200 rounded-xl px-4 py-3 flex items-center justify-between shadow-soft">
+                            <div>
+                                <div class="text-sm font-semibold">Daily Streak</div>
+                                <div class="text-xs text-slate-500">Main tiap hari biar nggak putus</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-extrabold text-emerald-700" id="hud-streak">0🔥</div>
+                                <div class="text-[11px] text-slate-500">Best: <span id="hud-streak-best">0</span></div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-soft flex items-center justify-between">
+                            <div class="text-sm">
+                                <div class="font-semibold">Music</div>
+                                <div class="text-xs text-slate-500">Background loop</div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button id="music-toggle"
+                                    class="px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50 text-xs">
+                                    🎵 On
+                                </button>
+                                <input id="music-volume" type="range" min="0" max="1" step="0.01" value="0.35"
+                                    class="w-20 accent-emerald-600">
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LEVEL -->
+                    <div class="col-span-12 sm:col-span-3 grid gap-2">
+
+                    <!-- Score + Lives -->
+                        <div class="col-span-12 sm:col-span-6 grid gap-2">
+                            <div
+                                class="bg-white border border-slate-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-soft">
+                                <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                <span id="hud-level" class="font-semibold left-0">Level 1</span>
+                            </div>
+                            <div
+                                class="grid place-items-center rounded-xl bg-emerald-50 border border-emerald-200 h-20 text-3xl font-extrabold text-emerald-700 shadow-soft">
+                                <div
+                                    class="bg-white border border-slate-200 px-4 py-2 text-xs text-slate-500 shadow-soft">
+                                    Your Level Score
+                                </div>
+                                <span id="hud-score">0</span>
+                            </div>
+
+                            <div id="hud-lives"
+                                class="flex items-center justify-center gap-2 rounded-xl bg-white border border-slate-200 h-12 text-2xl shadow-soft">
+
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Timer -->
@@ -177,100 +240,119 @@
                         </div>
                     </div>
 
-                    <!-- Score + Lives -->
-                    <div class="col-span-12 sm:col-span-3 grid gap-2">
-                        <div
-                            class="bg-white border border-slate-200 rounded-xl px-4 py-2 text-xs text-slate-500 shadow-soft">
-                            Your Level Score</div>
-                        <div
-                            class="grid place-items-center rounded-xl bg-emerald-50 border border-emerald-200 h-16 text-3xl font-extrabold text-emerald-700 shadow-soft">
-                            <span id="hud-score">0</span>
-                        </div>
-                        <div
-                            class="bg-white border border-slate-200 rounded-xl px-4 py-2 text-xs text-slate-500 shadow-soft">
-                            Lives</div>
-                        <div id="hud-lives"
-                            class="flex items-center justify-center gap-2 rounded-xl bg-white border border-slate-200 h-12 text-2xl shadow-soft">
-                        </div>
-                    </div>
+                    
+
                 </section>
 
-                <!-- Toast -->
-                <div id="toast"
-                    class="hidden items-center gap-2 mb-6 bg-emerald-50 text-emerald-800 rounded-xl border border-emerald-200 px-4 py-2 shadow-soft">
-                    <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-                    <span class="text-sm font-semibold" id="toast-msg">Nice!</span>
-                </div>
+               
 
                 <!-- Item draggable -->
                 <section class="grid place-items-center mb-10">
-                    <div
-                        class="mb-3 px-4 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold">
-                        <span id="item-name">Empty Milk Carton</span>
-                    </div>
-
+                    
+                    <h1 class="mb-8 font-bold text-4xl animate-bounce">Let’s sort it out!</h1>
                     <div id="drag-wrap" draggable="true"
                         class="relative grid place-items-center aspect-square h-64 w-64 p-4 rounded-2xl bg-white border border-slate-200 shadow-ring cursor-grab active:cursor-grabbing select-none overflow-hidden"
                         data-category="recycle">
                         <img id="item-img" src="" alt=""
                             class="block w-auto h-auto max-w-[90%] max-h-[90%] object-contain drop-shadow pointer-events-none select-none"
                             crossorigin="anonymous" draggable="false" />
+                        <div
+                        class="mb-3 px-4 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold">
+                        <span id="item-name">Empty Milk Carton</span>
+                    </div>
                     </div>
 
                     <p class="mt-3 text-xs text-slate-500">Drag item ke tempat sampah yang benar ↓</p>
 
-                    <button id="reset"
-                        class="mt-4 text-xs px-3 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50">
-                        Reset Progress
+                    <button id="reset">
+                        <a class="pixel pixel-btn yellow cursor-pointer select-none mt-5">Reset Progres</a>
                     </button>
                 </section>
-
+                
+                 <!-- Toast -->
+                <div id="toast"
+                    class="hidden items-center gap-2 mb-6 bg-emerald-50 text-emerald-800 rounded-xl border border-emerald-200 px-4 py-2 shadow-soft">
+                    <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                    <span class="text-sm font-semibold" id="toast-msg">Nice!</span>
+                </div>
                 <!-- BINS -->
-                <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 text-center">
+
+                    <!-- ========== Food Scraps ========== -->
                     <button id="bin-food" data-category="food"
-                        class="bin group relative overflow-hidden rounded-2xl bg-white border border-slate-200 px-5 pt-8 pb-5 shadow-soft transition">
-                        <div
-                            class="absolute -top-0 left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200">
-                            Food Scraps
+                        class="bin flex flex-col items-center rounded-2xl bg-[#DADADA] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+
+                        <!-- icon + label (atas) -->
+                        <div class="mb-2 flex flex-col items-center gap-1">
+                            <span class="text-[15px] font-semibold text-slate-700">Food Scraps</span>
                         </div>
-                        <div
-                            class="h-40 rounded-xl bg-gradient-to-b from-binFoodFrom to-binFoodTo group-hover:from-emerald-100 group-hover:to-emerald-50 transition">
+
+                        <!-- tong -->
+                        <div class="relative w-[92px]">
+                            <!-- tutup -->
+                            <div class="mx-auto h-[14px] w-[92px] rounded-md bg-[#337C4E]"></div>
+                            <!-- garis bayangan halus tepat di bawah tutup -->
+                            <div class="mx-auto -mt-[2px] mb-[2px] h-[6px] w-[86px] rounded-[6px] bg-black/5"></div>
+                            <!-- badan (sedikit mengecil ke bawah) -->
+                            <div class="mx-auto h-[126px] w-[92px] rounded-b-2xl bg-[#337C4E]"
+                                style="clip-path: polygon(6% 0, 94% 0, 88% 100%, 12% 100%);">
+                            </div>
                         </div>
                     </button>
 
+                    <!-- ========== Recyclable Containers ========== -->
                     <button id="bin-recycle" data-category="recycle"
-                        class="bin group relative overflow-hidden rounded-2xl bg-white border border-slate-200 px-5 pt-8 pb-5 shadow-soft transition">
-                        <div
-                            class="absolute -top-0 w-20 left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200">
-                            Recyclable Containers
+                        class="bin flex flex-col items-center rounded-2xl bg-[#DADADA] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+
+                        <div class="mb-2 flex flex-col items-center gap-1">
+                            <span class="text-[15px] font-semibold text-slate-700">Recyclable Containers</span>
                         </div>
-                        <div
-                            class="h-40 rounded-xl bg-gradient-to-b from-binRecycleFrom to-binRecycleTo group-hover:from-emerald-100 group-hover:to-emerald-50 transition">
+
+                        <div class="relative w-[92px]">
+                            <div class="mx-auto h-[14px] w-[92px] rounded-md bg-[#f8e135]"></div>
+                            <div class="mx-auto -mt-[2px] mb-[2px] h-[6px] w-[86px] rounded-[6px] bg-black/5"></div>
+                            <div class="mx-auto h-[126px] w-[92px] rounded-b-2xl bg-[#f8e135]"
+                                style="clip-path: polygon(6% 0, 94% 0, 88% 100%, 12% 100%);">
+                            </div>
                         </div>
                     </button>
 
+                    <!-- ========== Paper ========== -->
                     <button id="bin-paper" data-category="paper"
-                        class="bin group relative overflow-hidden rounded-2xl bg-white border border-slate-200 px-5 pt-8 pb-5 shadow-soft transition">
-                        <div
-                            class="absolute -top-0 left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200">
-                            Paper
+                        class="bin flex flex-col items-center rounded-2xl bg-[#DADADA] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+
+                        <div class="mb-2 flex flex-col items-center gap-1">
+                            <span class="text-[15px] font-semibold text-slate-700">Paper</span>
                         </div>
-                        <div
-                            class="h-40 rounded-xl bg-gradient-to-b from-binPaperFrom to-binPaperTo group-hover:from-orange-100 group-hover:to-orange-50 transition">
+
+                        <div class="relative w-[92px]">
+                            <div class="mx-auto h-[14px] w-[92px] rounded-md bg-[#1C7DDC]"></div>
+                            <div class="mx-auto -mt-[2px] mb-[2px] h-[6px] w-[86px] rounded-[6px] bg-black/5"></div>
+                            <div class="mx-auto h-[126px] w-[92px] rounded-b-2xl bg-[#1C7DDC]"
+                                style="clip-path: polygon(6% 0, 94% 0, 88% 100%, 12% 100%);">
+                            </div>
                         </div>
                     </button>
 
+                    <!-- ========== Garbage ========== -->
                     <button id="bin-trash" data-category="trash"
-                        class="bin group relative overflow-hidden rounded-2xl bg-white border border-slate-200 px-5 pt-8 pb-5 shadow-soft transition">
-                        <div
-                            class="absolute -top-0 left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200">
-                            Garbage
+                        class="bin flex flex-col items-center rounded-2xl bg-[#DADADA] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+
+                        <div class="mb-2 flex flex-col items-center gap-1">
+                            <span class="text-[15px] font-semibold text-slate-700">Garbage</span>
                         </div>
-                        <div
-                            class="h-40 rounded-xl bg-gradient-to-b from-binTrashFrom to-binTrashTo group-hover:from-slate-200 group-hover:to-slate-100 transition">
+
+                        <div class="relative w-[92px]">
+                            <div class="mx-auto h-[14px] w-[92px] rounded-md bg-[#5E5E59]"></div>
+                            <div class="mx-auto -mt-[2px] mb-[2px] h-[6px] w-[86px] rounded-[6px] bg-black/5"></div>
+                            <div class="mx-auto h-[126px] w-[92px] rounded-b-2xl bg-[#5E5E59]"
+                                style="clip-path: polygon(6% 0, 94% 0, 88% 100%, 12% 100%);">
+                            </div>
                         </div>
                     </button>
+
                 </section>
+
             </div>
         </section>
     </main>
@@ -322,6 +404,7 @@
     </div>
 
     <!-- MODAL: Level Up -->
+    <!-- MODAL: Level Up -->
     <div id="levelup-modal" class="fixed inset-0 z-[120] hidden items-center justify-center">
         <div class="absolute inset-0 bg-black/60"></div>
         <div
@@ -349,11 +432,13 @@
                 <div id="quote-author" class="hidden mt-1 text-sm text-slate-500"></div>
             </div>
 
-            <div class="flex justify-end">
+            <div class="flex justify-between gap-3">
+                <button id="levelup-share" class="pixel pixel-btn">Share</button>
                 <button id="levelup-continue" class="pixel pixel-btn">Lanjut Level</button>
             </div>
         </div>
     </div>
+
 
 
     <!-- Scripts -->
@@ -368,10 +453,14 @@
     <script src="./js/data.js" defer></script>
     <script>
         // opsional: biar fetch ke API Ninjas jalan
-        window.API_NINJAS_KEY = 'IpDtw+Wntva8tDjf9w8jKg==8cAnPgygDBegLIWm'
+        window.API_NINJAS_KEY = ''
     </script>
-    <script src="./js/levelup.js" defer></script>
+    <script src="./js/sfx.js" defer></script>
+    <script src="./js/bgm.js"></script>
     <script src="./js/game.js" defer></script>
+
+    <script src="./js/levelup.js" defer></script>
+
 
 </body>
 
