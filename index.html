@@ -13,25 +13,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/components/navbar.css" />
+    <link rel="stylesheet" href="assets/css/components/cta.css" />
     <style>
-      .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 50;
-        transition: background-color 0.25s ease, box-shadow 0.25s ease;
-      }
-      .header-transparent {
-        background: transparent;
-        color: #fff;
-      }
-      .header-solid {
-        background: #14532d;
-        color: #fff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      }
-
       .overlay {
         position: absolute;
         inset: 0;
@@ -88,13 +76,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-      .cta {
-        border-width: 4px;
-        border-color: #14532d;
-        background: #22c55e;
-        box-shadow: inset 4px 4px 0 #34d399, inset -4px -4px 0 #16a34a,
-          0 6px 0 #14532d, 0 10px 0 #00000022;
-      }
       canvas {
         display: block;
       }
@@ -105,30 +86,87 @@
       <div
         class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between"
       >
-        <div class="font-bold">GreenCycle</div>
+        <a href="index.html" class="flex items-center gap-2">
+          <img
+            src="assets/images/logo.svg"
+            alt="GreenCycle logo"
+            class="w-7 h-7"
+          />
+          <span class="font-bold text-lg">GreenCycle</span>
+        </a>
         <nav class="hidden md:block">
-          <ul class="flex gap-6">
+          <ul class="flex items-center gap-6">
             <li>
-              <a href="index.html" class="hover:text-emerald-600">Home</a>
+              <a href="index.html">Home</a>
             </li>
             <li>
-              <a href="overview.html" class="hover:text-emerald-600"
-                >Overview</a
-              >
-            </li>
-            <li><a href="game.html" class="hover:text-emerald-600">Game</a></li>
-            <li>
-              <a href="tips-and-trick.html" class="hover:text-emerald-600"
-                >Tips and Trick</a
-              >
+              <a href="overview.html">Overview</a>
             </li>
             <li>
-              <a href="contact.html" class="hover:text-emerald-600"
-                >Contact Us</a
-              >
+              <a href="tips-and-trick.html">Tips and Trick</a>
+            </li>
+            <li>
+              <a href="contact-us.html">Contact Us</a>
+            </li>
+            <li>
+              <a href="game.html" class="cta cta-sm">Game</a>
             </li>
           </ul>
         </nav>
+        <button
+          id="openMenu"
+          class="md:hidden p-2 rounded-md border border-slate-200 text-white"
+        >
+          <img
+            id="iconHamburger"
+            src="assets/images/hamburger-white.svg"
+            data-src-light="assets/images/hamburger.svg"
+            data-src-dark="assets/images/hamburger-white.svg"
+            alt="menu"
+            class="h-6 w-6"
+          />
+          <img
+            id="iconClose"
+            src="assets/images/close-white.svg"
+            data-src-light="assets/images/close.svg"
+            data-src-dark="assets/images/close-white.svg"
+            alt="close"
+            class="h-6 w-6 hidden"
+          />
+        </button>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100">
+        <ul class="p-4 space-y-2">
+          <li>
+            <a class="block p-2 rounded hover:bg-slate-50" href="index.html"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a class="block p-2 rounded hover:bg-slate-50" href="overview.html"
+              >Overview</a
+            >
+          </li>
+          <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50"
+              href="tips-and-trick.html"
+              >Tips and Trick</a
+            >
+          </li>
+          <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50"
+              href="contact-us.html"
+              >Contact Us</a
+            >
+          </li>
+          <li>
+            <a class="block p-2 rounded hover:bg-slate-50" href="game.html"
+              >Play Game</a
+            >
+          </li>
+        </ul>
       </div>
     </header>
     <div class="relative h-[200svh]" id="pin-stage">
@@ -209,7 +247,7 @@
               </p>
               <a
                 href="game.html"
-                class="inline-block mt-5 sm:mt-6 px-5 py-3 text-white cta"
+                class="inline-block mt-5 sm:mt-6 px-5 py-3 cta"
               >
                 Mulai main
               </a>
@@ -244,6 +282,64 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+      const btn = document.getElementById("openMenu");
+      const menu = document.getElementById("mobileMenu");
+      const iconHamburger = document.getElementById("iconHamburger");
+      const iconClose = document.getElementById("iconClose");
+
+      (function markActiveLinks() {
+        const here = (
+          location.pathname.split("/").pop() || "index.html"
+        ).toLowerCase();
+        const links = document.querySelectorAll("header nav a, #mobileMenu a");
+
+        links.forEach((a) => {
+          const href = a.getAttribute("href");
+          if (!href) return;
+
+          const url = new URL(href, location.href);
+          const file = (
+            url.pathname.split("/").pop() || "index.html"
+          ).toLowerCase();
+
+          // match file persis; untuk anchor (#...) hanya aktif jika hash cocok
+          const matchFile = file === here;
+          const matchHash =
+            href.startsWith("#") &&
+            here === "index.html" &&
+            url.hash === location.hash &&
+            url.hash !== "";
+
+          if (matchFile || matchHash) {
+            a.classList.add("is-active");
+            a.setAttribute("aria-current", "page");
+          }
+        });
+      })();
+
+      function setIconTheme(isSolid) {
+        // isSolid = true => header-solid (terang) => pakai ikon gelap
+        const setSrc = (el, attr) =>
+          el && el.setAttribute("src", el.dataset[attr]);
+        if (isSolid) {
+          setSrc(iconHamburger, "srcLight");
+          setSrc(iconClose, "srcLight");
+          btn.classList.remove("text-white");
+          btn.classList.add("text-slate-800");
+        } else {
+          setSrc(iconHamburger, "srcDark");
+          setSrc(iconClose, "srcDark");
+          btn.classList.remove("text-slate-800");
+          btn.classList.add("text-white");
+        }
+      }
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        iconHamburger.classList.toggle("hidden");
+        iconClose.classList.toggle("hidden");
+      });
+
       const hero = new Swiper(".swiper", {
         loop: true,
         autoplay: { delay: 4500 },
@@ -265,10 +361,12 @@
               header.classList.remove("header-transparent");
               header.classList.add("header-solid");
               rollBox.classList.add("roll-active");
+              setIconTheme(true);
             } else {
               header.classList.add("header-transparent");
               header.classList.remove("header-solid");
               rollBox.classList.remove("roll-active");
+              setIconTheme(false);
             }
           });
         },
