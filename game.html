@@ -155,14 +155,51 @@
             <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#eefcf5] via-[#f3fdf8] to-transparent"></div>
 
             <div class="max-w-6xl mx-auto px-4 pt-8 md:pt-12 pb-10">
+
                 <!-- HUD -->
                 <section class="grid grid-cols-12 gap-4 items-start mb-6">
+
                     <!-- Level -->
-                    <div
-                        class="col-span-12 sm:col-span-3 bg-white border border-slate-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-soft">
-                        <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span id="hud-level" class="font-semibold">Level 1</span>
+                    <!-- Level + Daily Streak -->
+                    <div class="col-span-12 sm:col-span-3 grid gap-2">
+                        <div
+                            class="bg-white border border-slate-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-soft">
+                            <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span id="hud-level" class="font-semibold">Level 1</span>
+                        </div>
+
+                        <div
+                            class="bg-white border border-slate-200 rounded-xl px-4 py-3 flex items-center justify-between shadow-soft">
+                            <div>
+                                <div class="text-sm font-semibold">Daily Streak</div>
+                                <div class="text-xs text-slate-500">Main tiap hari biar nggak putus</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-extrabold text-emerald-700" id="hud-streak">0🔥</div>
+                                <div class="text-[11px] text-slate-500">Best: <span id="hud-streak-best">0</span></div>
+                            </div>
+                        </div>
                     </div>
+
+
+                    <!-- AUDIO -->
+                    <div
+                        class="col-span-12 sm:col-span-3 bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-soft flex items-center justify-between">
+                        <div class="text-sm">
+                            <div class="font-semibold">Music</div>
+                            <div class="text-xs text-slate-500">Background loop</div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button id="music-toggle"
+                                class="px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50 text-xs">
+                                🎵 On
+                            </button>
+                            <input id="music-volume" type="range" min="0" max="1" step="0.01" value="0.35"
+                                class="w-20 accent-emerald-600">
+                        </div>
+                    </div>
+
+
 
                     <!-- Timer -->
                     <div
@@ -241,9 +278,10 @@
                     <button id="bin-recycle" data-category="recycle"
                         class="bin group relative overflow-hidden rounded-2xl bg-white border border-slate-200 px-5 pt-8 pb-5 shadow-soft transition">
                         <div
-                            class="absolute -top-0 w-20 left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200">
+                            class="absolute -top-0 w-auto left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200 whitespace-nowrap">
                             Recyclable Containers
                         </div>
+
                         <div
                             class="h-40 rounded-xl bg-gradient-to-b from-binRecycleFrom to-binRecycleTo group-hover:from-emerald-100 group-hover:to-emerald-50 transition">
                         </div>
@@ -252,7 +290,7 @@
                     <button id="bin-paper" data-category="paper"
                         class="bin group relative overflow-hidden rounded-2xl bg-white border border-slate-200 px-5 pt-8 pb-5 shadow-soft transition">
                         <div
-                            class="absolute -top-0 left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200">
+                            class="absolute top-5 left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200">
                             Paper
                         </div>
                         <div
@@ -263,7 +301,7 @@
                     <button id="bin-trash" data-category="trash"
                         class="bin group relative overflow-hidden rounded-2xl bg-white border border-slate-200 px-5 pt-8 pb-5 shadow-soft transition">
                         <div
-                            class="absolute -top-0 left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200">
+                            class="absolute top-5 left-1/2 -translate-x-1/2 text-[11px] tracking-wide px-3 py-1 rounded-md bg-white border border-slate-200">
                             Garbage
                         </div>
                         <div
@@ -322,38 +360,39 @@
     </div>
 
     <!-- MODAL: Level Up -->
-    <div id="levelup-modal" class="fixed inset-0 z-[120] hidden items-center justify-center">
-        <div class="absolute inset-0 bg-black/60"></div>
-        <div
-            class="relative max-w-lg w-[92%] bg-white border border-slate-200 rounded-2xl p-6 text-slate-800 shadow-[0_8px_24px_rgba(15,23,42,.08)]">
-            <h3 class="text-xl font-extrabold mb-1">Good job! Naik Level 🎉</h3>
-            <p class="text-sm text-slate-600 mb-4">
-                Level <span id="levelup-prev">1</span> → <b id="levelup-next">2</b>
-            </p>
+    <!-- MODAL: Level Up -->
+<div id="levelup-modal" class="fixed inset-0 z-[120] hidden items-center justify-center">
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative max-w-lg w-[92%] bg-white border border-slate-200 rounded-2xl p-6 text-slate-800 shadow-[0_8px_24px_rgba(15,23,42,.08)]">
+    <h3 class="text-xl font-extrabold mb-1">Good job! Naik Level 🎉</h3>
+    <p class="text-sm text-slate-600 mb-4">
+      Level <span id="levelup-prev">1</span> → <b id="levelup-next">2</b>
+    </p>
 
-            <div class="bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3 mb-4">
-                <div class="text-xs text-emerald-800/80">Skor total</div>
-                <div class="text-3xl font-extrabold text-emerald-700"><span id="levelup-score">0</span></div>
-            </div>
-
-            <div id="quote-box" class="rounded-xl bg-slate-50 border border-slate-200 p-4 mb-5">
-                <div id="quote-loading" class="flex items-center gap-2 text-slate-500">
-                    <svg class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
-                        </circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4A4 4 0 004 12z"></path>
-                    </svg>
-                    <span>Ngambil fun fact...</span>
-                </div>
-                <blockquote id="quote-text" class="hidden italic text-slate-700"></blockquote>
-                <div id="quote-author" class="hidden mt-1 text-sm text-slate-500"></div>
-            </div>
-
-            <div class="flex justify-end">
-                <button id="levelup-continue" class="pixel pixel-btn">Lanjut Level</button>
-            </div>
-        </div>
+    <div class="bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3 mb-4">
+      <div class="text-xs text-emerald-800/80">Skor total</div>
+      <div class="text-3xl font-extrabold text-emerald-700"><span id="levelup-score">0</span></div>
     </div>
+
+    <div id="quote-box" class="rounded-xl bg-slate-50 border border-slate-200 p-4 mb-5">
+      <div id="quote-loading" class="flex items-center gap-2 text-slate-500">
+        <svg class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4A4 4 0 004 12z"></path>
+        </svg>
+        <span>Ngambil fun fact...</span>
+      </div>
+      <blockquote id="quote-text" class="hidden italic text-slate-700"></blockquote>
+      <div id="quote-author" class="hidden mt-1 text-sm text-slate-500"></div>
+    </div>
+
+    <div class="flex justify-between gap-3">
+      <button id="levelup-share" class="pixel pixel-btn">Share</button>
+      <button id="levelup-continue" class="pixel pixel-btn">Lanjut Level</button>
+    </div>
+  </div>
+</div>
+
 
 
     <!-- Scripts -->
@@ -367,10 +406,15 @@
     <!-- game logic -->
     <script src="./js/data.js" defer></script>
     <script>
+        // opsional: biar fetch ke API Ninjas jalan
         window.API_NINJAS_KEY = ''
     </script>
-    <script src="./js/levelup.js" defer></script>
+    <script src="./js/sfx.js" defer></script>
+    <script src="./js/bgm.js"></script>
     <script src="./js/game.js" defer></script>
+
+    <script src="./js/levelup.js" defer></script>
+
 
 </body>
 
