@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GreenCycle — Edukasi Sortir Sampah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta
+      name="description"
+      content="Edukasi sortir sampah dengan game interaktif. Pilah organik, anorganik, dan B3. Ajak keluarga menjaga lingkungan!"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f7f8fb;
+      }
+      .pixel {
+        font-family: "Pixelify Sans", monospace;
+      }
+      .pixel-btn {
+        --p-bg: #22c55e;
+        --p-bg-light: #34d399;
+        --p-bg-dark: #16a34a;
+        --p-border: #14532d;
+        font-family: "Pixelify Sans", monospace;
+        padding: 12px 20px;
+        background: var(--p-bg);
+        color: #fff;
+        border: 4px solid var(--p-border);
+        box-shadow: inset 4px 4px 0 var(--p-bg-light),
+          inset -4px -4px 0 var(--p-bg-dark), 0 6px 0 var(--p-border),
+          0 10px 0 #00000022;
+        transition: transform 0.1s ease;
+      }
+      .pixel-btn:hover {
+        filter: brightness(1.05);
+      }
+      .pixel-btn:active {
+        transform: translateY(6px);
+        box-shadow: inset 3px 3px 0 var(--p-bg-light),
+          inset -3px -3px 0 var(--p-bg-dark), 0 0 0 var(--p-border),
+          0 4px 0 #00000022;
+      }
+    </style>
+  </head>
+
+  <body class="flex flex-col min-h-screen text-slate-800">
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+      <div
+        class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="flex items-center gap-2 group">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" fill="#10b981" />
+            <path
+              d="M7.5 12.5c1.2-2.7 4.1-4.5 7.3-3.9-1.1 2.7-4 4.6-7.3 3.9Z"
+              fill="#fff"
+            />
+            <path
+              d="M9 15.5c2.3.6 4.8-.2 6.3-2-1.9-.6-4.3.2-6.3 2Z"
+              fill="#f0fdf4"
+            />
+          </svg>
+          <span
+            class="font-bold text-lg group-hover:text-emerald-600 transition"
+            >GreenCycle</span
+          >
+        </a>
+        <nav class="hidden md:flex gap-6 font-medium">
+          <a
+            href="index.html"
+            class="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-600 hover:after:w-full after:transition-all"
+            >Home</a
+          >
+          <a
+            href="overview.html"
+            class="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-600 hover:after:w-full after:transition-all"
+            >Overview</a
+          >
+          <a
+            href="game.html"
+            class="pixel relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-600 hover:after:w-full after:transition-all"
+            >Play Game</a
+          >
+          <a
+            href="contact-us.html"
+            class="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-600 hover:after:w-full after:transition-all"
+            >Contact Us</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="heroFrame"
+      class="bg-gradient-to-b from-green-100 to-white text-center py-24 border-b border-emerald-200"
+    >
+      <div class="max-w-4xl mx-auto px-4">
+        <h1
+          class="text-4xl md:text-5xl font-extrabold text-emerald-700 mb-6 leading-tight"
+        >
+          ♻️ Edukasi Sortir Sampah yang
+          <span class="text-emerald-500">Seru</span> & Interaktif!
+        </h1>
+        <p class="text-lg text-slate-600 mb-8">
+          Pelajari cara memilah sampah organik, anorganik, dan B3 lewat
+          permainan menyenangkan untuk semua usia.
+        </p>
+        <a
+          href="game.html"
+          class="pixel-btn text-lg inline-block animate-bounce"
+          >🎮 Mulai Main</a
+        >
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="benefits" class="py-16 bg-white border-b border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-extrabold mb-12">
+          Kenapa Harus Sortir Sampah?
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8 text-left">
+          <div
+            class="bg-white rounded-xl shadow hover:shadow-lg transition p-6"
+          >
+            <h3 class="font-bold text-emerald-600 mb-2 text-lg">
+              🌱 Kurangi Sampah TPA
+            </h3>
+            <p class="text-slate-600">
+              Dengan memilah, kamu bantu mengurangi volume sampah yang menumpuk
+              di TPA.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-xl shadow hover:shadow-lg transition p-6"
+          >
+            <h3 class="font-bold text-emerald-600 mb-2 text-lg">
+              🧪 Hindari Polusi
+            </h3>
+            <p class="text-slate-600">
+              Sampah B3 berbahaya bagi lingkungan jika tidak dipisahkan dengan
+              benar.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-xl shadow hover:shadow-lg transition p-6"
+          >
+            <h3 class="font-bold text-emerald-600 mb-2 text-lg">
+              👨‍👩‍👧 Edukasi Keluarga
+            </h3>
+            <p class="text-slate-600">
+              Game edukatif ini bisa dimainkan bersama anak-anak dan keluarga.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section
+      id="contact"
+      class="bg-blue-50 py-16 border-t border-slate-200"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start"
+      >
+        <!-- Info -->
+        <div>
+          <h2 class="text-3xl font-bold mb-4">Hubungi Kami</h2>
+          <p class="text-slate-600 mb-4">
+            Email, telepon, atau isi form di samping. Kami siap bantu edukasi &
+            support teknis.
+          </p>
+          <div class="text-sm space-y-2">
+            <p>
+              <strong>Email:</strong>
+              <a
+                href="mailto:hello@greencycle.id"
+                class="hover:text-blue-600"
+                >hello@greencycle.id</a
+              >
+            </p>
+            <p>
+              <strong>Telepon:</strong>
+              <a href="tel:+62321221231" class="hover:text-blue-600"
+                >+62-321-221-231</a
+              >
+            </p>
+            <p>
+              <strong>Dukungan:</strong> Tersedia 24/7 untuk pertanyaan umum dan
+              teknis.
+            </p>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form
+          class="bg-white rounded-2xl shadow-lg p-6 space-y-4"
+          id="contact-form"
+        >
+          <div class="grid grid-cols-2 gap-4">
+            <input
+              type="text"
+              name="first_name"
+              placeholder="Nama depan"
+              class="p-3 border border-slate-300 rounded focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+              required
+            />
+            <input
+              type="text"
+              name="last_name"
+              placeholder="Nama belakang"
+              class="p-3 border border-slate-300 rounded focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+              required
+            />
+          </div>
+          <input
+            type="email"
+            name="reply_to"
+            placeholder="Email"
+            class="w-full p-3 border border-slate-300 rounded focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Pesan Anda"
+            rows="4"
+            class="w-full p-3 border border-slate-300 rounded focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full bg-emerald-600 hover:bg-emerald-700 active:scale-95 transition text-white font-semibold py-3 rounded"
+          >
+            Kirim
+          </button>
+        </form>
+      </div>
+    </section>
+
+
+    <!-- Modal Notifikasi -->
+<div id="successModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+  <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm text-center">
+    <h3 class="text-xl font-bold text-emerald-600 mb-2">✅ Pesan Terkirim!</h3>
+    <p class="text-slate-600 mb-4">
+      Terima kasih <span id="userName"></span>,<br> pesan kamu sudah kami terima.<br>
+      Kami juga sudah mengirim balasan otomatis ke email kamu 📩
+    </p>
+    <button onclick="closeModal()" 
+      class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-semibold">
+      Tutup
+    </button>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-50 border-t border-emerald-100 mt-auto">
+      <div
+        class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-slate-600"
+      >
+        <p>
+          © 2025 <strong class="text-emerald-700">GreenCycle</strong>. Semua Hak
+          Dilindungi.
+        </p>
+        <nav class="flex gap-4 mt-3 md:mt-0">
+          <a href="#" class="hover:text-emerald-600">Privasi</a>
+          <a href="#" class="hover:text-emerald-600">Ketentuan</a>
+          <a href="#heroFrame" class="hover:text-emerald-600">↑ Ke atas</a>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // 🔑 Public Key dari EmailJS
+  emailjs.init("uYeGQJz0eESNTGqrB");  
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const form = this;
+
+    // 1. Kirim ke admin
+    emailjs.sendForm("service_j5dc3ej", "template_2edtmr5", form)
+      .then(() => {
+        // 2. Kirim auto-reply ke user
+        return emailjs.sendForm("service_j5dc3ej", "template_8t21pdw", form);
+      })
+      .then(() => {
+        // Ambil nama depan & belakang untuk ditampilkan di modal
+        const first = form.querySelector("[name=first_name]").value;
+        const last = form.querySelector("[name=last_name]").value;
+        document.getElementById("userName").innerText = first + " " + last;
+
+        // Tampilkan modal
+        document.getElementById("successModal").classList.remove("hidden");
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Gagal mengirim:", error);
+        alert("❌ Ups! Terjadi kesalahan. Coba lagi ya.");
+      });
+  });
+
+  // Tutup modal
+  function closeModal() {
+    document.getElementById("successModal").classList.add("hidden");
+  }
+</script>
+  </body>
+</html>
