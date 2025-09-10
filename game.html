@@ -84,6 +84,13 @@
         }
 
         /* Pixel CTA (reuse dari Overview) */
+        .pixel-btn.yellow {
+        --p-bg: #facc15;   
+        --p-light: #fde047; 
+        --p-dark: #ca8a04;  
+        --p-border: #713f12; 
+        }
+
         .pixel-btn {
             --p-bg: #22c55e;
             --p-light: #34d399;
@@ -157,17 +164,10 @@
             <div class="max-w-6xl mx-auto px-4 pt-8 md:pt-12 pb-10">
 
                 <!-- HUD -->
-                <section class="grid grid-cols-12 gap-4 items-start mb-6">
+                <section class="grid grid-rows-1.5 gap-4 items-start mb-6">
 
-                    <!-- Level -->
                     <!-- Level + Daily Streak -->
-                    <div class="col-span-12 sm:col-span-3 grid gap-2">
-                        <div
-                            class="bg-white border border-slate-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-soft">
-                            <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                            <span id="hud-level" class="font-semibold">Level 1</span>
-                        </div>
-
+                    <div class="col-span-6 sm:col-span-3 grid gap-2 items-center">
                         <div
                             class="bg-white border border-slate-200 rounded-xl px-4 py-3 flex items-center justify-between shadow-soft">
                             <div>
@@ -179,27 +179,53 @@
                                 <div class="text-[11px] text-slate-500">Best: <span id="hud-streak-best">0</span></div>
                             </div>
                         </div>
+
+                        <div
+                            class="bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-soft flex items-center justify-between">
+                            <div class="text-sm">
+                                <div class="font-semibold">Music</div>
+                                <div class="text-xs text-slate-500">Background loop</div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button id="music-toggle"
+                                    class="px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50 text-xs">
+                                    🎵 On
+                                </button>
+                                <input id="music-volume" type="range" min="0" max="1" step="0.01" value="0.35"
+                                    class="w-20 accent-emerald-600">
+                            </div>
+
+
+                        </div>
+
                     </div>
 
 
-                    <!-- AUDIO -->
-                    <div
-                        class="col-span-12 sm:col-span-3 bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-soft flex items-center justify-between">
-                        <div class="text-sm">
-                            <div class="font-semibold">Music</div>
-                            <div class="text-xs text-slate-500">Background loop</div>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <button id="music-toggle"
-                                class="px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50 text-xs">
-                                🎵 On
-                            </button>
-                            <input id="music-volume" type="range" min="0" max="1" step="0.01" value="0.35"
-                                class="w-20 accent-emerald-600">
+                    <!-- LEVEL -->
+                    <div class="col-span-12 sm:col-span-3 grid gap-2">
+
+                    <!-- Score + Lives -->
+                        <div class="col-span-12 sm:col-span-6 grid gap-2">
+                            <div
+                                class="bg-white border border-slate-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-soft">
+                                <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                <span id="hud-level" class="font-semibold left-0">Level 1</span>
+                            </div>
+                            <div
+                                class="grid place-items-center rounded-xl bg-emerald-50 border border-emerald-200 h-20 text-3xl font-extrabold text-emerald-700 shadow-soft">
+                                <div
+                                    class="bg-white border border-slate-200 px-4 py-2 text-xs text-slate-500 shadow-soft">
+                                    Your Level Score
+                                </div>
+                                <span id="hud-score">0</span>
+                            </div>
+
+                            <div id="hud-lives"
+                                class="flex items-center justify-center gap-2 rounded-xl bg-white border border-slate-200 h-12 text-2xl shadow-soft">
+
+                            </div>
                         </div>
                     </div>
-
-
 
                     <!-- Timer -->
                     <div
@@ -214,54 +240,41 @@
                         </div>
                     </div>
 
-                    <!-- Score + Lives -->
-                    <div class="col-span-12 sm:col-span-3 grid gap-2">
-                        <div
-                            class="bg-white border border-slate-200 rounded-xl px-4 py-2 text-xs text-slate-500 shadow-soft">
-                            Your Level Score</div>
-                        <div
-                            class="grid place-items-center rounded-xl bg-emerald-50 border border-emerald-200 h-16 text-3xl font-extrabold text-emerald-700 shadow-soft">
-                            <span id="hud-score">0</span>
-                        </div>
-                        <div
-                            class="bg-white border border-slate-200 rounded-xl px-4 py-2 text-xs text-slate-500 shadow-soft">
-                            Lives</div>
-                        <div id="hud-lives"
-                            class="flex items-center justify-center gap-2 rounded-xl bg-white border border-slate-200 h-12 text-2xl shadow-soft">
-                        </div>
-                    </div>
+                    
+
                 </section>
 
-                <!-- Toast -->
-                <div id="toast"
-                    class="hidden items-center gap-2 mb-6 bg-emerald-50 text-emerald-800 rounded-xl border border-emerald-200 px-4 py-2 shadow-soft">
-                    <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-                    <span class="text-sm font-semibold" id="toast-msg">Nice!</span>
-                </div>
+               
 
                 <!-- Item draggable -->
                 <section class="grid place-items-center mb-10">
-                    <div
-                        class="mb-3 px-4 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold">
-                        <span id="item-name">Empty Milk Carton</span>
-                    </div>
-
+                    
+                    <h1 class="mb-8 font-bold text-4xl animate-bounce">Let’s sort it out!</h1>
                     <div id="drag-wrap" draggable="true"
                         class="relative grid place-items-center aspect-square h-64 w-64 p-4 rounded-2xl bg-white border border-slate-200 shadow-ring cursor-grab active:cursor-grabbing select-none overflow-hidden"
                         data-category="recycle">
                         <img id="item-img" src="" alt=""
                             class="block w-auto h-auto max-w-[90%] max-h-[90%] object-contain drop-shadow pointer-events-none select-none"
                             crossorigin="anonymous" draggable="false" />
+                        <div
+                        class="mb-3 px-4 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold">
+                        <span id="item-name">Empty Milk Carton</span>
+                    </div>
                     </div>
 
                     <p class="mt-3 text-xs text-slate-500">Drag item ke tempat sampah yang benar ↓</p>
 
-                    <button id="reset"
-                        class="mt-4 text-xs px-3 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50">
-                        Reset Progress
+                    <button id="reset">
+                        <a class="pixel pixel-btn yellow cursor-pointer select-none mt-5">Reset Progres</a>
                     </button>
                 </section>
-
+                
+                 <!-- Toast -->
+                <div id="toast"
+                    class="hidden items-center gap-2 mb-6 bg-emerald-50 text-emerald-800 rounded-xl border border-emerald-200 px-4 py-2 shadow-soft">
+                    <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                    <span class="text-sm font-semibold" id="toast-msg">Nice!</span>
+                </div>
                 <!-- BINS -->
                 <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 text-center">
 
@@ -440,7 +453,7 @@
     <script src="./js/data.js" defer></script>
     <script>
         // opsional: biar fetch ke API Ninjas jalan
-        window.API_NINJAS_KEY = 'IpDtw+Wntva8tDjf9w8jKg==8cAnPgygDBegLIWm'
+        window.API_NINJAS_KEY = ''
     </script>
     <script src="./js/sfx.js" defer></script>
     <script src="./js/bgm.js"></script>
