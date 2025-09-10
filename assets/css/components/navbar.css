@@ -1,0 +1,75 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease,
+    color 0.25s ease;
+}
+
+.header-transparent {
+  background: transparent;
+  color: #ffffff;
+}
+
+.header-solid {
+  color: #0f172a;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.header a,
+.header button {
+  color: inherit;
+}
+
+.menu-icon {
+  color: inherit;
+}
+
+.header nav a {
+  transition: text-decoration-color 0.15s ease;
+}
+
+.header nav a:hover {
+  color: inherit !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: currentColor;
+}
+
+.header nav a.cta:hover {
+  text-decoration: none;
+}
+
+.header nav a:focus-visible {
+  outline: 2px solid #86efac;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.header nav a.is-active {
+  position: relative;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+.header nav a.is-active::after {
+  content: none;
+}
+
+#mobileMenu a.is-active {
+  background: #ecfdf5;
+  color: #065f46;
+  font-weight: 700;
+}
+
+.header .cta.is-active {
+  outline: 3px solid rgba(16, 185, 129, 0.35);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
