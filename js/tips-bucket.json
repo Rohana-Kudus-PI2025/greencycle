@@ -1,0 +1,97 @@
+{
+  "clean": {
+    "plastik": [
+      "Bilas 10–15 detik lalu tiriskan di rak piring.",
+      "Keringkan dulu supaya tidak bau saat disimpan."
+    ],
+    "kertas": [
+      "Pastikan kering dan bebas minyak.",
+      "Jemur sebentar jika lembap."
+    ],
+    "kaca": [
+      "Bilas perlahan, lap kering agar tidak licin.",
+      "Simpan utuh bila memungkinkan."
+    ],
+    "logam": [
+      "Bilas kaleng agar tidak lengket.",
+      "Lap cepat bagian dalam bila perlu."
+    ],
+    "komposit": [
+      "Bilas cepat, tiriskan, jangan dibiarkan basah.",
+      "Keringkan sebelum disimpan agar tidak berbau."
+    ],
+    "lainnya": ["Pastikan kemasan bersih dan kering sebelum disimpan."]
+  },
+  "space": {
+    "plastik": [
+      "Pipihkan botol/kemasan tebal supaya hemat tempat.",
+      "Kumpulkan di satu karung khusus plastik."
+    ],
+    "kertas": [
+      "Lipat kardus dan ikat dengan tali agar rapi.",
+      "Tumpuk ukuran serupa supaya ringkas."
+    ],
+    "kaca": [
+      "Kelompokkan botol sejenis di kardus bekas yang kokoh.",
+      "Jangan ditumpuk terlalu tinggi."
+    ],
+    "logam": [
+      "Tata kaleng di satu wadah khusus.",
+      "Masukkan kaleng kecil ke dalam kardus."
+    ],
+    "komposit": [
+      "Tekan kemasan tetra supaya lebih tipis.",
+      "Kumpulkan di kantong terpisah dari plastik biasa."
+    ],
+    "lainnya": ["Sediakan wadah berbeda untuk tiap jenis kemasan."]
+  },
+  "reuse": {
+    "plastik": [
+      "Botol tebal bisa dipakai ulang untuk cairan pembersih.",
+      "Kotak plastik bening cocok untuk menyimpan alat kecil."
+    ],
+    "kertas": [
+      "Karton bagus bisa jadi laci penyimpan bumbu/saus.",
+      "Kertas bersih bisa jadi alas laci."
+    ],
+    "kaca": [
+      "Jar kaca cocok untuk bumbu kering atau camilan.",
+      "Botol kaca bisa jadi vas kecil."
+    ],
+    "logam": [
+      "Kaleng besar bisa jadi pot kecil (haluskan tepinya dulu).",
+      "Kaleng bisa jadi tempat alat bersih-bersih."
+    ],
+    "komposit": [
+      "Simpan rapi sampai jadwal drop-off khusus, jika ada.",
+      "Gunakan sementara untuk tempat serbaguna lalu pilah kembali."
+    ],
+    "lainnya": ["Pilih kemasan yang mudah dipakai ulang di rumah."]
+  },
+  "habit": {
+    "plastik": [
+      "Sediakan keranjang kecil dekat wastafel khusus kemasan bersih.",
+      "Tandai tempat plastik dengan stiker warna hijau."
+    ],
+    "kertas": [
+      "Buat jadwal buang kertas tiap akhir pekan.",
+      "Tempel label “kertas kering” di wadahnya."
+    ],
+    "kaca": [
+      "Simpan kaca di sudut aman, jauh dari jangkauan anak.",
+      "Tandai “kaca” dengan stiker peringatan."
+    ],
+    "logam": [
+      "Siapkan sarung tangan dekat wadah logam untuk keamanan.",
+      "Catat jadwal antar ke bank sampah di kalender rumah."
+    ],
+    "komposit": [
+      "Cari info titik khusus (Tetra Pak) di sekitar rumah.",
+      "Buat catatan kecil jadwal pengantaran."
+    ],
+    "lainnya": [
+      "Tempel panduan pilah sederhana di kulkas.",
+      "Satukan jadwal bank sampah dengan jadwal belanja."
+    ]
+  }
+}
