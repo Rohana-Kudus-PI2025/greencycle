@@ -1,4 +1,3 @@
-//Logic for Game HTML
 // ===== Mobile menu
 document.getElementById("menu-btn")?.addEventListener("click", () => {
   document.getElementById("menu")?.classList.toggle("hidden");
@@ -19,6 +18,8 @@ const livesEl = document.getElementById("hud-lives");
 const startModal = document.getElementById("start-modal");
 const startPlayBtn = document.getElementById("start-play");
 
+let streakTouchedThisSession = false; // guard biar nggak dobel di 1 sesi tab
+
 // ===== Items
 const ITEMS = window.ITEMS || [];
 
@@ -32,10 +33,91 @@ const LABEL = {
 // ===== LocalStorage Keys
 const SCORE_KEY = "sortitout_score_v1";
 const LEVEL_KEY = "sortitout_level_v1";
+const STREAK_KEY = "sortitout_daily_streak_v1";
 
 // ===== Load persisted state
 let score = parseInt(localStorage.getItem(SCORE_KEY) || "0", 10);
 let level = parseInt(localStorage.getItem(LEVEL_KEY) || "1", 10);
+
+// === NEW: Date helpers (pakai tanggal lokal user)
+function todayStr() {
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, "0");
+  const d = String(now.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`; // YYYY-MM-DD
+}
+function diffDays(isoA, isoB) {
+  // hitung selisih hari berbasis local time
+  const a = new Date(isoA + "T00:00:00");
+  const b = new Date(isoB + "T00:00:00");
+  const ms = b - a;
+  return Math.round(ms / 86400000); // 1000*60*60*24
+}
+
+// === NEW: Load streak object
+function loadStreak() {
+  try {
+    const raw = localStorage.getItem(STREAK_KEY);
+    if (!raw) return { count: 0, longest: 0, lastPlayed: null };
+    const obj = JSON.parse(raw);
+    return {
+      count: Number(obj.count || 0),
+      longest: Number(obj.longest || 0),
+      lastPlayed: obj.lastPlayed || null,
+    };
+  } catch {
+    return { count: 0, longest: 0, lastPlayed: null };
+  }
+}
+
+function saveStreak(obj) {
+  localStorage.setItem(STREAK_KEY, JSON.stringify(obj));
+}
+
+function touchDailyStreak() {
+  const today = todayStr();
+  const st = loadStreak();
+
+  if (!st.lastPlayed) {
+    // pertama kali main
+    st.count = 1;
+    st.longest = Math.max(st.longest, st.count);
+    st.lastPlayed = today;
+    saveStreak(st);
+    renderStreakHUD(st);
+    showToast("🔥 Streak dimulai! +1 hari", true);
+    return;
+  }
+
+  if (st.lastPlayed === today) {
+    // sudah dihitung hari ini, no-op
+    renderStreakHUD(st);
+    return;
+  }
+
+  const gap = diffDays(st.lastPlayed, today);
+  if (gap === 1) {
+    // lanjut streak
+    st.count += 1;
+    st.longest = Math.max(st.longest, st.count);
+    st.lastPlayed = today;
+    saveStreak(st);
+    renderStreakHUD(st);
+    showToast(`🔥 Streak ${st.count} hari`, true);
+  } else if (gap > 1) {
+    // putus lebih dari 1 hari → reset ke 1
+    st.count = 1;
+    st.longest = Math.max(st.longest, st.count);
+    st.lastPlayed = today;
+    saveStreak(st);
+    renderStreakHUD(st);
+    showToast("💤 Streak putus. Start lagi: 1", false);
+  } else {
+    // gap < 0 (jam sistem mundur/aneh) → anggap no-op
+    renderStreakHUD(st);
+  }
+}
 
 // ===== Streak & Level rules
 const STREAK_TARGET = 5; // 5 benar beruntun → level up
@@ -108,20 +190,6 @@ function closeStartModal() {
   startModal?.classList.remove("flex");
 }
 
-startPlayBtn?.addEventListener("click", async () => {
-  // unlock audio policy + bunyi klik
-  window.SFX?.unlock();
-  window.SFX?.play("click", { volume: 0.6 });
-
-  // mulai backsound
-  await window.BGM?.play("level1");
-
-  // logic existing kamu
-  running = true;
-  closeStartModal();
-  resetTimer();
-});
-
 // ===== Timer control
 function resetTimer() {
   clearInterval(timer);
@@ -188,12 +256,43 @@ function resetStreak() {
   streak = 0;
 }
 
-// ===== Init HUD (tanpa double-pick)
+// === NEW: HUD refs untuk streak
+const hudStreak = document.getElementById("hud-streak");
+const hudStreakBest = document.getElementById("hud-streak-best");
+
+// === NEW: render HUD streak
+function renderStreakHUD(st) {
+  if (hudStreak) hudStreak.textContent = `${st.count}🔥`;
+  if (hudStreakBest) hudStreakBest.textContent = String(st.longest);
+}
+
+// ===== Init HUD
 scoreEl.textContent = score;
 levelEl.textContent = `Level ${level}`;
 renderLives();
+
+// NEW: tampilkan streak saat load halaman
+renderStreakHUD(loadStreak());
+
 document.addEventListener("DOMContentLoaded", () => {
   pickRandomItem();
+});
+
+// ===== Start button
+startPlayBtn?.addEventListener("click", async () => {
+  window.SFX?.unlock();
+  window.SFX?.play("click", { volume: 0.6 });
+  await window.BGM?.play("level1");
+
+  running = true;
+  closeStartModal();
+  resetTimer();
+
+  // NEW: sekali per sesi
+  if (!streakTouchedThisSession) {
+    touchDailyStreak();
+    streakTouchedThisSession = true;
+  }
 });
 
 // ===== Correct / Wrong handlers
@@ -265,24 +364,6 @@ function handleWrong(binEl, chosenCategory) {
       reason: currentItem.explain,
     });
   }
-
-  // efek UI
-  itemWrap.classList.add("animate-shake");
-  setTimeout(() => itemWrap.classList.remove("animate-shake"), 360);
-  if (binEl) {
-    binEl.classList.add("ring-2", "ring-red-400/60");
-    setTimeout(() => binEl.classList.remove("ring-2", "ring-red-400/60"), 360);
-  }
-
-  itemWrap.addEventListener("dragstart", (e) => {
-    if (!running) {
-      e.preventDefault();
-      return;
-    }
-    window.SFX?.play("click", { volume: 0.5 }); // atau "pick" kalau nanti kamu punya file pick.mp3
-    e.dataTransfer.setData("text/plain", itemWrap.dataset.category);
-    itemWrap.classList.add("ring-2", "ring-emerald-300");
-  });
 
   // habis nyawa → modal
   if (lives === 0) {
