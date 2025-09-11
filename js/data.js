@@ -135,7 +135,7 @@ window.ITEMS = [
   {
     id: "gelas_plastik",
     name: "Gelas Plastik",
-    file: "daur-ulang/gelas-plastik.jpeg",
+    file: "daur-ulang/gelas-plastik.png",
     category: "recycle",
     explain:
       "Cawan minum termoplastik (sering PET/PP) yang dapat diproses ulang menjadi bahan baku sekunder.",
