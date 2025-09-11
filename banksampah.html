@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Gerakan edukasi sortir sampah yang dipimpin perempuan—mainkan game pilah organik, kertas, daur ulang, dan sampah residu. Ajak keluarga, jaga lingkungan."
+    />
+    <title>GreenCycle - Tips&Trick</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/components/navbar.css" />
+    <link rel="stylesheet" href="assets/css/components/cta.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+      <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+      
+  
+  </head>
+  <body class="text-slate-800">
+    <header id="siteHeader" class="header header-solid">
+      <div
+        class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between"
+      >
+        <a href="index.html" class="flex items-center gap-2">
+          <img
+            src="assets/images/logo.svg"
+            alt="GreenCycle logo"
+            class="w-7 h-7"
+          />
+          <span class="font-bold text-lg">GreenCycle</span>
+        </a>
+        <nav class="hidden md:block">
+          <ul class="flex items-center gap-6">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="overview.html">Overview</a>
+            </li>
+            <li>
+              <a href="tips-and-trick.html">Tips & Trick</a>
+            </li>
+            <li>
+              <a href="contact-us.html">Contact Us</a>
+            </li>
+            <li>
+              <a href="game.html" class="cta cta-sm">Game</a>
+            </li>
+          </ul>
+        </nav>
+        <button
+          id="openMenu"
+          class="md:hidden p-2 rounded-md border border-slate-200 bg-white/70 backdrop-blur"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <img
+            id="iconHamburger"
+            src="assets/images/hamburger.svg"
+            alt="menu"
+            class="h-6 w-6"
+          />
+          <img
+            id="iconClose"
+            src="assets/images/close.svg"
+            alt="close"
+            class="h-6 w-6 hidden"
+          />
+        </button>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100 relative z-50 bg-white">
+        <ul class="p-4 space-y-2">
+          <li>
+            <a class="block p-2 rounded hover:bg-slate-50" href="index.html"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a class="block p-2 rounded hover:bg-slate-50" href="overview.html"
+              >Overview</a
+            >
+          </li>
+          <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50"
+              href="tips-and-trick.html"
+              >Tips & Trick</a
+            >
+          </li>
+          <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50"
+              href="contact-us.html"
+              >Contact Us</a
+            >
+          </li>
+          <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50 font-pixelify"
+              href="game.html"
+              >Play Game</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main >
+        <h2 class="mt-24 text-center text-3xl sm:text-4xl font-extrabold text-slate-900">Peta Bank Sampah Indonesia</h2>
+
+        <div class="md:w-4/5 mx-auto mt-6 text-lg text-slate-700 leading-relaxed text-center ">
+        <label for="filter">Filter jenis:</label>
+        <select id="filter"  class="border border-slate-300 bg-white text-slate-800 rounded-md px-4 py-2 shadow-sm">
+            <option value="all">Semua</option>
+            <option value="organik">Organik</option>
+            <option value="anorganik">Anorganik</option>
+        </select>
+        </div>
+        
+         <div class="flex justify-center mt-6">
+            <div id="map" class="md:w-[60%] w-[90%] h-[350px] rounded-lg shadow z-0"></div>
+            </div>
+
+
+
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script src="banksampah.js"></script>
+        
+    </main>
+
+    <footer
+      class=" left-0 right-0 border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700 mt-auto"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm"
+      >
+        <p>© 2025 GreenCycle - Perempuan Inovasi</p>
+        <nav class="flex items-center gap-4">
+          <a href="contact-us.html" class="hover:text-slate-900">Contact Us</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="js/header.solid.js" defer></script>
+  
+  </body>
+</html>
