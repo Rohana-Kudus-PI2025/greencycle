@@ -82,95 +82,28 @@
         </a>
         <nav class="hidden md:flex gap-6 font-medium">
           <a
-            href="index.html"
+            href="#"
             class="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-600 hover:after:w-full after:transition-all"
             >Home</a
           >
           <a
-            href="overview.html"
+            href="#benefits"
             class="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-600 hover:after:w-full after:transition-all"
-            >Overview</a
+            >Manfaat</a
           >
           <a
             href="game.html"
             class="pixel relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-600 hover:after:w-full after:transition-all"
-            >Play Game</a
+            >Game</a
           >
           <a
-            href="contact-us.html"
+            href="#contact"
             class="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-600 hover:after:w-full after:transition-all"
-            >Contact Us</a
+            >Kontak</a
           >
         </nav>
       </div>
     </header>
-
-    <!-- Hero Section -->
-    <section
-      id="heroFrame"
-      class="bg-gradient-to-b from-green-100 to-white text-center py-24 border-b border-emerald-200"
-    >
-      <div class="max-w-4xl mx-auto px-4">
-        <h1
-          class="text-4xl md:text-5xl font-extrabold text-emerald-700 mb-6 leading-tight"
-        >
-          ♻️ Edukasi Sortir Sampah yang
-          <span class="text-emerald-500">Seru</span> & Interaktif!
-        </h1>
-        <p class="text-lg text-slate-600 mb-8">
-          Pelajari cara memilah sampah organik, anorganik, dan B3 lewat
-          permainan menyenangkan untuk semua usia.
-        </p>
-        <a
-          href="game.html"
-          class="pixel-btn text-lg inline-block animate-bounce"
-          >🎮 Mulai Main</a
-        >
-      </div>
-    </section>
-
-    <!-- Benefits -->
-    <section id="benefits" class="py-16 bg-white border-b border-slate-200">
-      <div class="max-w-6xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-extrabold mb-12">
-          Kenapa Harus Sortir Sampah?
-        </h2>
-        <div class="grid md:grid-cols-3 gap-8 text-left">
-          <div
-            class="bg-white rounded-xl shadow hover:shadow-lg transition p-6"
-          >
-            <h3 class="font-bold text-emerald-600 mb-2 text-lg">
-              🌱 Kurangi Sampah TPA
-            </h3>
-            <p class="text-slate-600">
-              Dengan memilah, kamu bantu mengurangi volume sampah yang menumpuk
-              di TPA.
-            </p>
-          </div>
-          <div
-            class="bg-white rounded-xl shadow hover:shadow-lg transition p-6"
-          >
-            <h3 class="font-bold text-emerald-600 mb-2 text-lg">
-              🧪 Hindari Polusi
-            </h3>
-            <p class="text-slate-600">
-              Sampah B3 berbahaya bagi lingkungan jika tidak dipisahkan dengan
-              benar.
-            </p>
-          </div>
-          <div
-            class="bg-white rounded-xl shadow hover:shadow-lg transition p-6"
-          >
-            <h3 class="font-bold text-emerald-600 mb-2 text-lg">
-              👨‍👩‍👧 Edukasi Keluarga
-            </h3>
-            <p class="text-slate-600">
-              Game edukatif ini bisa dimainkan bersama anak-anak dan keluarga.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Contact -->
     <section
@@ -203,8 +136,7 @@
               >
             </p>
             <p>
-              <strong>Dukungan:</strong> Tersedia 24/7 untuk pertanyaan umum dan
-              teknis.
+              <strong>Dukungan:</strong> Siap membantu Anda baik untuk pertanyaan umum maupun teknis.
             </p>
           </div>
         </div>
@@ -258,10 +190,10 @@
     <!-- Modal Notifikasi -->
 <div id="successModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
   <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm text-center">
-    <h3 class="text-xl font-bold text-emerald-600 mb-2">✅ Pesan Terkirim!</h3>
+    <h3 class="text-xl font-bold text-emerald-600 mb-2">Pesan Terkirim!</h3>
     <p class="text-slate-600 mb-4">
-      Terima kasih <span id="userName"></span>,<br> pesan kamu sudah kami terima.<br>
-      Kami juga sudah mengirim balasan otomatis ke email kamu 📩
+      Terima kasih <span id="userName"></span>, pesan kamu sudah kami terima.<br>
+      Kami juga sudah mengirim balasan otomatis ke email kamu
     </p>
     <button onclick="closeModal()" 
       class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-semibold">
@@ -290,11 +222,12 @@
     <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  // 🔑 Public Key dari EmailJS
+  // 🔑 Ganti dengan Public Key dari EmailJS
   emailjs.init("uYeGQJz0eESNTGqrB");  
 
   document.getElementById("contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
+
     const form = this;
 
     // 1. Kirim ke admin
@@ -304,13 +237,7 @@
         return emailjs.sendForm("service_j5dc3ej", "template_8t21pdw", form);
       })
       .then(() => {
-        // Ambil nama depan & belakang untuk ditampilkan di modal
-        const first = form.querySelector("[name=first_name]").value;
-        const last = form.querySelector("[name=last_name]").value;
-        document.getElementById("userName").innerText = first + " " + last;
-
-        // Tampilkan modal
-        document.getElementById("successModal").classList.remove("hidden");
+        alert("✅ Pesan berhasil dikirim.\n📩 Kami juga sudah kirim balasan otomatis ke email Anda.");
         form.reset();
       })
       .catch((error) => {
@@ -318,11 +245,6 @@
         alert("❌ Ups! Terjadi kesalahan. Coba lagi ya.");
       });
   });
-
-  // Tutup modal
-  function closeModal() {
-    document.getElementById("successModal").classList.add("hidden");
-  }
 </script>
   </body>
 </html>
