@@ -172,7 +172,7 @@ function renderLives() {
   for (let i = 0; i < MAX_LIVES; i++) {
     const span = document.createElement("span");
     span.textContent = "♥";
-    span.className = "text-pink-300";
+    span.className = "text-red-500";
     if (i < lost) span.style.opacity = LOST_OPACITY;
     livesEl.appendChild(span);
   }
