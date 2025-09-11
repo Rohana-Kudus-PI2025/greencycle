@@ -73,3 +73,7 @@
   outline-offset: 2px;
   border-radius: 12px;
 }
+
+.font-pixelify {
+  font-family: "Pixelify Sans", system-ui, sans-serif;
+}
