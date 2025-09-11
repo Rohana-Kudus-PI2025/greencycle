@@ -12,10 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/components/navbar.css" />
     <link rel="stylesheet" href="assets/css/components/cta.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet" />
     <script>
         tailwind.config = {
             theme: {
@@ -89,12 +86,14 @@
             color: #2563eb;
         }
 
-         
+
         #game-area {
-  background-image: url("./assets/images/bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;   /* atau cover */          /* biar ada ruang buat nampilin gambar */
-}
+            background-image: url("./assets/images/bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* atau cover */
+            /* biar ada ruang buat nampilin gambar */
+        }
 
 
         /* Pixel CTA (reuse dari Overview) */
@@ -110,14 +109,14 @@
             --p-light: #f87171;
             --p-dark: #b91c1c;
             --p-border: #7f1d1d;
-           
+
         }
 
         .pixel-btn.blue {
-            --p-bg: #3b82f6;     
-            --p-light: #60a5fa;   
-            --p-dark: #1d4ed8;    
-            --p-border: #1e3a8a; 
+            --p-bg: #3b82f6;
+            --p-light: #60a5fa;
+            --p-dark: #1d4ed8;
+            --p-border: #1e3a8a;
         }
 
 
@@ -153,107 +152,75 @@
 
 <body class="min-h-screen flex flex-col text-slate-800 overflow-x-hidden">
     <!-- NAV: putih, border tipis, sama persis gaya Overview -->
-    <header id="siteHeader" class="header header-solid">
-      <div
-        class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between"
-      >
-        <a href="index.html" class="flex items-center gap-2">
-          <img
-            src="assets/images/logo.svg"
-            alt="GreenCycle logo"
-            class="w-7 h-7"
-          />
-          <span class="font-bold text-lg">GreenCycle</span>
-        </a>
-        <nav class="hidden md:block">
-          <ul class="flex items-center gap-6">
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-            <li>
-              <a href="overview.html">Overview</a>
-            </li>
-            <li>
-              <a href="tips-and-trick.html">Tips & Trick</a>
-            </li>
-            <li>
-              <a href="contact-us.html">Contact Us</a>
-            </li>
-            <li>
-              <a href="game.html" class="cta cta-sm">Game</a>
-            </li>
-          </ul>
-        </nav>
-        <button
-          id="openMenu"
-          class="md:hidden p-2 rounded-md border border-slate-200 bg-white/70 backdrop-blur"
-          aria-expanded="false"
-          aria-controls="mobileMenu"
-        >
-          <img
-            id="iconHamburger"
-            src="assets/images/hamburger.svg"
-            alt="menu"
-            class="h-6 w-6"
-          />
-          <img
-            id="iconClose"
-            src="assets/images/close.svg"
-            alt="close"
-            class="h-6 w-6 hidden"
-          />
-        </button>
-      </div>
-      <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100">
-        <ul class="p-4 space-y-2">
-          <li>
-            <a class="block p-2 rounded hover:bg-slate-50" href="index.html"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a class="block p-2 rounded hover:bg-slate-50" href="overview.html"
-              >Overview</a
-            >
-          </li>
-          <li>
-            <a
-              class="block p-2 rounded hover:bg-slate-50"
-              href="tips-and-trick.html"
-              >Tips & Trick</a
-            >
-          </li>
-          <li>
-            <a
-              class="block p-2 rounded hover:bg-slate-50"
-              href="contact-us.html"
-              >Contact Us</a
-            >
-          </li>
-          <li>
-            <a
-              class="block p-2 rounded hover:bg-slate-50 font-pixelify"
-              href="game.html"
-              >Play Game</a
-            >
-          </li>
-        </ul>
-      </div>
+    <header id="siteHeader" class="header header-solid fixed inset-x-0 top-0 z-50 bg-white">
+
+        <div class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="assets/images/logo.svg" alt="GreenCycle logo" class="w-7 h-7" />
+                <span class="font-bold text-lg">GreenCycle</span>
+            </a>
+            <nav class="hidden md:block">
+                <ul class="flex items-center gap-6">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="overview.html">Overview</a>
+                    </li>
+                    <li>
+                        <a href="tips-and-trick.html">Tips & Trick</a>
+                    </li>
+                    <li>
+                        <a href="contact-us.html">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="game.html" class="cta cta-sm">Game</a>
+                    </li>
+                </ul>
+            </nav>
+            <button id="openMenu" class="md:hidden p-2 rounded-md border border-slate-200 bg-white/70 backdrop-blur"
+                aria-expanded="false" aria-controls="mobileMenu">
+                <img id="iconHamburger" src="assets/images/hamburger.svg" alt="menu" class="h-6 w-6" />
+                <img id="iconClose" src="assets/images/close.svg" alt="close" class="h-6 w-6 hidden" />
+            </button>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden fixed left-0 right-0 top-16 z-[80]
+            bg-white/95 backdrop-blur border-t border-slate-100 shadow-lg">
+            <ul class="p-4 space-y-2">
+                <li>
+                    <a class="block p-2 rounded hover:bg-slate-50" href="index.html">Home</a>
+                </li>
+                <li>
+                    <a class="block p-2 rounded hover:bg-slate-50" href="overview.html">Overview</a>
+                </li>
+                <li>
+                    <a class="block p-2 rounded hover:bg-slate-50" href="tips-and-trick.html">Tips & Trick</a>
+                </li>
+                <li>
+                    <a class="block p-2 rounded hover:bg-slate-50" href="contact-us.html">Contact Us</a>
+                </li>
+                <li>
+                    <a class="block p-2 rounded hover:bg-slate-50 font-pixelify" href="game.html">Play Game</a>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <main class="flex-1">
         <!-- background lembut biar senada Overview -->
-        <section id="game-area" class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] min-h-[45vh] pt-16 md:pt-20">
-
+         
+        <section id="game-area"
+            class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] min-h-[45vh] pt-16 md:pt-20">
+            
             <div class="max-w-6xl mx-auto px-4 pt-8 md:pt-12 pb-10">
-
+                <h1 class="mb-8 font-bold sm:text-6xl text-4xl animate-bounce text-emerald-500 text-center">Let’s sort it out!</h1>
                 <!-- HUD -->
                 <section class="grid grid-rows-1.5 gap-4 items-start mb-6">
 
                     <!-- Level + Daily Streak -->
-                    <div class="col-span-6 sm:col-span-3 grid gap-2 items-center">
+                    <div class="col-span-12 sm:col-span-3 grid gap-2 items-center"> 
                         <div
-                            class="bg-white border border-slate-200 rounded-xl px-4 py-3 flex items-center justify-between shadow-soft">
+                            class="bg-[rgba(245,245,245,0.5)] border border-slate-200 rounded-xl px-4 py-3 flex items-center justify-between shadow-soft">
                             <div>
                                 <div class="text-sm font-semibold">Daily Streak</div>
                                 <div class="text-xs text-slate-500">Main tiap hari biar nggak putus</div>
@@ -265,7 +232,7 @@
                         </div>
 
                         <div
-                            class="bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-soft flex items-center justify-between">
+                            class="bg-[rgba(245,245,245,0.5)] border border-slate-200 rounded-xl px-4 py-3 shadow-soft flex items-center justify-between">
                             <div class="text-sm">
                                 <div class="font-semibold">Music</div>
                                 <div class="text-xs text-slate-500">Background loop</div>
@@ -291,21 +258,21 @@
                         <!-- Score + Lives -->
                         <div class="col-span-12 sm:col-span-6 grid gap-2">
                             <div
-                                class="bg-white border border-slate-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-soft">
+                                class="bg-[rgba(245,245,245,0.5)] border border-slate-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-soft">
                                 <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                                 <span id="hud-level" class="font-semibold left-0">Level 1</span>
                             </div>
                             <div
-                                class="grid place-items-center rounded-xl bg-emerald-50 border border-emerald-200 h-20 text-3xl font-extrabold text-emerald-700 shadow-soft">
+                                class="grid place-items-center rounded-xl bg-[rgba(105,240,172,0.5)] border border-emerald-200 h-20 text-3xl font-extrabold text-emerald-700 shadow-soft">
                                 <div
-                                    class="bg-white border border-slate-200 px-4 py-2 text-xs text-slate-500 shadow-soft">
+                                    class="bg-[rgba(245,245,245,0.5)] border border-slate-200 px-4 py-2 text-xs text-slate-500 shadow-soft">
                                     Your Level Score
                                 </div>
                                 <span id="hud-score">0</span>
                             </div>
 
                             <div id="hud-lives"
-                                class="flex items-center justify-center gap-2 rounded-xl bg-white border border-slate-200 h-12 text-2xl shadow-soft">
+                                class="flex items-center justify-center gap-2 rounded-xl bg-[rgba(245,245,245,0.5)] border border-slate-200 h-12 text-2xl shadow-soft">
 
                             </div>
                         </div>
@@ -313,7 +280,7 @@
 
                     <!-- Timer -->
                     <div
-                        class="col-span-12 sm:col-span-6 bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-soft">
+                        class="col-span-12 sm:col-span-6 bg-[rgba(245,245,245,0.5)] border border-slate-200 rounded-xl px-4 py-3 shadow-soft">
                         <h1 class="font-bold mb-2">Timer</h1>
                         <div class="relative h-3 w-full overflow-hidden rounded-full bg-slate-200">
                             <div id="hud-progress"
@@ -334,9 +301,9 @@
                 <!-- Item draggable -->
                 <section class="grid place-items-center mb-10">
 
-                    <h1 class="mb-8 font-bold text-4xl animate-bounce text-emerald-600">Let’s sort it out!</h1>
+                    
                     <div id="drag-wrap" draggable="true"
-                        class="relative grid place-items-center aspect-square h-64 w-64 p-4 rounded-2xl bg-white border border-slate-200 shadow-ring cursor-grab active:cursor-grabbing select-none overflow-hidden"
+                        class="relative grid place-items-center aspect-square h-64 w-64 p-4 rounded-2xl bg-[rgba(105,240,172,0.5)] border border-slate-200 shadow-ring cursor-grab active:cursor-grabbing select-none overflow-hidden"
                         data-category="recycle">
                         <img id="item-img" src="" alt=""
                             class="block w-auto h-auto max-w-[100%] max-h-[100%] object-contain drop-shadow pointer-events-none select-none"
@@ -444,14 +411,13 @@
 
     <!-- Footer (sama gaya Overview) -->
     <footer class="mt-auto border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700">
-      <div
-        class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm"
-      >
-        <p>© 2025 GreenCycle - Perempuan Inovasi</p>
-        <nav class="flex items-center gap-4">
-          <a href="contact-us.html" class="hover:text-slate-900">Contact Us</a>
-        </nav>
-      </div>
+        <div
+            class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm">
+            <p>© 2025 GreenCycle - Perempuan Inovasi</p>
+            <nav class="flex items-center gap-4">
+                <a href="contact-us.html" class="hover:text-slate-900">Contact Us</a>
+            </nav>
+        </div>
     </footer>
 
     <!-- MODAL: Start Game -->
@@ -472,7 +438,7 @@
     </div>
 
     <!-- MODAL: Review mistakes -->
-    <div id="modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+    <div id="modal" class="fixed inset-0 z-[100] items-center justify-center hidden">
         <div class="absolute inset-0 bg-black/60"></div>
         <div
             class="relative max-w-lg w-[92%] bg-emerald-200 border border-slate-200 rounded-2xl p-8 text-slate-800 shadow-soft">
@@ -480,8 +446,7 @@
             <p class="text-sm text-slate-600 mb-3">Ini penjelasan kenapa item tersebut harus masuk bin tertentu:</p>
             <div id="mistakes-list" class="space-y-3 max-h-64 overflow-y-auto pr-1 bg-white p-2"></div>
             <div class="mt-4 flex justify-between">
-                <button id="modal-close"
-                    class="px-4 py-2 pixel pixel-btn red">Tutup</button>
+                <button id="modal-close" class="px-4 py-2 pixel pixel-btn red">Tutup</button>
                 <button id="modal-retry" class="px-4 py-2 pixel pixel-btn cursor-pointer select-none">Retry
                     Level</button>
             </div>
@@ -489,8 +454,7 @@
     </div>
 
     <!-- MODAL: Level Up -->
-    <!-- MODAL: Level Up -->
-    <div id="levelup-modal" class="fixed inset-0 z-[120] hidden items-center justify-center">
+    <div id="levelup-modal" class="fixed inset-0 z-[120] items-center justify-center hidden">
         <div class="absolute inset-0 bg-black/60"></div>
         <div
             class="relative max-w-lg w-[92%] bg-white border border-slate-200 rounded-2xl p-6 text-slate-800 shadow-[0_8px_24px_rgba(15,23,42,.08)]">
@@ -527,13 +491,6 @@
 
 
     <!-- Scripts -->
-    <script>
-        // mobile menu toggle (same as Overview)
-        const btn = document.getElementById("openMenu");
-        const menu = document.getElementById("mobileMenu");
-        if (btn) btn.addEventListener("click", () => menu.classList.toggle("hidden"));
-    </script>
-
     <!-- game logic -->
     <script src="./js/data.js" defer></script>
     <script>
@@ -545,7 +502,7 @@
     <script src="./js/game.js" defer></script>
 
     <script src="./js/levelup.js" defer></script>
-    <script src="js/header.solid.js" defer></script>
+    <script src="./js/header.solid.js" defer></script>
 
 </body>
 
