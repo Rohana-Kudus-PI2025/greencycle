@@ -83,6 +83,14 @@
             color: #2563eb;
         }
 
+         
+        #game-area {
+  background-image: url("./assets/images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;   /* atau cover */          /* biar ada ruang buat nampilin gambar */
+}
+
+
         /* Pixel CTA (reuse dari Overview) */
         .pixel-btn.yellow {
             --p-bg: #facc15;
@@ -174,8 +182,7 @@
 
     <main class="flex-1">
         <!-- background lembut biar senada Overview -->
-        <section class="relative">
-            <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#eefcf5] via-[#f3fdf8] to-transparent"></div>
+        <section id="game-area" class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] min-h-[45vh]">
 
             <div class="max-w-6xl mx-auto px-4 pt-8 md:pt-12 pb-10">
 
@@ -266,7 +273,7 @@
                 <!-- Item draggable -->
                 <section class="grid place-items-center mb-10">
 
-                    <h1 class="mb-8 font-bold text-4xl animate-bounce">Let’s sort it out!</h1>
+                    <h1 class="mb-8 font-bold text-4xl animate-bounce text-emerald-600">Let’s sort it out!</h1>
                     <div id="drag-wrap" draggable="true"
                         class="relative grid place-items-center aspect-square h-64 w-64 p-4 rounded-2xl bg-white border border-slate-200 shadow-ring cursor-grab active:cursor-grabbing select-none overflow-hidden"
                         data-category="recycle">
@@ -297,7 +304,7 @@
 
                     <!-- ========== Food Scraps ========== -->
                     <button id="bin-food" data-category="food"
-                        class="bin flex flex-col items-center rounded-2xl bg-emerald-200 border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+                        class="bin flex flex-col items-center rounded-2xl bg-[rgba(245,245,245,0.5)] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
 
                         <!-- icon + label (atas) -->
                         <div class="mb-2 flex flex-col items-center gap-1">
@@ -319,7 +326,7 @@
 
                     <!-- ========== Recyclable Containers ========== -->
                     <button id="bin-recycle" data-category="recycle"
-                        class="bin flex flex-col items-center rounded-2xl bg-emerald-200 border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+                        class="bin flex flex-col items-center rounded-2xl bg-[rgba(245,245,245,0.5)] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
 
                         <div class="mb-2 flex flex-col items-center gap-1">
                             <span class="text-[15px] font-semibold text-slate-700">Recyclable Containers</span>
@@ -336,7 +343,7 @@
 
                     <!-- ========== Paper ========== -->
                     <button id="bin-paper" data-category="paper"
-                        class="bin flex flex-col items-center rounded-2xl bg-emerald-200 border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+                        class="bin flex flex-col items-center rounded-2xl bg-[rgba(245,245,245,0.5)] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
 
                         <div class="mb-2 flex flex-col items-center gap-1">
                             <span class="text-[15px] font-semibold text-slate-700">Paper</span>
@@ -353,7 +360,7 @@
 
                     <!-- ========== Garbage ========== -->
                     <button id="bin-trash" data-category="trash"
-                        class="bin flex flex-col items-center rounded-2xl bg-emerald-200 border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+                        class="bin flex flex-col items-center rounded-2xl bg-[rgba(245,245,245,0.5)] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
 
                         <div class="mb-2 flex flex-col items-center gap-1">
                             <span class="text-[15px] font-semibold text-slate-700">Garbage</span>
