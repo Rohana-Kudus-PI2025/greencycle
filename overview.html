@@ -109,6 +109,55 @@
       .counter-tile::before {
         content: none;
       } 
+
+        .wrap {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+    /* gambar C sebagai background */
+    #imgC {
+      width: 400px;
+      height: auto;
+      display: block;
+    }
+    /* gambar A di atas C */
+    #imgA {
+      position: absolute;
+      top: 25%;   /* ganti dari px ke % */
+      left: 65%;  /* relatif ke lebar C */
+      width: 10%; /* kecilin sesuai persentase dari lebar C */
+      cursor: grab;
+      z-index: 2;
+    }
+    /* tempat sampah kuning */
+    #imgB {
+      position: absolute;
+      top: 47%;
+      left: 19.5%;
+      width: 18%; /* proporsi lebar dari C */
+      cursor: pointer;
+      z-index: 2;
+    }
+    #imgD {
+        position: absolute;
+      width: 400px;
+      height: auto;
+      display: none; /* awalnya disembunyikan */
+    }
+
+      /* animasi shaking */
+    @keyframes shake {
+      0%   { transform: translate(0, 0); }
+      20%  { transform: translate(-5px, 0); }
+      40%  { transform: translate(5px, 0); }
+      60%  { transform: translate(-5px, 0); }
+      80%  { transform: translate(5px, 0); }
+      100% { transform: translate(0, 0); }
+    }
+    .shake {
+      animation: shake 1.5s infinite; /* looping terus */
+    }
     </style>
   </head>
   <body class="min-h-screen flex flex-col text-slate-800 overflow-x-hidden">
@@ -262,7 +311,15 @@
               <br><br>
             </p>
 
-            <img src="assets/images/overview-ilustrasi.png" class="w-4/5 md:w-1/2 mx-auto">
+            <div class="wrap w-4/5  mx-auto flex justify-center items-center">
+                      <!-- Parent C -->
+              <div class="relative">
+                <img id="imgC" src="assets/images/c.png" alt="C">
+                <img id="imgA" src="assets/images/a.png" draggable="true" alt="A" class="shake">
+                <img id="imgB" src="assets/images/b.png" alt="B">
+              </div>
+              <img id="imgD" src="assets/images/d.png" alt="D">
+            </div>
 
             <div class="text-center mt-8">
               <a href="game.html" class="pixel pixel-btn">Mainkan Game</a>
@@ -325,6 +382,37 @@
         { threshold: 0.4 }
       );
       counters.forEach((c) => ioCounters.observe(c));
+  
+      //image
+  const imgA = document.getElementById("imgA");
+  const imgB = document.getElementById("imgB");
+  const imgC = document.getElementById("imgC");
+  const imgD = document.getElementById("imgD");
+
+  // drag start
+  imgA.addEventListener("dragstart", e => {
+    e.dataTransfer.setData("text/plain", "imgA");
+      // stop shake pas mulai drag
+    imgA.classList.remove("shake");
+  });
+
+  // allow drop di B
+  imgB.addEventListener("dragover", e => e.preventDefault());
+
+  // drop ke B
+  imgB.addEventListener("drop", e => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData("text/plain");
+    if (id === "imgA") {
+      // hilangkan A, B, C
+      imgA.style.display = "none";
+      imgB.style.display = "none";
+      imgC.style.display = "none";
+
+      // tampilkan D
+      imgD.style.display = "block";
+    }
+    });
     </script>
     <script src="./js/sfx.js"></script>
   </body>
