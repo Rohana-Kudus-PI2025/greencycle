@@ -322,8 +322,8 @@
     // buka modal
     modal?.classList.remove("hidden");
     modal?.classList.add("flex");
-
     // ambil fun fact (pakai API key global milikmu)
+    // ambil fun fact (pakai API key global)
     fetchFunFact(window.API_NINJAS_KEY);
 
     // listener sekali jalan
