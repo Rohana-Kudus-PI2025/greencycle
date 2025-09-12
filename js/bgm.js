@@ -1,4 +1,3 @@
-// ./js/bgm.js
 (() => {
   const TRACKS = { level1: "assets/audio/happy-cave-6095.mp3" };
 
@@ -27,7 +26,6 @@
       await next.play();
     } catch (_) {}
 
-    // crossfade cepat
     const fadeMs = 250,
       steps = 10,
       dt = fadeMs / steps;
@@ -71,8 +69,6 @@
     localStorage.setItem("bgm:volume", String(targetVolume));
     if (current && enabled) current.volume = targetVolume;
   }
-
-  // ducking saat SFX bunyi
   let duckTimer = null;
   function duck() {
     if (!current || !enabled) return;
@@ -85,7 +81,6 @@
   }
   window.addEventListener("sfx:played", duck);
 
-  // auto-pause kalau tab pindah
   document.addEventListener("visibilitychange", () => {
     if (!current) return;
     if (document.hidden) current.pause();
