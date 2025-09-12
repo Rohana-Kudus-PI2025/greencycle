@@ -422,7 +422,7 @@ itemWrap.addEventListener("dragend", () => {
     );
 });
 
-// ===== Drop targets (single source of truth)
+// ===== Drop targets
 document.querySelectorAll(".bin").forEach((bin) => {
   bin.addEventListener("dragover", (e) => e.preventDefault());
 
