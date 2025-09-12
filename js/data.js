@@ -1,7 +1,6 @@
 window.CDN =
   "https://cdn.jsdelivr.net/gh/Rohana-Kudus-PI2025/asset-sortItOut@94887d875c/";
 
-// js/data.js
 window.ITEMS = [
   {
     id: "ampas_kelapa",
