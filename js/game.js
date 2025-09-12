@@ -105,7 +105,7 @@ function touchDailyStreak() {
 
   const gap = diffDays(st.lastPlayed, today);
   if (gap === 1) {
-    // lanjut streak
+    // lanjut ke streak
     st.count += 1;
     st.longest = Math.max(st.longest, st.count);
     st.lastPlayed = today;
