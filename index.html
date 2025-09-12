@@ -19,67 +19,8 @@
     />
     <link rel="stylesheet" href="assets/css/components/navbar.css" />
     <link rel="stylesheet" href="assets/css/components/cta.css" />
-    <style>
-      .overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.45);
-      }
-      .swiper-button-next,
-      .swiper-button-prev {
-        color: #fff;
-      }
-      .swiper-pagination-bullet {
-        background: #fff;
-        opacity: 0.6;
-      }
-      .swiper-pagination-bullet-active {
-        background: #10b981;
-        opacity: 1;
-      }
-      .roll-wrap {
-        position: relative;
-        isolation: isolate;
-        overflow: hidden;
-      }
-      .roll-wrap::before {
-        content: "";
-        position: absolute;
-        inset: 0 0 auto 0;
-        height: 36px;
-        background: radial-gradient(
-            120% 60% at 50% -40%,
-            rgba(0, 0, 0, 0.18),
-            transparent 60%
-          ),
-          linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);
-        opacity: 0;
-        transform: translateY(-20px);
-        transition: opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s;
-        pointer-events: none;
-        z-index: 1;
-      }
-      .roll-content {
-        will-change: clip-path, transform, opacity;
-        clip-path: inset(100% 0 0 0 round 28px);
-        transform: translateY(12vh);
-        opacity: 0;
-        transition: clip-path 900ms cubic-bezier(0.22, 0.99, 0.14, 1),
-          transform 900ms cubic-bezier(0.22, 0.99, 0.14, 1), opacity 600ms ease;
-      }
-      .roll-active .roll-content {
-        clip-path: inset(0 0 0 0 round 0px);
-        transform: translateY(0);
-        opacity: 1;
-      }
-      .roll-active::before {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      canvas {
-        display: block;
-      }
-    </style>
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="text-slate-800">
     <header id="siteHeader" class="header header-transparent">
@@ -103,30 +44,16 @@
               <a href="overview.html">Overview</a>
             </li>
             <li>
-              <a href="tips-and-trick.html">Tips and Trick</a>
+              <a href="tips-and-trick.html">Tips & Trick</a>
             </li>
-            <li><a href="game.html" class="hover:text-emerald-600">Game</a></li>
+            <li>
+              <a href="waste-bank.html">Waste Bank</a>
+            </li>
             <li>
               <a href="contact-us.html">Contact Us</a>
             </li>
             <li>
               <a href="game.html" class="cta cta-sm">Game</a>
-=========
-              <a href="overview.html" class="hover:text-emerald-600"
-                >Overview</a
-              >
-            </li>
-            <li><a href="game.html" class="hover:text-emerald-600">Play Game</a></li>
-            <li>
-              <a href="tips-and-trick.html" class="hover:text-emerald-600"
-                >Tips and Trick</a
-              >
-            </li>
-            <li>
-              <a href="contact-us.html" class="hover:text-emerald-600"
-                >Contact Us</a
-              >
->>>>>>>>> Temporary merge branch 2
             </li>
           </ul>
         </nav>
@@ -168,9 +95,17 @@
             <a
               class="block p-2 rounded hover:bg-slate-50"
               href="tips-and-trick.html"
-              >Tips and Trick</a
+              >Tips & Trick</a
             >
           </li>
+          <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50"
+              href="waste-bank.html"
+              >Waste Bank</a
+            >
+          </li>
+
           <li>
             <a
               class="block p-2 rounded hover:bg-slate-50"
@@ -197,7 +132,7 @@
               />
               <div class="overlay"></div>
               <div
-                class="relative z-10 max-w-6xl mx-auto h-full px-4 flex items-center"
+                class="relative z-10 max-w-5xl mx-auto h-full px-4 flex items-center"
               >
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white">
                   Perubahan besar dimulai dari langkah kecil.
@@ -211,7 +146,7 @@
               />
               <div class="overlay"></div>
               <div
-                class="relative z-10 max-w-6xl mx-auto h-full px-4 flex items-center"
+                class="relative z-10 max-w-5xl mx-auto h-full px-4 flex items-center"
               >
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white">
                   Perempuan berdaya, lingkungan terjaga.
@@ -225,7 +160,7 @@
               />
               <div class="overlay"></div>
               <div
-                class="relative z-10 max-w-6xl mx-auto h-full px-4 flex items-center"
+                class="relative z-10 max-w-5xl mx-auto h-full px-4 flex items-center"
               >
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white">
                   Rumah tangga sadar, masa depan terpelihara.
@@ -234,8 +169,8 @@
             </div>
           </div>
           <div class="swiper-pagination !bottom-6"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next hidden md:block"></div>
+          <div class="swiper-button-prev hidden md:block"></div>
         </div>
       </section>
     </div>
@@ -281,592 +216,163 @@
           ></canvas>
         </div>
       </div>
-      <footer
-        class="absolute bottom-0 left-0 right-0 border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700"
-      >
-        <div
-          class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm"
-        >
-          <p>© 2025 GreenCycle - Perempuan Inovasi</p>
-          <nav class="flex items-center gap-4">
-            <a href="contact-us.html" class="hover:text-slate-900"
-              >Contact Us</a
-            >
-          </nav>
-        </div>
-      </footer>
     </section>
 
+    <section
+      id="section-overview"
+      class="relative overflow-hidden bg-emerald-50 min-h-screen pt-16 flex items-center"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center gap-10 w-full"
+      >
+        <div class="order-2 md:order-1">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+            Perempuan Berdaya, Rumah Lebih Ramah
+          </h2>
+          <p class="mt-3 text-lg text-slate-700">
+            Dari dapur ke tempat sampah, langkah kecil bisa menjaga kebersihan
+            rumah dan bumi.
+            <span class="font-medium text-emerald-700">GreenCycle</span>
+            membiasakan pilah sampah sejak dini.
+          </p>
+          <a
+            href="overview.html"
+            class="mt-6 inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-900 font-medium"
+          >
+            Lihat Overview
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M5 12h14M13 5l7 7-7 7"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="order-1 md:order-2 flex justify-center">
+          <div class="relative w-[320px] h-[236px] rounded-2xl overflow-hidden">
+            <object
+              type="image/svg+xml"
+              data="assets/images/overview-anim.svg"
+              class="absolute inset-0 w-full h-full"
+              role="img"
+              aria-label="Dari dapur ke pilah sampah menuju rumah yang lebih ramah"
+            ></object>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="section-tips"
+      class="relative overflow-hidden bg-amber-50 min-h-screen pt-16 flex items-center"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center gap-10 w-full"
+      >
+        <div class="flex justify-center">
+          <div class="relative w-56 h-40 rounded-xl overflow-hidden">
+            <object
+              type="image/svg+xml"
+              data="assets/images/tips-barcode.svg"
+              class="absolute inset-0 w-full h-full"
+              role="img"
+              aria-label="Barcode dengan garis pemindai animasi"
+            ></object>
+          </div>
+        </div>
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+            Tips Cepat lewat Barcode
+          </h2>
+          <p class="mt-3 text-lg text-slate-700">
+            Scan atau ketik barcode produk rumah tangga.
+            <span class="font-medium text-emerald-700">GreenCycle</span>
+            langsung memberi tahu kategori sampahnya — praktis dan mudah diikuti
+            siapa pun.
+          </p>
+          <a
+            href="tips-and-trick.html"
+            class="mt-6 inline-flex items-center gap-2 text-amber-700 hover:text-amber-900 font-medium"
+          >
+            Buka Tips &amp; Trick
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M5 12h14M13 5l7 7-7 7"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="section-map"
+      class="relative overflow-hidden bg-sky-50 min-h-screen pt-16 flex items-center"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center gap-10 w-full"
+      >
+        <div class="order-2 md:order-1">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+            Buang di Tempat yang Tepat
+          </h2>
+          <p class="mt-3 text-lg text-slate-700">
+            Temukan bank sampah terdekat dan setor anorganik secara rutin.
+            Ringan dilakukan, berdampak untuk lingkungan.
+          </p>
+          <a
+            href="waste-bank.html"
+            class="mt-6 inline-flex items-center gap-2 text-sky-700 hover:text-sky-900 font-medium"
+          >
+            Lihat Peta
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M5 12h14M13 5l7 7-7 7"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="order-1 md:order-2 flex justify-center">
+          <div
+            class="relative w-[320px] h-[236px] bg-sky-50 rounded-2xl overflow-hidden"
+          >
+            <object
+              type="image/svg+xml"
+              data="assets/images/map-anim.svg"
+              class="absolute inset-0 w-full h-full"
+              role="img"
+              aria-label="Peta dengan pin utama berdenyut dan beberapa pin kecil"
+            ></object>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="mt-auto border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm"
+      >
+        <p>© 2025 GreenCycle - Perempuan Inovasi</p>
+        <nav class="flex items-center gap-4">
+          <a href="contact-us.html" class="hover:text-slate-900">Contact Us</a>
+        </nav>
+      </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      const btn = document.getElementById("openMenu");
-      const menu = document.getElementById("mobileMenu");
-      const iconHamburger = document.getElementById("iconHamburger");
-      const iconClose = document.getElementById("iconClose");
-
-      (function markActiveLinks() {
-        const here = (
-          location.pathname.split("/").pop() || "index.html"
-        ).toLowerCase();
-        const links = document.querySelectorAll("header nav a, #mobileMenu a");
-
-        links.forEach((a) => {
-          const href = a.getAttribute("href");
-          if (!href) return;
-
-          const url = new URL(href, location.href);
-          const file = (
-            url.pathname.split("/").pop() || "index.html"
-          ).toLowerCase();
-
-          // match file persis; untuk anchor (#...) hanya aktif jika hash cocok
-          const matchFile = file === here;
-          const matchHash =
-            href.startsWith("#") &&
-            here === "index.html" &&
-            url.hash === location.hash &&
-            url.hash !== "";
-
-          if (matchFile || matchHash) {
-            a.classList.add("is-active");
-            a.setAttribute("aria-current", "page");
-          }
-        });
-      })();
-
-      function setIconTheme(isSolid) {
-        // isSolid = true => header-solid (terang) => pakai ikon gelap
-        const setSrc = (el, attr) =>
-          el && el.setAttribute("src", el.dataset[attr]);
-        if (isSolid) {
-          setSrc(iconHamburger, "srcLight");
-          setSrc(iconClose, "srcLight");
-          btn.classList.remove("text-white");
-          btn.classList.add("text-slate-800");
-        } else {
-          setSrc(iconHamburger, "srcDark");
-          setSrc(iconClose, "srcDark");
-          btn.classList.remove("text-slate-800");
-          btn.classList.add("text-white");
-        }
-      }
-
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-        iconHamburger.classList.toggle("hidden");
-        iconClose.classList.toggle("hidden");
-      });
-
-      const hero = new Swiper(".swiper", {
-        loop: true,
-        autoplay: { delay: 4500 },
-        speed: 700,
-        pagination: { el: ".swiper-pagination", clickable: true },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-
-      const header = document.getElementById("siteHeader");
-      const section2 = document.getElementById("heroFrame");
-      const rollBox = document.getElementById("rollBox");
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              header.classList.remove("header-transparent");
-              header.classList.add("header-solid");
-              rollBox.classList.add("roll-active");
-              setIconTheme(true);
-            } else {
-              header.classList.add("header-transparent");
-              header.classList.remove("header-solid");
-              rollBox.classList.remove("roll-active");
-              setIconTheme(false);
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-      io.observe(section2);
-
-      let ticking = false;
-      window.addEventListener(
-        "scroll",
-        () => {
-          if (ticking) return;
-          ticking = true;
-          requestAnimationFrame(() => {
-            const stage = document
-              .getElementById("pin-stage")
-              .getBoundingClientRect();
-            if (
-              stage.bottom < window.innerHeight * 0.9 &&
-              stage.bottom > window.innerHeight * 0.1
-            ) {
-              document
-                .getElementById("heroFrame")
-                .scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-            ticking = false;
-          });
-        },
-        { passive: true }
-      );
-
-      // canvas section 2
-      (function () {
-        const frame = document.getElementById("heroFrame");
-        const stage = document.getElementById("stageSlot");
-        const bgCanvas = document.getElementById("frameBG");
-        const fgCanvas = document.getElementById("frameFG");
-        const bg = bgCanvas.getContext("2d");
-        const fg = fgCanvas.getContext("2d");
-
-        let FW = 0,
-          FH = 0,
-          SW = 0,
-          SH = 0,
-          SOX = 0,
-          SOY = 0;
-        let beamY = 80,
-          groundY = 0;
-        let bins = [];
-        const TYPES = ["paper", "plastic", "glass", "metal"];
-        let items = [];
-        const crane = {
-          x: 0,
-          targetX: 0,
-          y: 0,
-          cable: 0,
-          maxCable: 0,
-          speed: 2.2,
-          holding: null,
-          state: "moveToItem",
-        };
-
-        function fitCanvas(c, ctx, w, h) {
-          const d = window.devicePixelRatio || 1;
-          c.width = Math.max(1, Math.floor(w * d));
-          c.height = Math.max(1, Math.floor(h * d));
-          ctx.setTransform(d, 0, 0, d, 0, 0);
-        }
-        function rr(ctx, x, y, w, h, r) {
-          ctx.beginPath();
-          ctx.moveTo(x + r, y);
-          ctx.arcTo(x + w, y, x + w, y + h, r);
-          ctx.arcTo(x + w, y + h, x, y + h, r);
-          ctx.arcTo(x, y + h, x, y, r);
-          ctx.arcTo(x, y, x + w, y, r);
-          ctx.closePath();
-        }
-        function rand(a, b) {
-          return Math.random() * (b - a) + a;
-        }
-        function moveTowards(v, t, s) {
-          if (Math.abs(t - v) < s) return t;
-          return v + Math.sign(t - v) * s;
-        }
-
-        function measure() {
-          const fr = frame.getBoundingClientRect();
-          const sr = stage.getBoundingClientRect();
-          FW = Math.max(320, fr.width);
-          FH = Math.max(240, fr.height);
-          fitCanvas(bgCanvas, bg, FW, FH);
-          fitCanvas(fgCanvas, fg, FW, FH);
-          SW = Math.max(240, sr.width);
-          SH = Math.max(200, sr.height);
-          SOX = sr.left - fr.left;
-          SOY = sr.top - fr.top;
-
-          beamY = Math.max(48, SH * 0.16);
-          groundY = SH - Math.max(72, SH * 0.2);
-
-          const margin = 20;
-          const binW = Math.min(108, (SW - margin * 2) / 4.6);
-          const gap = (SW - margin * 2 - binW * 4) / 3;
-          const colors = ["#f59e0b", "#10b981", "#3b82f6", "#ef4444"];
-          const labels = ["KERTAS", "PLASTIK", "KACA", "LOGAM"];
-          bins = [];
-          for (let i = 0; i < 4; i++) {
-            const x = margin + i * (binW + gap);
-            const y = groundY - 88;
-            bins.push({
-              x,
-              y,
-              w: binW,
-              h: 88,
-              color: colors[i],
-              label: labels[i],
-              type: TYPES[i],
-            });
-          }
-          crane.y = beamY + 10;
-          crane.maxCable = Math.max(200, SH * 0.58);
-        }
-
-        const ro = new ResizeObserver(() => measure());
-        ro.observe(frame);
-        ro.observe(stage);
-        window.addEventListener("resize", measure);
-        if (document.fonts && document.fonts.ready)
-          document.fonts.ready.then(measure);
-
-        function spawnItems(n = 6) {
-          items = [];
-          for (let i = 0; i < n; i++) {
-            const type = TYPES[i % TYPES.length];
-            items.push({
-              id: i,
-              type,
-              x: rand(60, SW - 60),
-              y: rand(beamY + 90, groundY - 46),
-              r: 15,
-              done: false,
-            });
-          }
-        }
-        function chooseNextItem() {
-          const c = items.find((i) => !i.done);
-          if (!c) {
-            spawnItems(6);
-            return items[0];
-          }
-          return c;
-        }
-
-        let t = 0;
-        const reduceMotion =
-          window.matchMedia &&
-          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-        function update() {
-          if (reduceMotion) return;
-          t += 1;
-          const hookX = crane.x,
-            hookY = crane.y + crane.cable;
-
-          if (crane.state === "moveToItem") {
-            const it = chooseNextItem();
-            crane.targetX = it.x;
-            crane.x = moveTowards(crane.x, crane.targetX, crane.speed);
-            if (Math.abs(crane.x - crane.targetX) < 0.8)
-              crane.state = "lowerToGrab";
-          } else if (crane.state === "lowerToGrab") {
-            const it = chooseNextItem();
-            const targetCable = Math.min(
-              crane.maxCable,
-              Math.max(60, it.y - crane.y)
-            );
-            crane.cable = moveTowards(crane.cable, targetCable, 4.8);
-            if (Math.hypot(it.x - hookX, it.y - hookY) < it.r + 12) {
-              crane.holding = it;
-              crane.state = "raiseWithItem";
-            }
-            if (crane.cable >= crane.maxCable - 1)
-              crane.state = "raiseWithItem";
-          } else if (crane.state === "raiseWithItem") {
-            crane.cable = moveTowards(crane.cable, 0, 6.0);
-            if (crane.holding) {
-              crane.holding.x = hookX;
-              crane.holding.y = hookY + 8;
-            }
-            if (crane.cable <= 0.1) {
-              const b = bins.find((b) => b.type === crane.holding.type);
-              crane.targetX = b.x + b.w / 2;
-              crane.state = "moveToBin";
-            }
-          } else if (crane.state === "moveToBin") {
-            crane.x = moveTowards(crane.x, crane.targetX, crane.speed * 1.6);
-            if (crane.holding) {
-              crane.holding.x = hookX;
-              crane.holding.y = hookY + 8;
-            }
-            if (Math.abs(crane.x - crane.targetX) < 0.8)
-              crane.state = "lowerToDrop";
-          } else if (crane.state === "lowerToDrop") {
-            crane.cable = moveTowards(
-              crane.cable,
-              Math.min(260, SH - 110),
-              5.2
-            );
-            if (crane.holding) {
-              crane.holding.x = hookX;
-              crane.holding.y = hookY + 8;
-            }
-            if (hookY >= bins.find((b) => b.type === crane.holding.type).y + 6)
-              crane.state = "release";
-          } else if (crane.state === "release") {
-            if (crane.holding) {
-              const b = bins.find((b) => b.type === crane.holding.type);
-              crane.holding.x = b.x + b.w / 2;
-              crane.holding.y = b.y + b.h - 12;
-              crane.holding.done = true;
-              crane.holding = null;
-            }
-            crane.state = "raiseEmpty";
-          } else if (crane.state === "raiseEmpty") {
-            crane.cable = moveTowards(crane.cable, 0, 6.0);
-            if (crane.cable <= 0.1) crane.state = "moveToItem";
-          }
-        }
-
-        function drawBackground() {
-          bg.clearRect(0, 0, FW, FH);
-          const sky = bg.createLinearGradient(0, 0, 0, FH);
-          sky.addColorStop(0, "#f1f5f9");
-          sky.addColorStop(1, "#ffffff");
-          bg.fillStyle = sky;
-          bg.fillRect(0, 0, FW, FH);
-
-          bg.fillStyle = "#e5e7eb";
-          [
-            [120, 60],
-            [240, 40],
-            [420, 70],
-            [680, 50],
-            [900, 90],
-          ].forEach((c) => {
-            bg.beginPath();
-            bg.arc(c[0], c[1], 16, 0, Math.PI * 2);
-            bg.arc(c[0] + 18, c[1] - 8, 12, 0, Math.PI * 2);
-            bg.arc(c[0] + 36, c[1], 16, 0, Math.PI * 2);
-            bg.fill();
-          });
-
-          const groundYAbs = SOY + groundY;
-          bg.fillStyle = "#d1fae5";
-          bg.fillRect(0, groundYAbs, FW, FH - groundYAbs);
-          bg.fillStyle = "#a7f3d0";
-          bg.beginPath();
-          bg.moveTo(0, groundYAbs);
-          bg.bezierCurveTo(
-            FW * 0.2,
-            groundYAbs - 24,
-            FW * 0.35,
-            groundYAbs - 10,
-            FW * 0.5,
-            groundYAbs - 26
-          );
-          bg.bezierCurveTo(
-            FW * 0.7,
-            groundYAbs - 44,
-            FW * 0.82,
-            groundYAbs - 8,
-            FW,
-            groundYAbs - 22
-          );
-          bg.lineTo(FW, FH);
-          bg.lineTo(0, FH);
-          bg.closePath();
-          bg.fill();
-
-          const x0 = SOX,
-            y0 = SOY;
-          bg.strokeStyle = "#9aa0a6";
-          bg.lineWidth = 4;
-          const legL = x0 + 16,
-            legR = x0 + SW - 16;
-          bg.beginPath();
-          bg.moveTo(legL, y0 + beamY);
-          bg.lineTo(legL, y0 + groundY);
-          bg.stroke();
-          bg.beginPath();
-          bg.moveTo(legR, y0 + beamY);
-          bg.lineTo(legR, y0 + groundY);
-          bg.stroke();
-
-          bg.strokeStyle = "#c1c7cf";
-          bg.lineWidth = 2;
-          for (let y = y0 + beamY; y < y0 + groundY; y += 22) {
-            bg.beginPath();
-            bg.moveTo(legL, y);
-            bg.lineTo(legL + 14, y + 18);
-            bg.stroke();
-            bg.beginPath();
-            bg.moveTo(legR, y);
-            bg.lineTo(legR - 14, y + 18);
-            bg.stroke();
-          }
-
-          bg.fillStyle = "#9aa0a6";
-          bg.fillRect(x0, y0 + beamY - 8, SW, 8);
-          bg.fillStyle = "#b4bac2";
-          bg.fillRect(x0, y0 + beamY - 14, SW, 6);
-          bg.strokeStyle = "#7b8087";
-          bg.lineWidth = 2;
-          bg.beginPath();
-          bg.moveTo(x0, y0 + beamY - 16);
-          bg.lineTo(x0 + SW, y0 + beamY - 16);
-          bg.stroke();
-
-          const trolleyY = y0 + beamY - 18,
-            trW = 56,
-            trH = 24;
-          const tx = Math.max(
-            x0 + 24,
-            Math.min(x0 + SW - 24 - trW, x0 + crane.x - trW / 2)
-          );
-          bg.fillStyle = "#4b5563";
-          [tx + 10, tx + trW - 10].forEach((rx) => {
-            bg.beginPath();
-            bg.arc(rx, trolleyY + trH + 4, 5, 0, Math.PI * 2);
-            bg.fill();
-          });
-          rr(bg, tx, trolleyY, trW, trH, 6);
-          bg.fillStyle = "#374151";
-          bg.fill();
-          for (let i = 0; i < trW; i += 10) {
-            bg.fillStyle = (i / 10) % 2 === 0 ? "#fbbf24" : "#111827";
-            bg.fillRect(tx + i, trolleyY + trH - 8, 10, 8);
-          }
-
-          bg.textAlign = "center";
-          bg.textBaseline = "middle";
-          bg.font = "bold 13px ui-sans-serif,system-ui";
-          const labels = ["KERTAS", "PLASTIK", "KACA", "LOGAM"];
-          const colors = ["#f59e0b", "#10b981", "#3b82f6", "#ef4444"];
-          bins.forEach((b, i) => {
-            bg.fillStyle = colors[i];
-            rr(bg, x0 + b.x, y0 + b.y, b.w, b.h, 10);
-            bg.fill();
-            bg.fillStyle = "#eceff1";
-            bg.fillRect(x0 + b.x - 3, y0 + b.y - 10, b.w + 6, 10);
-            bg.fillStyle = "#1f2937";
-            bg.beginPath();
-            bg.arc(x0 + b.x + 14, y0 + b.y + b.h, 7, 0, Math.PI * 2);
-            bg.fill();
-            bg.beginPath();
-            bg.arc(x0 + b.x + b.w - 14, y0 + b.y + b.h, 7, 0, Math.PI * 2);
-            bg.fill();
-            bg.fillStyle = "#fff";
-            bg.fillText(labels[i], x0 + b.x + b.w / 2, y0 + b.y + b.h / 2);
-          });
-
-          items.forEach((it) => {
-            if (crane.holding && it.id === crane.holding.id) return;
-            bg.fillStyle = "rgba(0,0,0,.08)";
-            bg.beginPath();
-            bg.ellipse(
-              x0 + it.x,
-              y0 + it.y + it.r,
-              it.r * 0.9,
-              5,
-              0,
-              0,
-              Math.PI * 2
-            );
-            bg.fill();
-            bg.fillStyle = "#fff";
-            bg.beginPath();
-            bg.arc(x0 + it.x, y0 + it.y, it.r, 0, Math.PI * 2);
-            bg.fill();
-            const emoji = {
-              paper: "📄",
-              plastic: "🧴",
-              glass: "🍾",
-              metal: "🥫",
-            }[it.type];
-            bg.font =
-              "16px Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, ui-sans-serif";
-            bg.fillText(emoji, x0 + it.x, y0 + it.y + 1);
-          });
-        }
-
-        function drawForeground() {
-          fg.clearRect(0, 0, FW, FH);
-          const swing =
-            Math.sin(t * 0.08) * Math.min(18, crane.cable * 0.05 + 6);
-          const hookX = SOX + crane.x + swing;
-          const hookY = SOY + crane.y + crane.cable;
-
-          fg.strokeStyle = "#94a3b8";
-          fg.lineWidth = 3;
-          fg.beginPath();
-          fg.moveTo(SOX + crane.x, SOY + beamY + 6);
-          fg.lineTo(hookX, hookY - 18);
-          fg.stroke();
-
-          const blockW = 26,
-            blockH = 22,
-            bx = hookX - blockW / 2,
-            by = hookY - 22;
-          fg.fillStyle = "#6b7280";
-          fg.beginPath();
-          fg.moveTo(bx + 6, by);
-          fg.arcTo(bx + blockW, by, bx + blockW, by + blockH, 6);
-          fg.arcTo(bx + blockW, by + blockH, bx, by + blockH, 6);
-          fg.arcTo(bx, by + blockH, bx, by, 6);
-          fg.arcTo(bx, by, bx + blockW, by, 6);
-          fg.closePath();
-          fg.fill();
-          fg.fillStyle = "#9ca3af";
-          fg.beginPath();
-          fg.arc(hookX - 6, by + 8, 3, 0, Math.PI * 2);
-          fg.fill();
-          fg.beginPath();
-          fg.arc(hookX + 6, by + 8, 3, 0, Math.PI * 2);
-          fg.fill();
-
-          fg.strokeStyle = "#374151";
-          fg.lineWidth = 5;
-          fg.lineCap = "round";
-          fg.beginPath();
-          fg.moveTo(hookX, hookY - 4);
-          fg.lineTo(hookX, hookY + 10);
-          fg.arc(hookX + 10, hookY + 10, 10, Math.PI, Math.PI * 1.6, false);
-          fg.stroke();
-
-          if (crane.holding) {
-            const it = crane.holding,
-              emoji = { paper: "📄", plastic: "🧴", glass: "🍾", metal: "🥫" }[
-                it.type
-              ];
-            fg.fillStyle = "rgba(0,0,0,.06)";
-            fg.beginPath();
-            fg.ellipse(
-              hookX,
-              hookY + it.r + 8,
-              it.r * 0.9,
-              4,
-              0,
-              0,
-              Math.PI * 2
-            );
-            fg.fill();
-            fg.fillStyle = "#fff";
-            fg.beginPath();
-            fg.arc(hookX, hookY + 8, it.r, 0, Math.PI * 2);
-            fg.fill();
-            fg.font =
-              "16px Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, ui-sans-serif";
-            fg.textAlign = "center";
-            fg.textBaseline = "middle";
-            fg.fillText(emoji, hookX, hookY + 9);
-          }
-        }
-
-        function loop() {
-          update();
-          drawBackground();
-          drawForeground();
-          requestAnimationFrame(loop);
-        }
-        function initScene() {
-          spawnItems(6);
-          crane.x = SW - 80;
-          crane.y = beamY + 10;
-          crane.maxCable = Math.max(220, SH * 0.6);
-        }
-        function init() {
-          measure();
-          initScene();
-          loop();
-        }
-        init();
-      })();
-    </script>
+    <script src="js/home.js" defer></script>
   </body>
 </html>

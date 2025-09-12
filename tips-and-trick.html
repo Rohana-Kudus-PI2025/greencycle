@@ -11,12 +11,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/components/navbar.css" />
     <link rel="stylesheet" href="assets/css/components/cta.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="text-slate-800">
+  <body class="min-h-dvh flex flex-col text-slate-800">
     <header id="siteHeader" class="header header-solid">
       <div
         class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between"
@@ -39,6 +40,9 @@
             </li>
             <li>
               <a href="tips-and-trick.html">Tips & Trick</a>
+            </li>
+            <li>
+              <a href="waste-bank.html">Waste Bank</a>
             </li>
             <li>
               <a href="contact-us.html">Contact Us</a>
@@ -90,6 +94,13 @@
           <li>
             <a
               class="block p-2 rounded hover:bg-slate-50"
+              href="waste-bank.html"
+              >Waste-Bank</a
+            >
+          </li>
+          <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50"
               href="contact-us.html"
               >Contact Us</a
             >
@@ -104,8 +115,240 @@
         </ul>
       </div>
     </header>
+
+    <main class="flex-1 pt-20 pb-16">
+      <section class="max-w-6xl mx-auto px-4">
+        <div class="mx-auto max-w-md">
+          <div class="relative">
+            <div
+              class="absolute -top-3 left-6 w-6 h-6 bg-slate-50 rounded-full border border-slate-200"
+            ></div>
+            <div
+              class="absolute -top-3 right-6 w-6 h-6 bg-slate-50 rounded-full border border-slate-200"
+            ></div>
+
+            <article
+              class="bg-white border border-slate-300 rounded-lg shadow-sm font-mono"
+            >
+              <div class="text-center px-4 pt-5">
+                <h2 class="text-base tracking-widest font-bold">
+                  TOKO GREENCYCLE
+                </h2>
+                <p class="text-xs text-slate-500">
+                  Jl. Rumah Tangga Bahagia No. 8
+                </p>
+                <p class="text-xs text-slate-500">Jakarta • 021-123456</p>
+              </div>
+
+              <div class="mt-4 border-t-2 border-dashed border-slate-300"></div>
+
+              <!-- Deskripsi -->
+              <div class="px-4 py-3">
+                <p class="mt-1 text-xs text-slate-600">
+                  Masukkan barcode kemasan belanjaan—kami bacakan bahan
+                  kemasannya dan kasih tips pilah yang praktis.
+                </p>
+              </div>
+
+              <div class="border-t border-dashed border-slate-300"></div>
+
+              <!-- Tanggal & “kasir” -->
+              <div
+                class="px-4 py-3 text-xs text-slate-600 grid grid-cols-2 gap-y-1"
+              >
+                <div>Tanggal:</div>
+                <div id="receiptDate" class="text-right">—</div>
+                <div>Kasir:</div>
+                <div class="text-right font-bold">Auto</div>
+              </div>
+
+              <div class="border-t border-dashed border-slate-300"></div>
+
+              <!-- Form Barcode -->
+              <div class="px-4 py-4">
+                <form id="barcodeForm" class="space-y-3">
+                  <label
+                    for="barcodeInput"
+                    class="block text-xs tracking-wide text-slate-500"
+                    >BARCODE PRODUK</label
+                  >
+                  <input
+                    id="barcodeInput"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    placeholder="Contoh: 899xxxxxxxxx"
+                    class="w-full rounded border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    class="w-full inline-flex items-center justify-center rounded bg-emerald-600 text-white px-4 py-2 text-sm font-bold tracking-wide hover:bg-emerald-700 active:translate-y-[1px] transition"
+                  >
+                    LIHAT TIPS
+                  </button>
+                </form>
+              </div>
+              <div class="px-4 pb-4 text-xs text-slate-600 space-y-2">
+                <p>
+                  Contoh cepat:
+                  <button
+                    type="button"
+                    class="ex-code underline hover:text-emerald-700"
+                    data-code="3017620422003"
+                  >
+                    3017620422003</button
+                  >,
+                  <button
+                    type="button"
+                    class="ex-code underline hover:text-emerald-700"
+                    data-code="8996001600146"
+                  >
+                    8996001600146
+                  </button>
+                </p>
+
+                <!-- Fallback tanpa barcode -->
+                <div class="pt-2">
+                  <p class="mb-2">Atau pilih jenis kemasan:</p>
+                  <div id="fallbackCats" class="flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      class="btn-cat px-3 py-1.5 rounded-md border text-emerald-800 border-emerald-300 bg-emerald-50 hover:bg-emerald-100 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                      data-cat="plastik"
+                    >
+                      Plastik
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-cat px-3 py-1.5 rounded border border-slate-300 hover:bg-slate-50"
+                      data-cat="kertas"
+                    >
+                      Kertas
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-cat px-3 py-1.5 rounded-md border text-cyan-800 border-cyan-300 bg-cyan-50 hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-300"
+                      data-cat="kaca"
+                    >
+                      Kaca
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-cat px-3 py-1.5 rounded-md border text-slate-800 border-slate-300 bg-slate-50 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                      data-cat="logam"
+                    >
+                      Logam
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-cat px-3 py-1.5 rounded-md border text-fuchsia-800 border-fuchsia-300 bg-fuchsia-50 hover:bg-fuchsia-100 focus:outline-none focus:ring-2 focus:ring-fuchsia-300"
+                      data-cat="komposit"
+                    >
+                      Komposit
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-t border-dashed border-slate-300"></div>
+
+              <!-- Loading -->
+              <div id="tipLoading" class="hidden px-4 py-3">
+                <div
+                  class="inline-flex items-center gap-3 rounded border border-slate-200 px-3 py-2"
+                >
+                  <svg
+                    class="animate-spin h-4 w-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="#e5e7eb"
+                      stroke-width="4"
+                    ></circle>
+                    <path
+                      d="M22 12a10 10 0 0 1-10 10"
+                      stroke="#10b981"
+                      stroke-width="4"
+                    ></path>
+                  </svg>
+                  <span class="text-xs">Sedang cek kemasan…</span>
+                </div>
+              </div>
+
+              <div class="border-t-2 border-dashed border-slate-300"></div>
+              <div class="px-4 py-4 text-center">
+                <p class="text-xs tracking-wide">Terima kasih!</p>
+                <p class="text-[10px] text-slate-500">
+                  Catatan: ini tampilan struk virtual—tidak otomatis tersimpan.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <p class="mt-6 text-sm text-slate-500 text-center">
+          Sumber data kemasan: OpenFoodFacts. Jika barcode belum ada datanya,
+          coba produk lain.
+        </p>
+      </section>
+
+      <!-- modal tip -->
+      <div
+        id="tipsModal"
+        class="fixed inset-0 z-[60] hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="tipsTitle"
+      >
+        <div id="modalBackdrop" class="absolute inset-0 bg-black/60"></div>
+
+        <div class="relative min-h-full overflow-y-auto z-10">
+          <div class="mx-auto my-10 w-full max-w-xl px-4">
+            <div
+              class="bg-white rounded-xl shadow-xl ring-1 ring-slate-900/10 border max-h-[85vh] overflow-y-auto"
+            >
+              <div class="flex items-center justify-between border-b px-4 py-3">
+                <h3 id="tipsTitle" class="font-semibold text-slate-800">
+                  Tips Kemasan
+                </h3>
+                <button
+                  id="modalClose"
+                  class="p-2 rounded hover:bg-slate-100"
+                  aria-label="Tutup"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 6l12 12M6 18L18 6" />
+                  </svg>
+                </button>
+              </div>
+              <div id="modalBody" class="p-4"></div>
+              <div class="border-t px-4 py-3 text-right">
+                <button
+                  id="modalOk"
+                  class="inline-flex items-center rounded bg-emerald-600 text-white px-3 py-1.5 text-sm font-semibold hover:bg-emerald-700 active:translate-y-[1px]"
+                >
+                  Tutup
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <footer
-      class="absolute bottom-0 left-0 right-0 border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700"
+      class="mt-auto border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700"
     >
       <div
         class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm"
@@ -118,5 +361,6 @@
     </footer>
 
     <script src="js/header.solid.js" defer></script>
+    <script src="js/tips.js" defer></script>
   </body>
 </html>

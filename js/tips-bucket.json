@@ -1,0 +1,260 @@
+{
+  "clean": {
+    "plastik": [
+      "Bilas 10–15 detik lalu tiriskan di rak piring.",
+      "Keringkan dulu supaya tidak bau saat disimpan.",
+      "Lepas label kertas kalau mudah; tidak perlu dipaksa.",
+      "Jangan pakai sabun berlebihan—cukup bilasan cepat.",
+      "Tiriskan botol terbalik supaya dalamnya cepat kering.",
+      "Hindari air panas langsung agar tidak melengkung."
+    ],
+    "plastik_tipis": [
+      "Usap sisa cokelat/krim dengan tisu secukupnya agar kering.",
+      "Tidak perlu dicuci berlebihan—hemat air; pastikan tidak lengket.",
+      "Jauhkan dari minyak/saus supaya tidak jadi residu.",
+      "Ratalkan, lalu angin-anginkan sebentar biar kering.",
+      "Kalau ada sisa remah, kibaskan dulu sebelum disimpan.",
+      "Potong memanjang jika perlu supaya gampang dilipat."
+    ],
+    "plastik_tebal": [
+      "Bilas botol/kotak sebentar, tiriskan terbalik hingga kering.",
+      "Lepas tutup kalau diminta bank sampah setempat.",
+      "Cabut ring/segel plastik jika mudah.",
+      "Lap sisa air di bibir botol agar tidak apek.",
+      "Kalau wadah berbau, bilas ulang singkat lalu keringkan.",
+      "Jangan rendam lama—cukup bilas seperlunya."
+    ],
+    "kertas": [
+      "Pastikan kering dan bebas minyak.",
+      "Jemur sebentar jika lembap.",
+      "Pisahkan kertas berminyak/tisu ke residu.",
+      "Lepas selotip plastik/jendela plastik amplop kalau mudah.",
+      "Ratakkan lipatan supaya gampang ditumpuk.",
+      "Simpan jauh dari air/kelembapan."
+    ],
+    "kaca": [
+      "Bilas perlahan, lap kering agar tidak licin.",
+      "Simpan utuh bila memungkinkan.",
+      "Periksa retak—jika pecah, bungkus tebal (ke residu) demi aman.",
+      "Jangan pakai air terlalu panas mendadak (risiko retak).",
+      "Keringkan mulut botol supaya tidak berjamur.",
+      "Pisahkan tutup logam/plastik."
+    ],
+    "logam": [
+      "Bilas kaleng agar tidak lengket.",
+      "Lap cepat bagian dalam kalau perlu—hati-hati tepi tajam.",
+      "Jangan tekan tutup tajam ke dalam; lebih aman dilepas dan dibungkus.",
+      "Keringkan supaya tidak berkarat.",
+      "Jika berbau kuat, rendam singkat air sabun lalu bilas.",
+      "Gunakan sarung tangan saat menangani tepi tajam."
+    ],
+    "komposit": [
+      "Bilas cepat, tiriskan, jangan dibiarkan basah.",
+      "Keringkan sebelum disimpan agar tidak berbau.",
+      "Tekan perlahan agar sisa cairan keluar, lalu tiriskan.",
+      "Jangan direndam lama—lapisan bisa mengelupas.",
+      "Kalau ada sedotan/tutup plastik, pisahkan.",
+      "Pastikan benar-benar kering sebelum dilipat."
+    ],
+    "lainnya": [
+      "Pastikan kemasan bersih dan kering sebelum disimpan.",
+      "Pisahkan bagian plastik/kertas/logam jika mudah.",
+      "Gunakan bilasan singkat, bukan rendaman lama.",
+      "Keringkan di tempat berventilasi."
+    ]
+  },
+  "space": {
+    "plastik": [
+      "Pipihkan botol/kemasan tebal supaya hemat tempat.",
+      "Kumpulkan di satu karung khusus plastik.",
+      "Simpan tutup kecil di kantong zip khusus.",
+      "Gunakan kotak bertutup agar tidak tercecer.",
+      "Kelompokkan berdasarkan merek/ukuran biar rapi.",
+      "Tulis label “plastik bersih” di wadah."
+    ],
+    "plastik_tipis": [
+      "Lipat kecil-kecil supaya hemat tempat sebelum disimpan.",
+      "Kumpulkan terpisah dari plastik tebal/botol.",
+      "Gulung jadi satu gulungan, ikat pakai karet.",
+      "Masukkan ke dispenser kantong (bekas botol) biar mudah ditarik.",
+      "Pisahkan yang transparan dan berwarna jika perlu.",
+      "Simpan di kantong bertanda “film/sachet”."
+    ],
+    "plastik_tebal": [
+      "Pipihkan botol bila aman; simpan tutup di kantong kecil terpisah.",
+      "Kelompokkan ukuran serupa agar ringkas.",
+      "Susun berdiri dalam kardus agar tidak menggelembung.",
+      "Ikat ringan tiap 5–10 botol untuk mudah diangkat.",
+      "Tulis jumlah perkiraan di luar kardus.",
+      "Letakkan yang sering dipakai paling depan."
+    ],
+    "kertas": [
+      "Lipat kardus dan ikat dengan tali agar rapi.",
+      "Tumpuk ukuran serupa supaya ringkas.",
+      "Pisahkan kertas tebal (dus) dan tipis (HVS) di dua tumpukan.",
+      "Gunakan palet/kardus alas supaya tidak lembap dari lantai.",
+      "Simpan jauh dari dapur/bak cuci.",
+      "Labeli tanggal kumpul untuk kontrol volume."
+    ],
+    "kaca": [
+      "Kelompokkan botol sejenis di kardus bekas yang kokoh.",
+      "Jangan ditumpuk terlalu tinggi.",
+      "Beri sekat kertas/koran di antara botol.",
+      "Letakkan paling bawah agar aman.",
+      "Tandai “kaca—hati-hati!” di kardus.",
+      "Pisahkan tutup di wadah lain."
+    ],
+    "logam": [
+      "Tata kaleng di satu wadah khusus.",
+      "Masukkan kaleng kecil ke dalam kardus.",
+      "Tumpuk kaleng searah mulutnya agar stabil.",
+      "Gunakan kardus tebal—tepi kaleng bisa merobek plastik.",
+      "Sediakan kantong kecil untuk serpihan logam.",
+      "Simpan di tempat kering agar tidak berkarat."
+    ],
+    "komposit": [
+      "Tekan kemasan tetra supaya lebih tipis.",
+      "Kumpulkan di kantong terpisah dari plastik biasa.",
+      "Ikat per 10–15 buah agar mudah diantar.",
+      "Tandai “komposit/tetra” di kantongnya.",
+      "Simpan tegak setelah dikeringkan.",
+      "Jauhkan dari panas agar lem tidak melekat."
+    ],
+    "lainnya": [
+      "Sediakan wadah berbeda untuk tiap jenis kemasan.",
+      "Pakai label warna: hijau (plastik), biru (kertas), bening (kaca), abu (logam), kuning (komposit).",
+      "Susun dari paling ringan ke paling berat.",
+      "Catat volume perkiraan per minggu."
+    ]
+  },
+  "reuse": {
+    "plastik": [
+      "Botol tebal bisa dipakai ulang untuk cairan pembersih.",
+      "Kotak plastik bening cocok untuk menyimpan alat kecil.",
+      "Jadikan organiser laci untuk karet gelang, jarum, klip.",
+      "Gunakan sebagai pot bibit (lubangi dasar sedikit).",
+      "Botol semprot bekas bisa jadi sprayer tanaman.",
+      "Kotak besar bisa jadi kotak mainan kecil."
+    ],
+    "plastik_tipis": [
+      "Jadikan liner tempat sampah kering kecil.",
+      "Bungkus sementara barang kecil agar tidak tercecer, lalu pilah lagi.",
+      "Kumpulkan kering; setor ke titik setor film plastik kalau ada di kotamu.",
+      "Gunakan sebagai pelindung sementara saat mengecat kecil.",
+      "Pakai untuk bungkus sementara bumbu kering, lalu pindahkan ke wadah.",
+      "Ikat rapi jadi roll agar mudah diambil."
+    ],
+    "plastik_tebal": [
+      "Manfaatkan untuk isi ulang sabun/cuci piring bila memungkinkan.",
+      "Kotak tebal cocok untuk menyimpan pernik-pernik laci.",
+      "Jadikan wadah alat bersih-bersih (sikat, spons).",
+      "Potong jadi sekat laci sederhana.",
+      "Botol besar bisa jadi corong darurat (dipotong bagian atas).",
+      "Gunakan untuk simpan pasir kucing/cadangan deterjen (kering)."
+    ],
+    "kertas": [
+      "Karton bagus bisa jadi laci penyimpan bumbu/saus.",
+      "Kertas bersih bisa jadi alas laci.",
+      "Gunakan koran/majalah bekas sebagai pembungkus paket.",
+      "Buat label rak sederhana dari karton.",
+      "Jadikan tatakan untuk kegiatan kerajinan anak.",
+      "Buat sekat di kardus penyimpanan."
+    ],
+    "kaca": [
+      "Jar kaca cocok untuk bumbu kering atau camilan.",
+      "Botol kaca bisa jadi vas kecil.",
+      "Simpan koin/alat kecil (sekrup, paku) dalam jar berlabel.",
+      "Jadikan stoples rempah kering—tulis tanggal simpan.",
+      "Dekorasi meja sederhana dengan pasir/kerikil.",
+      "Tempat cotton bud/kapas di kamar mandi."
+    ],
+    "logam": [
+      "Kaleng besar bisa jadi pot kecil (haluskan tepinya dulu).",
+      "Kaleng bisa jadi tempat alat bersih-bersih.",
+      "Buat tempat pensil—lapisi bagian tepi.",
+      "Kaleng kecil untuk lilin hias DIY (hati-hati panas).",
+      "Kaleng sarden jadi wadah sekrup dan mur.",
+      "Magnetkan label di kaleng agar mudah ditandai."
+    ],
+    "komposit": [
+      "Simpan rapi sampai jadwal titik setor khusus, jika ada.",
+      "Gunakan sementara untuk tempat serbaguna lalu pilah kembali.",
+      "Jadikan wadah kerajinan ringan (kering), lalu kembalikan ke pilahan.",
+      "Labeli tanggal kumpul agar tidak menumpuk terlalu lama.",
+      "Gunakan sebagai cetakan es batu? Tidak disarankan—lebih baik untuk barang kering.",
+      "Prioritaskan setor kembali bila tersedia."
+    ],
+    "lainnya": [
+      "Pilih kemasan yang mudah dipakai ulang di rumah.",
+      "Gunakan label agar semua anggota rumah paham isinya.",
+      "Prioritaskan penggunaan ulang untuk barang kering.",
+      "Kalau ragu soal keamanan makanan, pakai untuk non-pangan saja."
+    ]
+  },
+  "habit": {
+    "plastik": [
+      "Sediakan keranjang kecil dekat wastafel khusus kemasan bersih.",
+      "Tandai tempat plastik dengan stiker warna hijau.",
+      "Buat jadwal bilas cepat setelah masak/buka kemasan.",
+      "Minta anggota keluarga taruh langsung ke wadah plastik bersih.",
+      "Catat titik setor/bank sampah favoritmu.",
+      "Gunakan pengingat mingguan ‘setor plastik’ di HP."
+    ],
+    "plastik_tipis": [
+      "Kurangi kemasan porsi kecil; pilih ukuran keluarga lalu pindah ke wadah.",
+      "Catat titik setor film plastik (jika ada di kota kamu).",
+      "Simpen gulungan sachet di dispenser kecil biar rapi.",
+      "Tentukan batas volume—kalau penuh, segera setor/buang bijak.",
+      "Pilih produk isi ulang untuk kurangi sachet baru.",
+      "Ajak tetangga kumpul bareng untuk setor film plastik."
+    ],
+    "plastik_tebal": [
+      "Jadwalkan isi ulang bulanan untuk produk rumah tangga.",
+      "Simpan panduan simbol daur ulang di dekat tempat cuci piring.",
+      "Bawa botol isi ulang saat belanja, jika toko menerima.",
+      "Tetapkan satu kardus khusus ‘siap setor’.",
+      "Cek permintaan bank sampah: tutup dipisah atau tidak.",
+      "Foto volume bulanan untuk pantau progres."
+    ],
+    "kertas": [
+      "Buat jadwal buang kertas tiap akhir pekan.",
+      "Tempel label “kertas kering” di wadahnya.",
+      "Sediakan map ‘kertas bersih’ dekat meja belajar anak.",
+      "Jauhkan kertas dari area kompor/sink.",
+      "Ikat per tumpukan supaya mudah diangkut.",
+      "Ajak anak bantu melipat kardus sebagai tugas ringan."
+    ],
+    "kaca": [
+      "Simpan kaca di sudut aman, jauh dari jangkauan anak.",
+      "Tandai “kaca” dengan stiker peringatan.",
+      "Gunakan alas kardus tebal untuk area kaca.",
+      "Jangan mengangkat kardus kaca sendirian kalau berat.",
+      "Cek retak sebelum dipakai ulang.",
+      "Sediakan sarung tangan tebal dekat area kaca."
+    ],
+    "logam": [
+      "Siapkan sarung tangan dekat wadah logam untuk keamanan.",
+      "Catat jadwal antar ke bank sampah di kalender rumah.",
+      "Pakai magnet sederhana untuk bedakan kaleng besi dan aluminium.",
+      "Gulung tepi tajam dengan plester kertas sebelum disimpan.",
+      "Kumpulkan tutup logam di stoples kecil berlabel.",
+      "Timbang perkiraan bulanan untuk motivasi setor."
+    ],
+    "komposit": [
+      "Cari info titik setor khusus (Tetra Pak) di sekitar rumah.",
+      "Buat catatan kecil jadwal pengantaran.",
+      "Pisahkan dari plastik biasa agar tidak tercampur.",
+      "Tempel catatan ‘komposit=prioritas setorkan, bukan simpan lama’.",
+      "Cek program take-back dari merek tertentu.",
+      "Bikin pengingat bulanan untuk setor komposit."
+    ],
+    "lainnya": [
+      "Tempel panduan pilah sederhana di kulkas.",
+      "Satukan jadwal bank sampah dengan jadwal belanja.",
+      "Sediakan 5 menit setelah makan untuk bereskan kemasan.",
+      "Ajak pasangan/anak pilih satu tugas pilah masing-masing.",
+      "Foto sebelum-sesudah area pilah untuk semangat.",
+      "Rayakan tiap kali setor penuh satu kardus! 🎉"
+    ]
+  }
+}

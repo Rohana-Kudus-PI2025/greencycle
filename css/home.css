@@ -1,0 +1,149 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+}
+
+.swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.6;
+}
+
+.swiper-pagination-bullet-active {
+  background: #10b981;
+}
+
+.roll-wrap {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.roll-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 36px;
+  background: radial-gradient(
+      120% 60% at 50% -40%,
+      rgba(0, 0, 0, 0.18),
+      transparent 60%
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.roll-content {
+  will-change: clip-path, transform, opacity;
+  clip-path: inset(100% 0 0 0 round 28px);
+  transform: translateY(12vh);
+  opacity: 0;
+  transition: clip-path 900ms cubic-bezier(0.22, 0.99, 0.14, 1),
+    transform 900ms cubic-bezier(0.22, 0.99, 0.14, 1), opacity 600ms ease;
+}
+
+.roll-active .roll-content {
+  clip-path: inset(0 0 0 0 round 0px);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.roll-active::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+canvas {
+  display: block;
+}
+
+@keyframes scan {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    top: 50%;
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.scanner {
+  animation: scan 2s ease-in-out infinite;
+}
+
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes radar {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.animate-radar {
+  animation: radar 2.2s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ping-slow,
+  .animate-radar {
+    animation: none !important;
+    opacity: 0.6 !important;
+    transform: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .swiper {
+    --container-w: 72rem;
+    --gutter: calc((100vw - var(--container-w)) / 2);
+    --safe: max(var(--gutter), 1rem);
+  }
+  .swiper-button-prev {
+    left: var(--safe);
+  }
+  .swiper-button-next {
+    right: var(--safe);
+  }
+}
