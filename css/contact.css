@@ -31,31 +31,6 @@
     .header-solid {
       background-color: white;
     }
-    /* contact.css */
-    nav a {
-      position: relative;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -5px;
-      left: 0;
-      background-color: var(--green-primary);
-      transition: width 0.3s ease;
-    }
-    
-    nav a:hover {
-      color: var(--green-primary);
-    }
-    
-    nav a:hover::after {
-      width: 100%;
-    }
     
     .cta-sm {
     padding: 0.375rem 0.875rem;
