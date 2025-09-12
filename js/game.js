@@ -499,7 +499,7 @@ function openModal() {
         <div class="text-xs text-slate-800 mb-1">Pilihanmu: <span class="font-semibold">
           ${LABEL[m.chosen] || m.chosen}
         </span></div>
-        <div class="text-xs text-emerald-300 mb-1">Seharusnya: <span class="font-semibold">
+        <div class="text-xs text-emerald-600 mb-1">Seharusnya: <span class="font-semibold">
           ${LABEL[m.correct] || m.correct}
         </span></div>
         <div class="text-xs text-slate-800">Alasan: ${m.reason}</div>
