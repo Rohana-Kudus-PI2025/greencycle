@@ -18,9 +18,6 @@ const livesEl = document.getElementById("hud-lives");
 const startModal = document.getElementById("start-modal");
 const startPlayBtn = document.getElementById("start-play");
 
-
-let streakTouchedThisSession = false; // guard biar nggak dobel di 1 sesi tab
-
 let streakTouchedThisSession = false;
 // ===== Items
 const ITEMS = window.ITEMS || [];
@@ -430,7 +427,7 @@ itemWrap.addEventListener("dragend", () => {
     );
 });
 
-// ===== Drop targets (single source of truth)
+// ===== Drop targets
 document.querySelectorAll(".bin").forEach((bin) => {
   bin.addEventListener("dragover", (e) => e.preventDefault());
 
