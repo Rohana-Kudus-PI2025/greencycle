@@ -19,7 +19,6 @@
   }
 
   function fetchFunFact(apiKey) {
-    // pastikan refs ready
     if (!qLoad || !qText || !qAuthor) grabRefs();
 
     // reset UI
@@ -132,7 +131,6 @@
 
   // ===== DIPANGGIL DARI game.js =====
   function openLevelUpModal({ prevLevel, nextLevel, score, onContinue }) {
-    // pastikan refs selalu fresh
     grabRefs();
 
     if (elPrev) elPrev.textContent = String(prevLevel);
@@ -146,7 +144,7 @@
     modal?.classList.remove("hidden");
     modal?.classList.add("flex");
 
-    // ambil fun fact (pakai API key global milikmu)
+    // ambil fun fact (pakai API key global)
     fetchFunFact(window.API_NINJAS_KEY);
 
     // listener sekali jalan

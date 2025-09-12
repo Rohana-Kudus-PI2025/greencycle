@@ -18,7 +18,7 @@ const livesEl = document.getElementById("hud-lives");
 const startModal = document.getElementById("start-modal");
 const startPlayBtn = document.getElementById("start-play");
 
-let streakTouchedThisSession = false; // guard biar nggak dobel di 1 sesi tab
+let streakTouchedThisSession = false;
 
 // ===== Items
 const ITEMS = window.ITEMS || [];
@@ -39,7 +39,7 @@ const STREAK_KEY = "sortitout_daily_streak_v1";
 let score = parseInt(localStorage.getItem(SCORE_KEY) || "0", 10);
 let level = parseInt(localStorage.getItem(LEVEL_KEY) || "1", 10);
 
-// === NEW: Date helpers (pakai tanggal lokal user)
+// === NEW: Date helpers
 function todayStr() {
   const now = new Date();
   const y = now.getFullYear();
@@ -48,7 +48,6 @@ function todayStr() {
   return `${y}-${m}-${d}`; // YYYY-MM-DD
 }
 function diffDays(isoA, isoB) {
-  // hitung selisih hari berbasis local time
   const a = new Date(isoA + "T00:00:00");
   const b = new Date(isoB + "T00:00:00");
   const ms = b - a;
@@ -91,7 +90,7 @@ function touchDailyStreak() {
   }
 
   if (st.lastPlayed === today) {
-    // sudah dihitung hari ini, no-op
+    // sudah dihitung hari ini
     renderStreakHUD(st);
     return;
   }
