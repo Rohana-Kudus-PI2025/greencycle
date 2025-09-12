@@ -1,5 +1,5 @@
 window.CDN =
-  "https://cdn.jsdelivr.net/gh/Rohana-Kudus-PI2025/asset-sortItOut@main/";
+  "https://cdn.jsdelivr.net/gh/Rohana-Kudus-PI2025/asset-sortItOut@94887d875c/";
 
 // js/data.js
 window.ITEMS = [
@@ -93,8 +93,8 @@ window.ITEMS = [
   },
 
   {
-    id: "alumunium_umum",
-    name: "Aluminium (Umum)",
+    id: "alumunium",
+    name: "Aluminium",
     file: "daur-ulang/alumunium.jpeg",
     category: "recycle",
     explain:
@@ -142,7 +142,7 @@ window.ITEMS = [
   },
   {
     id: "kaleng_soda",
-    name: "Kaleng Soda (Aluminium)",
+    name: "Kaleng Soda",
     file: "daur-ulang/kaleng-soda.jpeg",
     category: "recycle",
     explain:
@@ -150,7 +150,7 @@ window.ITEMS = [
   },
   {
     id: "kaleng_susu",
-    name: "Kaleng Susu (Baja)",
+    name: "Kaleng Susu",
     file: "daur-ulang/kaleng-susu.jpeg",
     category: "recycle",
     explain:
@@ -198,7 +198,7 @@ window.ITEMS = [
   },
   {
     id: "wadah_plastik",
-    name: "Wadah Plastik (Clamshell)",
+    name: "Wadah Plastik",
     file: "daur-ulang/wadah-plastik.jpeg",
     category: "recycle",
     explain:
@@ -239,7 +239,7 @@ window.ITEMS = [
   },
   {
     id: "kardus_telur",
-    name: "Kardus Telur (Pulp)",
+    name: "Kardus Telur",
     file: "kertas/kardus-telur.jpeg",
     category: "paper",
     explain:
@@ -263,7 +263,7 @@ window.ITEMS = [
   },
   {
     id: "kotak_kertas",
-    name: "Kotak Kertas (Paperboard)",
+    name: "Kotak Kertas",
     file: "kertas/kotak-kertas.jpeg",
     category: "paper",
     explain:
@@ -280,7 +280,7 @@ window.ITEMS = [
 
   {
     id: "styrofoam",
-    name: "Styrofoam (EPS)",
+    name: "Styrofoam",
     file: "sampah/Styrofoam.jpeg",
     category: "trash",
     explain:
@@ -320,7 +320,7 @@ window.ITEMS = [
   },
   {
     id: "cangkir_kertas",
-    name: "Cangkir Kertas (Berpelapis)",
+    name: "Cangkir Kertas",
     file: "sampah/cangkir-kertas.jpeg",
     category: "trash",
     explain:
@@ -385,7 +385,7 @@ window.ITEMS = [
   {
     id: "popok",
     name: "Popok",
-    file: "sampah/popok.jpeg",
+    file: "sampah/images.jpeg",
     category: "trash",
     explain:
       "Produk saniter sekali pakai dengan inti penyerap yang dikelompokkan sebagai residu saniter.",
