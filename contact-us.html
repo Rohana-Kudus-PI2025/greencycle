@@ -24,55 +24,47 @@
   </head>
   <body class="flex flex-col min-h-screen text-slate-800">
     <!-- Header -->
-    <header id="siteHeader" class="header header-solid">
-      <div
-        class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between"
-      >
+     <header
+      class="shrink-0 bg-white/80 backdrop-blur border-b border-slate-100"
+    >
+      <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
         <a href="index.html" class="flex items-center gap-2">
-          <img
-            src="assets/images/logo.svg"
-            alt="GreenCycle logo"
-            class="w-7 h-7"
-          />
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10" fill="#10b981" />
+            <path
+              d="M7.5 12.5c1.2-2.7 4.1-4.5 7.3-3.9-1.1 2.7-4 4.6-7.3 3.9Z"
+              fill="#fff"
+            />
+            <path
+              d="M9 15.5c2.3.6 4.8-.2 6.3-2-1.9-.6-4.3.2-6.3 2Z"
+              fill="#f0fdf4"
+            />
+          </svg>
           <span class="font-bold text-lg">GreenCycle</span>
         </a>
         <nav class="hidden md:block">
-          <ul class="flex items-center gap-6">
+          <ul class="flex items-center gap-8 font-medium text-[15px]">
+            <li><a class="navlink" href="index.html">Home</a></li>
             <li>
-              <a href="index.html">Home</a>
+              <a class="navlink text-slate-900" href="overview.html"
+                >Overview</a
+              >
             </li>
-            <li>
-              <a href="overview.html">Overview</a>
-            </li>
-            <li>
-              <a href="tips-and-trick.html">Tips & Trick</a>
-            </li>
-            <li>
-              <a href="contact-us.html">Contact Us</a>
-            </li>
-            <li>
-              <a href="game.html" class="cta cta-sm">Game</a>
-            </li>
+            <li><a class="navlink pixel" href="game.html">Play Game</a></li>
+            <li><a class="navlink" href="contact-us.html">Contact Us</a></li>
           </ul>
         </nav>
         <button
           id="openMenu"
-          class="md:hidden p-2 rounded-md border border-slate-200 bg-white/70 backdrop-blur"
-          aria-expanded="false"
-          aria-controls="mobileMenu"
+          class="md:hidden px-3 py-2 rounded-md border border-slate-200"
         >
-          <img
-            id="iconHamburger"
-            src="assets/images/hamburger.svg"
-            alt="menu"
-            class="h-6 w-6"
-          />
-          <img
-            id="iconClose"
-            src="assets/images/close.svg"
-            alt="close"
-            class="h-6 w-6 hidden"
-          />
+          Menu
         </button>
       </div>
       <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100">
@@ -89,23 +81,14 @@
           </li>
           <li>
             <a
-              class="block p-2 rounded hover:bg-slate-50"
-              href="tips-and-trick.html"
-              >Tips & Trick</a
-            >
-          </li>
-          <li>
-            <a
-              class="block p-2 rounded hover:bg-slate-50"
-              href="contact-us.html"
-              >Contact Us</a
-            >
-          </li>
-          <li>
-            <a
-              class="block p-2 rounded hover:bg-slate-50 font-pixelify"
+              class="block p-2 rounded hover:bg-slate-50 pixel"
               href="game.html"
               >Play Game</a
+            >
+          </li>
+          <li>
+            <a class="block p-2 rounded hover:bg-slate-50" href="contact-us.html"
+              >Contact Us</a
             >
           </li>
         </ul>
