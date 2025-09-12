@@ -17,17 +17,19 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
       const first = form.querySelector("[name=first_name]").value;
       const last = form.querySelector("[name=last_name]").value;
 
+      // Ambil elemen modal dan span nama
+      const successModal = document.getElementById("successModal");
       const userNameSpan = document.getElementById("userName");
 
-      if (userNameSpan) {
-        // Kalau elemen ada → isi nama ke modal
-        userNameSpan.innerText = first + " " + last;
+      if (successModal && userNameSpan) {
+        // Isi nama pengguna ke modal
+        userNameSpan.innerText = `${first} ${last}`;
 
-        // Tampilkan modal sukses
-        document.getElementById("successModal").classList.remove("hidden");
-      } else {
-        // Kalau elemen gak ada → fallback alert biasa
-        alert(`✅ Pesan berhasil dikirim.\nTerima kasih ${first} ${last}, kami sudah kirim balasan otomatis ke email kamu 📩`);
+        // Tampilkan modal dengan animasi
+        successModal.classList.remove("hidden");
+        // Tambahkan kelas untuk memulai animasi
+        successModal.querySelector('div').classList.remove('scale-95', 'opacity-0');
+        successModal.querySelector('div').classList.add('scale-100', 'opacity-100');
       }
 
       form.reset();
@@ -40,5 +42,15 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 
 // Tutup modal
 function closeModal() {
-  document.getElementById("successModal").classList.add("hidden");
+  const successModal = document.getElementById("successModal");
+  if (successModal) {
+    // Tambahkan kelas untuk animasi penutupan
+    successModal.querySelector('div').classList.remove('scale-100', 'opacity-100');
+    successModal.querySelector('div').classList.add('scale-95', 'opacity-0');
+    
+    // Sembunyikan setelah animasi selesai
+    setTimeout(() => {
+      successModal.classList.add("hidden");
+    }, 300); // Sesuaikan dengan durasi transisi CSS
+  }
 }
