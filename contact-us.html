@@ -3,78 +3,50 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Waste Sorting Indonesia — Home</title>
+    <title>GreenCycle — Edukasi Sortir Sampah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <meta
       name="description"
-      content="Gerakan edukasi sortir sampah yang dipimpin perempuan—mainkan game pilah organik, anorganik, dan B3. Ajak keluarga, jaga lingkungan."
+      content="Edukasi sortir sampah dengan game interaktif. Pilah organik, anorganik, dan B3. Ajak keluarga menjaga lingkungan!"
     />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Inter untuk body -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Pixelify Sans untuk elemen pixel -->
     <link
       href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
     <style>
-      :root {
-        color-scheme: light;
-      }
-      html,
       body {
-        height: 100%;
-        margin: 0;
-        overflow-x: hidden; 
-        overflow-y: auto;
+        font-family: "Inter", sans-serif;
+        background-color: #f7f8fb;
       }
-      body {
-        background: #f7f8fb;
-        font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
-          "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
-          "Apple Color Emoji", "Segoe UI Emoji";
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        letter-spacing: 0.01em;
-      }
-
-      /* font pixel hanya untuk elemen tertentu */
       .pixel {
-        font-family: "Pixelify Sans", ui-monospace, monospace;
-        letter-spacing: 0.02em;
+        font-family: "Pixelify Sans", monospace;
       }
-
-      /* Tombol pixel ala game retro */
       .pixel-btn {
-        --p-bg: #22c55e; /* hijau utama */
-        --p-bg-light: #34d399; /* highlight dalam */
-        --p-bg-dark: #16a34a; /* bayangan dalam */
-        --p-border: #14532d; /* border gelap */
-        font-family: "Pixelify Sans", ui-monospace, monospace;
-        display: inline-block;
+        --p-bg: #22c55e;
+        --p-bg-light: #34d399;
+        --p-bg-dark: #16a34a;
+        --p-border: #14532d;
+        font-family: "Pixelify Sans", monospace;
         padding: 12px 20px;
         background: var(--p-bg);
         color: #fff;
         border: 4px solid var(--p-border);
-        border-radius: 0; /* sudut kotak (pixel) */
-        image-rendering: pixelated;
-        text-decoration: none;
-        line-height: 1;
         box-shadow: inset 4px 4px 0 var(--p-bg-light),
           inset -4px -4px 0 var(--p-bg-dark), 0 6px 0 var(--p-border),
-           0 10px 0 #00000022; 
-        transition: transform 50ms linear, box-shadow 50ms linear,
-          filter 120ms ease;
+          0 10px 0 #00000022;
+        transition: transform 0.1s ease;
       }
       .pixel-btn:hover {
-        filter: brightness(1.03);
+        filter: brightness(1.05);
       }
       .pixel-btn:active {
         transform: translateY(6px);
@@ -82,29 +54,17 @@
           inset -3px -3px 0 var(--p-bg-dark), 0 0 0 var(--p-border),
           0 4px 0 #00000022;
       }
-
-      canvas {
-        display: block;
-      }
-      .navlink:hover {
-        color: #2563eb;
-      }
     </style>
   </head>
-  <body class="min-h-[100svh] flex flex-col text-slate-800 overflow-x-hidden">
+
+  <body class="flex flex-col min-h-screen text-slate-800">
     <!-- Header -->
-    <header
-      class="shrink-0 bg-white/80 backdrop-blur border-b border-slate-100"
-    >
-      <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
-        <a href="index.html" class="flex items-center gap-2">
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
+    <header class="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+      <div
+        class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="flex items-center gap-2 group">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="12" r="10" fill="#10b981" />
             <path
               d="M7.5 12.5c1.2-2.7 4.1-4.5 7.3-3.9-1.1 2.7-4 4.6-7.3 3.9Z"
@@ -115,191 +75,176 @@
               fill="#f0fdf4"
             />
           </svg>
-          <span class="font-bold text-lg">GreenCycle</span>
+          <span
+            class="font-bold text-lg group-hover:text-emerald-600 transition"
+            >GreenCycle</span
+          >
         </a>
-        <nav class="hidden md:block">
-          <ul class="flex gap-6">
-            <li>
-              <a href="index.html" class="hover:text-emerald-600">Home</a>
-            </li>
-            <li>
-              <a href="overview.html" class="hover:text-emerald-600"
-                >Overview</a
-              >
-            </li>
-            <li><a href="game.html" class="hover:text-emerald-600">Game</a></li>
-            <li>
-              <a href="tips-and-trick.html" class="hover:text-emerald-600"
-                >Tips and Trick</a
-              >
-            </li>
-            <li>
-              <a href="contact.html" class="hover:text-emerald-600"
-                >Contact Us</a
-              >
-            </li>
-          </ul>
+        <nav class="hidden md:flex gap-6 font-medium">
+          <a
+            href="#"
+            class="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-600 hover:after:w-full after:transition-all"
+            >Home</a
+          >
+          <a
+            href="#benefits"
+            class="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-600 hover:after:w-full after:transition-all"
+            >Manfaat</a
+          >
+          <a
+            href="game.html"
+            class="pixel relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-600 hover:after:w-full after:transition-all"
+            >Game</a
+          >
+          <a
+            href="#contact"
+            class="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-600 hover:after:w-full after:transition-all"
+            >Kontak</a
+          >
         </nav>
-        <button
-          id="openMenu"
-          class="md:hidden px-3 py-2 rounded-md border border-slate-200"
-        >
-          Menu
-        </button>
-      </div>
-      <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100">
-        <ul class="p-4 space-y-2">
-          <li>
-            <a class="block p-2 rounded hover:bg-slate-50" href="home.html"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a class="block p-2 rounded hover:bg-slate-50" href="overview.html"
-              >Overview</a
-            >
-          </li>
-          <li>
-            <a
-              class="block p-2 rounded hover:bg-slate-50 pixel"
-              href="game.html"
-              >Play Game</a
-            >
-          </li>
-          <li>
-            <a class="block p-2 rounded hover:bg-slate-50" href="contactus.html"
-              >Contact Us</a
-            >
-          </li>
-        </ul>
       </div>
     </header>
 
-    <!-- Main -->
-    <!-- CONTACT -->
-<section id="contact" class="relative border-t border-slate-200">
-  <div class="absolute inset-0 bg-gradient-to-r from-slate-50 to-blue-50 pointer-events-none"></div>
-
-  <div class="relative z-10 max-w-6xl mx-auto px-4 py-12 md:py-16 grid md:grid-cols-2 gap-10">
-    <!-- Kiri: info -->
-    <div class="min-w-0">
-      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Contact Us</h2>
-      <p class="mt-4 text-slate-600 max-w-prose">
-        Email, call, atau isi form ini—kita siap bantu soal edukasi & game sortir sampah.
-      </p>
-
-       <div class="mt-6 space-y-2 text-[15px]">
-      <a href="mailto:hello@greencycle.id" class="block hover:text-blue-600">hello@greencycle.id</a>
-      <a href="tel:+62321221231" class="block hover:text-blue-600">+62-321-221-231</a>
-      <a href="#" class="underline underline-offset-2 hover:text-blue-600">Customer Support</a>
-    </div>
-
-      <div class="mt-8 grid sm:grid-cols-3 gap-6 text-sm">
+    <!-- Contact -->
+    <section
+      id="contact"
+      class="bg-blue-50 py-16 border-t border-slate-200"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start"
+      >
+        <!-- Info -->
         <div>
-          <p class="font-semibold">Customer Support</p>
-          <p class="text-slate-600">Tim kami siap 24/7 buat bantu kendala teknis & pertanyaan umum.</p>
-        </div>
-        <div>
-          <p class="font-semibold">Feedback</p>
-          <p class="text-slate-600">Masukan kamu bantu kami ningkatin konten & gameplay.</p>
-        </div>
-        <div>
-          <p class="font-semibold">Media</p>
-          <p class="text-slate-600">Untuk rilis pers & kolaborasi media, hubungi alamat di atas.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Kanan: form -->
-    <div class="min-w-0">
-      <div class="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 md:p-7">
-        <h3 class="text-xl font-bold">Get in Touch</h3>
-        <p class="text-slate-500 text-sm">You can reach us anytime</p>
-
-        <form id="contact-form" class="mt-6 space-y-4">
-          <div class="grid grid-cols-2 gap-3">
-            <input name="first_name" class="col-span-1 w-full border border-slate-300 rounded-lg p-3" placeholder="First name" required>
-            <input name="last_name"  class="col-span-1 w-full border border-slate-300 rounded-lg p-3" placeholder="Last name" required>
-          </div>
-
-          <input type="email" name="reply_to" class="w-full border border-slate-300 rounded-lg p-3" placeholder="Email" required>
-
-          <div class="grid grid-cols-4 gap-3">
-            <select name="dial_code" class="col-span-1 border border-slate-300 rounded-lg p-3">
-              <option value="+62">+62</option>
-              <option value="+60">+60</option>
-              <option value="+65">+65</option>
-            </select>
-            <input name="phone" class="col-span-3 w-full border border-slate-300 rounded-lg p-3" placeholder="Phone number">
-          </div>
-
-          <textarea name="message" class="w-full border border-slate-300 rounded-lg p-3" rows="5" placeholder="How can we help?" required></textarea>
-
-          <!-- hidden compose field for EmailJS -->
-          <input type="hidden" name="from_name" value="">
-          <!-- honeypot -->
-          <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
-
-          <button id="btnSend" type="submit"
-                  class="w-full rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 transition">
-            Submit
-          </button>
-          <p id="formStatus" class="text-sm text-slate-500"></p>
-
-          <p class="text-xs text-slate-400">
-            By contacting us, you agree to our <a href="#" class="underline">Terms of Service</a> and
-            <a href="#" class="underline">Privacy Policy</a>.
+          <h2 class="text-3xl font-bold mb-4">Hubungi Kami</h2>
+          <p class="text-slate-600 mb-4">
+            Email, telepon, atau isi form di samping. Kami siap bantu edukasi &
+            support teknis.
           </p>
+          <div class="text-sm space-y-2">
+            <p>
+              <strong>Email:</strong>
+              <a
+                href="mailto:hello@greencycle.id"
+                class="hover:text-blue-600"
+                >hello@greencycle.id</a
+              >
+            </p>
+            <p>
+              <strong>Telepon:</strong>
+              <a href="tel:+62321221231" class="hover:text-blue-600"
+                >+62-321-221-231</a
+              >
+            </p>
+            <p>
+              <strong>Dukungan:</strong> Siap membantu Anda baik untuk pertanyaan umum maupun teknis.
+            </p>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form
+          class="bg-white rounded-2xl shadow-lg p-6 space-y-4"
+          id="contact-form"
+        >
+          <div class="grid grid-cols-2 gap-4">
+            <input
+              type="text"
+              name="first_name"
+              placeholder="Nama depan"
+              class="p-3 border border-slate-300 rounded focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+              required
+            />
+            <input
+              type="text"
+              name="last_name"
+              placeholder="Nama belakang"
+              class="p-3 border border-slate-300 rounded focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+              required
+            />
+          </div>
+          <input
+            type="email"
+            name="reply_to"
+            placeholder="Email"
+            class="w-full p-3 border border-slate-300 rounded focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Pesan Anda"
+            rows="4"
+            class="w-full p-3 border border-slate-300 rounded focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full bg-emerald-600 hover:bg-emerald-700 active:scale-95 transition text-white font-semibold py-3 rounded"
+          >
+            Kirim
+          </button>
         </form>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- SUCCESS / ERROR MODAL -->
-<div id="notifyModal" class="fixed inset-0 z-[100] hidden items-center justify-center">
-  <!-- overlay -->
-  <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" data-close></div>
 
-  <!-- card -->
-  <div role="dialog" aria-modal="true" aria-labelledby="modalTitle"
-       class="relative bg-white rounded-2xl shadow-2xl border border-slate-200 w-[92%] max-w-md p-6 mx-auto">
-    <div id="modalIcon" class="mx-auto mb-3 h-12 w-12 rounded-full grid place-items-center"></div>
-    <h3 id="modalTitle" class="text-xl font-bold text-center">Pesan terkirim!</h3>
-    <p id="modalMsg" class="mt-2 text-slate-600 text-center">
-      Terima kasih! Kami sudah menerima pesanmu.
+    <!-- Modal Notifikasi -->
+<div id="successModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+  <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm text-center">
+    <h3 class="text-xl font-bold text-emerald-600 mb-2">Pesan Terkirim!</h3>
+    <p class="text-slate-600 mb-4">
+      Terima kasih <span id="userName"></span>, pesan kamu sudah kami terima.<br>
+      Kami juga sudah mengirim balasan otomatis ke email kamu
     </p>
-
-    <div class="mt-6 flex items-center justify-center gap-3">
-      <button type="button" class="px-4 py-2 rounded-lg border border-slate-300" data-close>Oke</button>
-    </div>
+    <button onclick="closeModal()" 
+      class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-semibold">
+      Tutup
+    </button>
   </div>
 </div>
 
-
-
     <!-- Footer -->
-    <footer class="shrink-0 border-t border-slate-200 bg-white">
+    <footer class="bg-emerald-50 border-t border-emerald-100 mt-auto">
       <div
-        class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm text-slate-500"
+        class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-slate-600"
       >
-        <p>© 2025 Waste Sorting Indonesia</p>
-        <nav class="flex items-center gap-4">
-          <a href="#" class="hover:text-slate-700">Privasi</a>
-          <a href="#" class="hover:text-slate-700">Ketentuan</a>
-          <a href="#heroFrame" class="hover:text-slate-700">Ke atas ↑</a>
+        <p>
+          © 2025 <strong class="text-emerald-700">GreenCycle</strong>. Semua Hak
+          Dilindungi.
+        </p>
+        <nav class="flex gap-4 mt-3 md:mt-0">
+          <a href="#" class="hover:text-emerald-600">Privasi</a>
+          <a href="#" class="hover:text-emerald-600">Ketentuan</a>
+          <a href="#heroFrame" class="hover:text-emerald-600">↑ Ke atas</a>
         </nav>
       </div>
     </footer>
 
     <!-- Scripts -->
-    <script>
-      const btn = document.getElementById("openMenu");
-      const menu = document.getElementById("mobileMenu");
-      if (btn)
-        btn.addEventListener("click", () => menu.classList.toggle("hidden"));
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="./js/contact.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // 🔑 Ganti dengan Public Key dari EmailJS
+  emailjs.init("uYeGQJz0eESNTGqrB");  
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const form = this;
+
+    // 1. Kirim ke admin
+    emailjs.sendForm("service_j5dc3ej", "template_2edtmr5", form)
+      .then(() => {
+        // 2. Kirim auto-reply ke user
+        return emailjs.sendForm("service_j5dc3ej", "template_8t21pdw", form);
+      })
+      .then(() => {
+        alert("✅ Pesan berhasil dikirim.\n📩 Kami juga sudah kirim balasan otomatis ke email Anda.");
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Gagal mengirim:", error);
+        alert("❌ Ups! Terjadi kesalahan. Coba lagi ya.");
+      });
+  });
+</script>
   </body>
 </html>

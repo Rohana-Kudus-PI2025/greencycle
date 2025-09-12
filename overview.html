@@ -22,144 +22,80 @@
       rel="stylesheet"
     />
 
-    <style>
-      :root {
-        color-scheme: light;
-      }
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-      }
-      body {
-        background: #f7f8fb;
-        font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
-          "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        letter-spacing: 0.01em;
-      }
-      .pixel {
-        font-family: "Pixelify Sans", ui-monospace, monospace;
-        letter-spacing: 0.02em;
-      }
-      .navlink:hover {
-        color: #2563eb;
-      }
+    <!--navbar-->
+   
+    <link rel="stylesheet" href="assets/css/components/navbar.css" />
+    <link rel="stylesheet" href="assets/css/components/cta.css" />
 
-      /* chips */
-      .chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.25rem 0.6rem;
-        border-radius: 999px;
-        background: #ecfdf5;
-        color: #065f46;
-        border: 1px solid #a7f3d0;
-        font-size: 0.75rem;
-      }
-
-      /* CTA pixel */
-      .pixel-btn {
-        --p-bg: #22c55e;
-        --p-light: #34d399;
-        --p-dark: #16a34a;
-        --p-border: #14532d;
-        font-family: "Pixelify Sans", ui-monospace, monospace;
-        display: inline-block;
-        padding: 12px 20px;
-        color: #fff;
-        text-decoration: none;
-        line-height: 1;
-        background: var(--p-bg);
-        border: 4px solid var(--p-border);
-        border-radius: 0;
-        image-rendering: pixelated;
-        box-shadow: inset 4px 4px 0 var(--p-light),
-          inset -4px -4px 0 var(--p-dark), 0 6px 0 var(--p-border),
-          0 10px 0 #0002;
-        transition: transform 50ms linear, box-shadow 50ms linear,
-          filter 120ms ease;
-      }
-      .pixel-btn:hover {
-        filter: brightness(1.03);
-      }
-      .pixel-btn:active {
-        transform: translateY(6px);
-        box-shadow: inset 3px 3px 0 var(--p-light),
-          inset -3px -3px 0 var(--p-dark), 0 0 0 var(--p-border), 0 4px 0 #0002;
-      }
-
-      /* Counter shell & tiles (monokrom) */
-      .counter-shell {
-        background: #0f1f19;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
-      }
-      .stat-number {
-        font-variation-settings: "wght" 800;
-      }
-      .counter-tile {
-        position: relative;
-        border-radius: 16px;
-        background: transparent; /* no tint */
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        padding: 20px;
-      }
-      .counter-tile::before {
-        content: none;
-      } 
-    </style>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="overview.css">
+    
   </head>
   <body class="min-h-screen flex flex-col text-slate-800 overflow-x-hidden">
     <!-- Header -->
-    <header
-      class="shrink-0 bg-white/80 backdrop-blur border-b border-slate-100"
-    >
-      <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+     <header id="siteHeader" class="header header-solid">
+      <div
+        class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between"
+      >
         <a href="index.html" class="flex items-center gap-2">
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <circle cx="12" cy="12" r="10" fill="#10b981" />
-            <path
-              d="M7.5 12.5c1.2-2.7 4.1-4.5 7.3-3.9-1.1 2.7-4 4.6-7.3 3.9Z"
-              fill="#fff"
-            />
-            <path
-              d="M9 15.5c2.3.6 4.8-.2 6.3-2-1.9-.6-4.3.2-6.3 2Z"
-              fill="#f0fdf4"
-            />
-          </svg>
+          <img
+            src="assets/images/logo.svg"
+            alt="GreenCycle logo"
+            class="w-7 h-7"
+          />
           <span class="font-bold text-lg">GreenCycle</span>
         </a>
         <nav class="hidden md:block">
-          <ul class="flex items-center gap-8 font-medium text-[15px]">
-            <li><a class="navlink" href="home.html">Home</a></li>
+          <ul class="flex items-center gap-6">
             <li>
-              <a class="navlink text-slate-900" href="overview.html"
-                >Overview</a
-              >
+              <a href="index.html">Home</a>
             </li>
-            <li><a class="navlink pixel" href="game.html">Play Game</a></li>
-            <li><a class="navlink" href="contactus.html">Contact Us</a></li>
+            <li>
+              <a href="overview.html">Overview</a>
+            </li>
+            <li>
+              <a href="tips-and-trick.html">Tips & Trick</a>
+            </li>
+            <li>
+              <a href="waste-bank.html">Waste Bank</a>
+            </li>
+            <li>
+              <a href="contact-us.html">Contact Us</a>
+            </li>
+            <li>
+              <a href="game.html" class="cta cta-sm">Game</a>
+            </li>
           </ul>
         </nav>
         <button
           id="openMenu"
-          class="md:hidden px-3 py-2 rounded-md border border-slate-200"
+          class="md:hidden p-2 rounded-md border border-slate-200 bg-white/70 backdrop-blur"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
         >
-          Menu
+          <img
+            id="iconHamburger"
+            src="assets/images/hamburger.svg"
+            alt="menu"
+            class="h-6 w-6"
+          />
+          <img
+            id="iconClose"
+            src="assets/images/close.svg"
+            alt="close"
+            class="h-6 w-6 hidden"
+          />
         </button>
       </div>
       <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100">
         <ul class="p-4 space-y-2">
           <li>
-            <a class="block p-2 rounded hover:bg-slate-50" href="home.html"
+            <a class="block p-2 rounded hover:bg-slate-50" href="index.html"
               >Home</a
             >
           </li>
@@ -170,20 +106,36 @@
           </li>
           <li>
             <a
-              class="block p-2 rounded hover:bg-slate-50 pixel"
-              href="game.html"
-              >Play Game</a
+              class="block p-2 rounded hover:bg-slate-50"
+              href="tips-and-trick.html"
+              >Tips & Trick</a
+            >
+          </li>
+           <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50"
+              href="waste-bank.html"
+              >Waste Bank</a
             >
           </li>
           <li>
-            <a class="block p-2 rounded hover:bg-slate-50" href="contactus.html"
+            <a
+              class="block p-2 rounded hover:bg-slate-50"
+              href="contact-us.html"
               >Contact Us</a
+            >
+          </li>
+          <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50 font-pixelify"
+              href="game.html"
+              >Play Game</a
             >
           </li>
         </ul>
       </div>
     </header>
-
+    
     <!-- Main -->
     <main class="flex-1">
       <!-- LATAR BELAKANG (judul) -->
@@ -191,96 +143,100 @@
         <div
           class="absolute inset-0 -z-10 bg-gradient-to-b from-[#eefcf5] via-[#f3fdf8] to-transparent"
         ></div>
-        <div class="max-w-6xl mx-auto px-4 pt-10 md:pt-14">
+        <div class="w-fit max-w-6xl mx-auto px-4 pt-10 md:pt-14">
           <h1
-            class="mt-1 text-center text-3xl sm:text-4xl font-extrabold text-slate-900"
+            class="mt-12 text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900"
           >
-            Dipimpin Perempuan, Dimulai di Rumah
+            Sudahkan Kamu Memilah Sampah Hari Ini?
           </h1>
 
           <!-- COUNTER (setelah judul, kotak tanpa warna) -->
           <div
-            class="mt-6 md:mt-8 counter-shell rounded-2xl px-4 md:px-8 py-6 text-white"
+            class=" md:w-4/5 mx-auto mt-6 md:mt-8 counter-shell rounded-2xl px-4  py-1 text-white "
           >
-            <h2 class="font-bold text-base md:text-lg text-white/90">
-              Quick Facts (Indonesia, 2024)
-            </h2>
-            <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-              <!-- 1. Nasional -->
+            <div class="mt-4 grid grid-cols-3 md:grid-cols-3 gap-3 md:gap-8">
+              <!-- 1. sampah belum terpilah-->
               <div class="text-center counter-tile">
                 <div
-                  class="stat-number text-3xl md:text-4xl lg:text-5xl counter"
-                  data-target="61.7"
+                  class="stat-number text-4xl md:text-5xl sm- counter font-extrabold"
+                  data-target="81"
                   data-suffix="%"
                 >
                   0%
                 </div>
-                <div class="mt-2 text-slate-300 text-sm">
-                  Sampah terkelola (nasional)
+                <div class="mt-2 text-slate-300 text-sm" >
+                  Sampah berakhir belum terpilah
                 </div>
               </div>
               <!-- 2. Rumah tangga -->
               <div class="text-center counter-tile">
                 <div
-                  class="stat-number text-3xl md:text-4xl lg:text-5xl counter"
-                  data-target="50.8"
+                  class="stat-number text-4xl md:text-5xl counter font-extrabold"
+                  data-target="51"
                   data-suffix="%"
                 >
                   0%
                 </div>
                 <div class="mt-2 text-slate-300 text-sm">
-                  Kontribusi sumber rumah tangga
+                  Rumah tangga belum memilah sampah
                 </div>
               </div>
-              <!-- 3. Sisa makanan -->
+              <!-- 3. tidak ingin repot -->
               <div class="text-center counter-tile">
                 <div
-                  class="stat-number text-3xl md:text-4xl lg:text-5xl counter"
-                  data-target="39.9"
+                  class="stat-number text-4xl md:text-5xl counter font-extrabold"
+                  data-target="79"
                   data-suffix="%"
                 >
                   0%
                 </div>
                 <div class="mt-2 text-slate-300 text-sm">
-                  Komposisi: sisa makanan
+                  Tidak ingin repot memilah sampah
                 </div>
               </div>
-              <!-- 4. Plastik -->
-              <div class="text-center counter-tile">
-                <div
-                  class="stat-number text-3xl md:text-4xl lg:text-5xl counter"
-                  data-target="19.6"
-                  data-suffix="%"
-                >
-                  0%
-                </div>
-                <div class="mt-2 text-slate-300 text-sm">
-                  Komposisi: plastik
-                </div>
-              </div>
+             
             </div>
-            <p class="mt-3 text-xs text-slate-400">
-              Sumber: SIPSN & rilis terkait.
+            <p class="mt-3 text-xs text-slate-400 pb-2" >
+              <i>Sumber: waste4change.com</i>
             </p>
           </div>
 
           <!-- Narasi setelah counter -->
-          <div class="pb-10 md:pb-14">
+          <div class="pb-10 md:pb-14 max-w-5xl mx-auto">
             <p
-              class="mt-6 text-lg text-slate-700 leading-relaxed text-center max-w-3xl mx-auto"
+              class="md:w-4/5 mx-auto mt-6 text-lg text-slate-700 leading-relaxed text-center "
             >
-              Di Indonesia, lebih dari setengah timbulan sampah datang dari
-              rumah tangga—dan pengelolaan harian ini banyak dipegang
-              <strong>ibu & perempuan</strong>. terbesar masih
-              <strong>sisa makanan</strong>, disusul <strong>plastik</strong>.
-              <br class="hidden sm:block" /><strong>GreenCycle</strong>
-              mempermudah langkah pertama:
-              <em>latihan memilah lewat game 60 detik</em>, lalu bawa kebiasaan
-              itu ke dapur & keluarga.
+             Sampah yang tidak dipilah dengan benar bisa menimbulkan banyak masalah. Tumpukan sampah bercampur menimbulkan bau tak sedap, mencemari tanah dan air, bahkan mengganggu kesehatan masyarakat. Selain itu, sampah yang seharusnya bisa didaur ulang justru berakhir sia-sia di tempat pembuangan.
+             <br><br>
+
+            Namun perubahan selalu bisa dimulai dari hal kecil. Seorang <b>Perempuan Muda</b> berani mengambil langkah pertama dengan membiasakan diri memilah sampah dari rumahnya sendiri. Dari tindakan sederhana ini, ia ingin menginspirasi banyak orang untuk ikut menjaga kebersihan lingkungan.
+            <br><br>
+
+            Lewat <b>Green Cycle</b>, pemain diajak belajar cara memilah sampah dengan benar — mulai dari membedakan sampah organik, anorganik, hingga sampah daur ulang. Dengan cara yang seru dan interaktif, game ini mengajarkan bahwa kebiasaan kecil bisa membawa dampak besar bagi bumi.
+              <br><br>
+              <b class="text-green-800">Ayo, selamatkan bumi kita dengan mulai memilah sampah dari sekarang!</b>
+            </p>
+              
             </p>
 
-            <div class="text-center mt-8">
-              <a href="game.html" class="pixel pixel-btn">Mainkan Game</a>
+            <div class="mt-16 wrap w-11/12 mx-auto flex justify-center items-center">
+                      <!-- Parent C -->
+              <div class="relative">
+                <img id="imgC" src="assets/images/c.png" alt="perempuan membawa sampah">
+                <img id="imgA" src="assets/images/a.png" draggable="true" alt="botol sampah" class="shake">
+                <img id="imgB" src="assets/images/b.png" alt="tempat sampah kuning">
+                <img id="imgE" src="assets/images/e.png" alt="tulisan klik dan drag" class="shake2">
+              </div class="mt-16">
+              <img id="imgD" src="assets/images/d.png" alt="bantu perempuan memilah sampah">
+            </div>
+<br>
+            <div id="mainButton" class="text-center mt-8">
+                <a
+                href="game.html"
+                class="inline-block mt-5 sm:mt-6 px-5 py-3 cta"
+              >
+                Mulai main
+              </a>
             </div>
           </div>
         </div>
@@ -288,59 +244,22 @@
     </main>
 
     <!-- Footer -->
-    <footer id="contact" class="shrink-0 border-t border-slate-200 bg-white">
-      <div class="max-w-6xl mx-auto px-4 py-6 text-sm text-slate-600">
-        <div
-          class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
-        >
-          <p>© 2025 GreenCycle</p>
-          <p>
-            Kontak:
-            <a
-              class="text-slate-800 hover:underline"
-              href="mailto:hello@greencycle.id"
-              >hello@greencycle.id</a
-            >
-          </p>
-        </div>
+    <footer
+      class="left-0 right-0 border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700 mt-auto"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm"
+      >
+        <p>© 2025 GreenCycle - Perempuan Inovasi</p>
+        <nav class="flex items-center gap-4">
+          <a href="contact-us.html" class="hover:text-slate-900">Contact Us</a>
+        </nav>
       </div>
     </footer>
 
     <!-- Scripts -->
-    <script>
-      // Mobile menu
-      const btn = document.getElementById("openMenu");
-      const menu = document.getElementById("mobileMenu");
-      if (btn)
-        btn.addEventListener("click", () => menu.classList.toggle("hidden"));
-
-      // Animate counters (desimal + suffix)
-      const counters = document.querySelectorAll(".counter");
-      const ioCounters = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (!e.isIntersecting) return;
-            const el = e.target;
-            const target = parseFloat(el.dataset.target || "0");
-            const suffix = el.dataset.suffix || "";
-            const decimals = String(el.dataset.target).includes(".") ? 1 : 0;
-            const dur = 1200;
-            const start = performance.now();
-            function tick(now) {
-              const p = Math.min(1, (now - start) / dur);
-              const val = target * (0.08 + 0.92 * p * p);
-              el.textContent =
-                (decimals ? val.toFixed(1) : Math.floor(val)) + suffix;
-              if (p < 1) requestAnimationFrame(tick);
-            }
-            requestAnimationFrame(tick);
-            ioCounters.unobserve(el);
-          });
-        },
-        { threshold: 0.4 }
-      );
-      counters.forEach((c) => ioCounters.observe(c));
-    </script>
+    <script src="overview.js" defer></script>
     <script src="./js/sfx.js"></script>
+    <script src="js/header.solid.js" defer></script>
   </body>
 </html>
