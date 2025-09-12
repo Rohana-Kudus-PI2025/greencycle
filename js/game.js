@@ -18,9 +18,6 @@ const livesEl = document.getElementById("hud-lives");
 const startModal = document.getElementById("start-modal");
 const startPlayBtn = document.getElementById("start-play");
 
-
-let streakTouchedThisSession = false; // guard biar nggak dobel di 1 sesi tab
-
 let streakTouchedThisSession = false;
 // ===== Items
 const ITEMS = window.ITEMS || [];
