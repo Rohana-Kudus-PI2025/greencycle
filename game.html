@@ -11,6 +11,7 @@
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/components/navbar.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="assets/css/components/cta.css" />
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet" />
     <script>
@@ -71,7 +72,6 @@
 
         body {
             background: #f7f8fb;
-            font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             letter-spacing: .01em;
@@ -171,6 +171,9 @@
                         <a href="tips-and-trick.html">Tips & Trick</a>
                     </li>
                     <li>
+                        <a href="waste-bank.html">Waste bank</a>
+                    </li>
+                    <li>
                         <a href="contact-us.html">Contact Us</a>
                     </li>
                     <li>
@@ -197,6 +200,9 @@
                     <a class="block p-2 rounded hover:bg-slate-50" href="tips-and-trick.html">Tips & Trick</a>
                 </li>
                 <li>
+                    <a class="block p-2 rounded hover:bg-slate-50" href="waste-bank.html">Waste Bank</a>
+                </li>
+                <li>
                     <a class="block p-2 rounded hover:bg-slate-50" href="contact-us.html">Contact Us</a>
                 </li>
                 <li>
@@ -206,36 +212,60 @@
         </div>
     </header>
 
+    <!-- HUD fixed overlay -->
+<div id="hud-fixed"
+     class="fixed top-16 inset-x-0 z-50 opacity-0 -translate-y-2 pointer-events-none
+            transition-all duration-300 ease-out">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between bg-white/80 backdrop-blur
+                border border-slate-200 rounded-xl shadow px-4 py-2 text-sm">
+      <div class="flex items-center gap-2">
+        <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span id="hud-fixed-level" class="font-semibold">Level 1</span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <span>Score <b id="hud-fixed-score">0</b></span>
+        <span id="hud-fixed-lives">❤️❤️❤️❤️❤️</span>
+        <span>Time <b id="hud-fixed-time">00:30</b></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
     <main class="flex-1">
         <!-- background lembut biar senada Overview -->
-         
+
         <section id="game-area"
             class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] min-h-[45vh] pt-16 md:pt-20">
-            
+
             <div class="max-w-6xl mx-auto px-4 pt-8 md:pt-12 pb-10">
-                <h1 class="mb-8 font-bold sm:text-6xl text-4xl animate-bounce text-emerald-500 text-center">Let’s sort it out!</h1>
+                <h1 class="mb-8 font-bold sm:text-4xl text-3xl animate-bounce text-cyan-800 text-center">Saatnya Pilah Sampah!</h1>
                 <!-- HUD -->
                 <section class="grid grid-rows-1.5 gap-4 items-start mb-6">
 
                     <!-- Level + Daily Streak -->
-                    <div class="col-span-12 sm:col-span-3 grid gap-2 items-center"> 
+                    <div class="col-span-12 sm:col-span-3 grid gap-2 items-center">
                         <div
-                            class="bg-[rgba(245,245,245,0.5)] border border-slate-200 rounded-xl px-4 py-3 flex items-center justify-between shadow-soft">
+                            class="bg-[rgba(245,245,245,0.8)] border border-slate-200 rounded-xl px-4 py-3 flex items-center justify-between shadow-soft">
                             <div>
-                                <div class="text-sm font-semibold">Daily Streak</div>
-                                <div class="text-xs text-slate-500">Main tiap hari biar nggak putus</div>
+                                <div class="text-base font-bold">Daily Streak</div>
+                                <div class="text-xs text-gray-800">Main tiap hari biar makin jago</div>
                             </div>
                             <div class="text-right">
                                 <div class="text-2xl font-extrabold text-emerald-700" id="hud-streak">0🔥</div>
-                                <div class="text-[11px] text-slate-500">Best: <span id="hud-streak-best">0</span></div>
+                                <div class="text-[11px] text-gray-800">Best: <span id="hud-streak-best">0</span></div>
                             </div>
                         </div>
 
                         <div
-                            class="bg-[rgba(245,245,245,0.5)] border border-slate-200 rounded-xl px-4 py-3 shadow-soft flex items-center justify-between">
+                            class="bg-[rgba(245,245,245,0.8)] border border-slate-200 rounded-xl px-4 py-3 shadow-soft flex items-center justify-between">
                             <div class="text-sm">
-                                <div class="font-semibold">Music</div>
-                                <div class="text-xs text-slate-500">Background loop</div>
+                                <div class="text-2xl font-bold">🔊</div>
+                                
                             </div>
                             <div class="flex items-center gap-2">
                                 <button id="music-toggle"
@@ -258,21 +288,21 @@
                         <!-- Score + Lives -->
                         <div class="col-span-12 sm:col-span-6 grid gap-2">
                             <div
-                                class="bg-[rgba(245,245,245,0.5)] border border-slate-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-soft">
+                                class="bg-[rgba(245,245,245,0.8)] border border-slate-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-soft">
                                 <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                                <span id="hud-level" class="font-semibold left-0">Level 1</span>
+                                <span id="hud-level" class="font-semibold left-0 text-xl">Level 1</span>
                             </div>
                             <div
                                 class="grid place-items-center rounded-xl bg-[rgba(105,240,172,0.5)] border border-emerald-200 h-20 text-3xl font-extrabold text-emerald-700 shadow-soft">
                                 <div
-                                    class="bg-[rgba(245,245,245,0.5)] border border-slate-200 px-4 py-2 text-xs text-slate-500 shadow-soft">
-                                    Your Level Score
+                                    class="bg-[rgba(245,245,245,0.8)] border border-slate-200 px-4 py-1 text-base text-slate-600 shadow-soft">
+                                    Score
                                 </div>
                                 <span id="hud-score">0</span>
                             </div>
 
                             <div id="hud-lives"
-                                class="flex items-center justify-center gap-2 rounded-xl bg-[rgba(245,245,245,0.5)] border border-slate-200 h-12 text-2xl shadow-soft">
+                                class="flex items-center justify-center gap-2 rounded-xl bg-[rgba(245,245,245,0.8)] border border-slate-200 h-12 text-2xl shadow-soft">
 
                             </div>
                         </div>
@@ -280,7 +310,7 @@
 
                     <!-- Timer -->
                     <div
-                        class="col-span-12 sm:col-span-6 bg-[rgba(245,245,245,0.5)] border border-slate-200 rounded-xl px-4 py-3 shadow-soft">
+                        class="col-span-12 sm:col-span-6 bg-[rgba(245,245,245,0.8)] border border-slate-200 rounded-xl px-4 py-3 shadow-soft">
                         <h1 class="font-bold mb-2">Timer</h1>
                         <div class="relative h-3 w-full overflow-hidden rounded-full bg-slate-200">
                             <div id="hud-progress"
@@ -301,24 +331,29 @@
                 <!-- Item draggable -->
                 <section class="grid place-items-center mb-10">
 
-                    
-                    <div id="drag-wrap" draggable="true"
-                        class="relative grid place-items-center aspect-square h-64 w-64 p-4 rounded-2xl bg-[rgba(105,240,172,0.5)] border border-slate-200 shadow-ring cursor-grab active:cursor-grabbing select-none overflow-hidden"
+
+                    <div id="drag-wrap"
+                        class="relative grid place-items-center aspect-square h-64 w-64 p-4 rounded-2xl bg-[rgba(105,240,172,0.5)] border border-slate-200 shadow-ring overflow-hidden"
                         data-category="recycle">
-                        <img id="item-img" src="" alt=""
-                            class="block w-auto h-auto max-w-[100%] max-h-[100%] object-contain drop-shadow pointer-events-none select-none"
-                            crossorigin="anonymous" draggable="false" />
+
+                        <!-- FRAME FIXED UNTUK GAMBAR -->
+                        <div id="item-frame" class="size-54 flex items-center justify-center">
+                            <img id="item-img" src="" alt=""
+                                class="block size-full object-contain drop-shadow pointer-events-none select-none"
+                                crossorigin="anonymous" draggable="false" />
+
+                        </div>
+
                         <div
-                            class="mt-3 px-4 py-2 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold">
+                            class="px-4 py-2 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold">
                             <span id="item-name">Empty Milk Carton</span>
                         </div>
                     </div>
 
-                    <p class="mt-3 text-xs text-slate-500">Drag item ke tempat sampah yang benar ↓</p>
 
-                    <button id="reset">
-                        <a class="pixel pixel-btn yellow cursor-pointer select-none mt-5">Reset Progres</a>
-                    </button>
+                    <p class="mt-3 text-base text-slate-600 bg-[rgba(234,255,142,0.8)] p-2 rounded-xl">Drag item ke tempat sampah yang benar ↓</p>
+
+
                 </section>
 
                 <!-- Toast -->
@@ -332,11 +367,11 @@
 
                     <!-- ========== Food Scraps ========== -->
                     <button id="bin-food" data-category="food"
-                        class="bin flex flex-col items-center rounded-2xl bg-[rgba(245,245,245,0.5)] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+                        class="bin flex flex-col items-center rounded-2xl bg-[rgba(245,245,245,0.8)] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
 
                         <!-- icon + label (atas) -->
                         <div class="mb-2 flex flex-col items-center gap-1">
-                            <span class="text-[15px] font-semibold text-slate-700">Food Scraps</span>
+                            <span class="text-[15px] font-semibold text-slate-700">Sisa Makanan</span>
                         </div>
 
                         <!-- tong -->
@@ -354,10 +389,10 @@
 
                     <!-- ========== Recyclable Containers ========== -->
                     <button id="bin-recycle" data-category="recycle"
-                        class="bin flex flex-col items-center rounded-2xl bg-[rgba(245,245,245,0.5)] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+                        class="bin flex flex-col items-center rounded-2xl bg-[rgba(245,245,245,0.8)] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
 
                         <div class="mb-2 flex flex-col items-center gap-1">
-                            <span class="text-[15px] font-semibold text-slate-700">Recyclable Containers</span>
+                            <span class="text-[15px] font-semibold text-slate-700">Daur Ulang</span>
                         </div>
 
                         <div class="relative w-[92px]">
@@ -371,10 +406,10 @@
 
                     <!-- ========== Paper ========== -->
                     <button id="bin-paper" data-category="paper"
-                        class="bin flex flex-col items-center rounded-2xl bg-[rgba(245,245,245,0.5)] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+                        class="bin flex flex-col items-center rounded-2xl bg-[rgba(245,245,245,0.8)] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
 
                         <div class="mb-2 flex flex-col items-center gap-1">
-                            <span class="text-[15px] font-semibold text-slate-700">Paper</span>
+                            <span class="text-[15px] font-semibold text-slate-700">Kertas</span>
                         </div>
 
                         <div class="relative w-[92px]">
@@ -388,10 +423,10 @@
 
                     <!-- ========== Garbage ========== -->
                     <button id="bin-trash" data-category="trash"
-                        class="bin flex flex-col items-center rounded-2xl bg-[rgba(245,245,245,0.5)] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
+                        class="bin flex flex-col items-center rounded-2xl bg-[rgba(245,245,245,0.8)] border border-slate-200 p-6 shadow-sm hover:shadow-md transition">
 
                         <div class="mb-2 flex flex-col items-center gap-1">
-                            <span class="text-[15px] font-semibold text-slate-700">Garbage</span>
+                            <span class="text-[15px] font-semibold text-slate-700">Sampah Residu</span>
                         </div>
 
                         <div class="relative w-[92px]">
@@ -404,7 +439,12 @@
                     </button>
 
                 </section>
-
+                <div class="flex justify-center mt-20">
+                    <button id="reset">
+                        <p class="mt-3 text-base text-slate-600 bg-[rgba(255,255,255,0.8)] p-2 rounded-xl">⚠️ Tombol reset akan mengulang skor dan level dari awal ↓</p>
+                        <a class="pixel pixel-btn yellow cursor-pointer select-none mt-5">Reset Progres</a>
+                    </button>
+                </div>
             </div>
         </section>
     </main>
@@ -425,11 +465,12 @@
         <div class="absolute inset-0 bg-black/60"></div>
         <div
             class="relative max-w-lg w-[92%] bg-white border border-slate-200 rounded-2xl p-6 text-slate-800 shadow-soft">
-            <h3 class="text-xl font-bold mb-2">Ready to Sort? ♻️</h3>
-            <ul class="text-sm text-slate-600 space-y-2 mb-4">
-                <li>• 5 jawaban benar beruntun ⇒ <b>Naik level</b></li>
-                <li>• Kamu punya <b>5 nyawa</b>. Salah atau kehabisan waktu ⇒ -1 nyawa</li>
-                <li>• Timer reset tiap naik level</li>
+            <h3 class="text-xl font-bold mb-2">Siap Pilah Sampah? ♻️</h3>
+            <ul class="text-base text-slate-600 space-y-2 mb-4">
+                <li>• 5 jawaban benar berturut-turut ⇒ <b>Naik level</b></li>
+                <li>• Kamu punya <b>5 nyawa</b></li>
+                <li>• Salah atau kehabisan waktu ⇒ <b>-1 nyawa</b></li>
+                <li>• <b>Timer reset</b> tiap naik level</li>
             </ul>
             <div class="flex justify-end gap-3">
                 <a id="start-play" class="pixel pixel-btn cursor-pointer select-none">Mulai</a>
@@ -469,7 +510,7 @@
             </div>
 
             <div id="quote-box" class="rounded-xl bg-slate-50 border border-slate-200 p-4 mb-5">
-                <div id="quote-loading" class="flex items-center gap-2 text-slate-500">
+                <div id="quote-loading" class="flex items-center gap-2 text-slate-600">
                     <svg class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
                         </circle>
@@ -478,7 +519,7 @@
                     <span>Ngambil fun fact...</span>
                 </div>
                 <blockquote id="quote-text" class="hidden italic text-slate-700"></blockquote>
-                <div id="quote-author" class="hidden mt-1 text-sm text-slate-500"></div>
+                <div id="quote-author" class="hidden mt-1 text-sm text-slate-600"></div>
             </div>
 
             <div class="flex justify-between gap-3">
@@ -491,8 +532,11 @@
 
 
     <!-- Scripts -->
+
     <!-- game logic -->
     <script src="./js/data.js" defer></script>
+    <script src="./js/hud-fixed.js" defer></script>
+
     <script>
         // opsional: biar fetch ke API Ninjas jalan
         window.API_NINJAS_KEY = 'IpDtw+Wntva8tDjf9w8jKg==8cAnPgygDBegLIWm'
