@@ -1,0 +1,154 @@
+  :root {
+        color-scheme: light;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        
+        background: #f7f8fb;
+        font-family:  "Poppins", sans-serif, system-ui, -apple-system,
+          "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        letter-spacing: 0.01em;
+      }
+      .pixel {
+        font-family: "Pixelify Sans", ui-monospace, monospace;
+        letter-spacing: 0.02em;
+      }
+      .navlink:hover {
+        color: #2563eb;
+      }
+
+      /* chips */
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        background: #ecfdf5;
+        color: #065f46;
+        border: 1px solid hwb(152 65% 5%);
+        font-size: 0.75rem;
+      }
+
+      /* CTA pixel */
+      .pixel-btn {
+        --p-bg: #22c55e;
+        --p-light: #34d399;
+        --p-dark: #16a34a;
+        --p-border: #14532d;
+        font-family: "Pixelify Sans", ui-monospace, monospace;
+        display: inline-block;
+        padding: 12px 20px;
+        color: #fff;
+        text-decoration: none;
+        line-height: 1;
+        background: var(--p-bg);
+        border: 4px solid var(--p-border);
+        border-radius: 0;
+        image-rendering: pixelated;
+        box-shadow: inset 4px 4px 0 var(--p-light),
+          inset -4px -4px 0 var(--p-dark), 0 6px 0 var(--p-border),
+          0 10px 0 #0002;
+        transition: transform 50ms linear, box-shadow 50ms linear,
+          filter 120ms ease;
+      }
+      .pixel-btn:hover {
+        filter: brightness(1.03);
+      }
+      .pixel-btn:active {
+        transform: translateY(6px);
+        box-shadow: inset 3px 3px 0 var(--p-light),
+          inset -3px -3px 0 var(--p-dark), 0 0 0 var(--p-border), 0 4px 0 #0002;
+      }
+
+      /* Counter shell & tiles (monokrom) */
+      .counter-shell {
+        background: #14532d;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+      .stat-number {
+        font-variation-settings: "wght" 800;
+      }
+      .counter-tile {
+        position: relative;
+        border-radius: 16px;
+        background: transparent; /* no tint */
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        padding: 20px;
+      }
+      .counter-tile::before {
+        content: none;
+      } 
+
+        .wrap {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+    /* gambar C sebagai background */
+    #imgC {
+      width: 600px;
+      height: auto;
+      display: block;
+    }
+    /* gambar A di atas C */
+    #imgA {
+      position: absolute;
+      top: 25%;   /* ganti dari px ke % */
+      left: 65%;  /* relatif ke lebar C */
+      width: 10%; /* kecilin sesuai persentase dari lebar C */
+      cursor: grab;
+      z-index: 2;
+    }
+    /* tempat sampah kuning */
+    #imgB {
+      position: absolute;
+      top: 47%;
+      left: 19.5%;
+      width: 18%; /* proporsi lebar dari C */
+      cursor: pointer;
+      z-index: 2;
+    }
+    /* tulisan klik dan drag */
+        #imgE {
+      position: absolute;
+      top: -36%;   /* ganti dari px ke % */
+      width: 100%; /* kecilin sesuai persentase dari lebar C */
+    }
+    /* img baru */
+    #imgD {
+        position: absolute;
+      width: 600px;
+      height: auto;
+      display: none; /* awalnya disembunyikan */
+    }
+
+      /* animasi shaking */
+    @keyframes shake {
+      0%   { transform: translate(0, 0); }
+      20%  { transform: translate(-5px, 0); }
+      40%  { transform: translate(5px, 0); }
+      60%  { transform: translate(-5px, 0); }
+      80%  { transform: translate(5px, 0); }
+      100% { transform: translate(0, 0); }
+    }
+    .shake {
+      animation: shake 1.5s infinite; /* looping terus */
+    }
+     @keyframes shake2 {
+      0%   { transform: translate(0, 0); }
+      20%  { transform: translate(0,-3px); }
+      40%  { transform: translate(0,3px); }
+      60%  { transform: translate(0, -3px); }
+      80%  { transform: translate(0, 3px ); }
+      100% { transform: translate(0, 0); }
+    }
+    .shake2 {
+      animation: shake2 1.5s infinite; /* looping terus */
+    }

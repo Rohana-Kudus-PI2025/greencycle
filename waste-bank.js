@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }).addTo(map);
 
   // Ambil data dari data.json
-  fetch("banksampah.json")
+  fetch("waste-bank.json")
     .then(res => res.json())
     .then(data => {
       dataBankSampah = data;
