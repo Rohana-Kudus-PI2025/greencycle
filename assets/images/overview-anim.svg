@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 320 236" fill="none" preserveAspectRatio="xMidYMid meet">
+  <style>
+    /* Matikan elemen bergerak kalau user pilih Reduce Motion */
+    @media (prefers-reduced-motion: reduce){ .svg-motion { display:none !important; } }
+  </style>
+
+  <!-- Dapur -->
+  <g transform="translate(40,78)">
+    <rect x="-20" y="32" width="72" height="36" rx="6" fill="#BAF2D6"/>
+    <rect x="-14" y="40" width="24" height="6" rx="3" fill="#10B981" opacity=".6"/>
+    <rect x="14"  y="40" width="24" height="6" rx="3" fill="#10B981" opacity=".6"/>
+    <rect x="2" y="20" width="28" height="10" rx="4" fill="#34D399"/>
+    <rect x="10" y="16" width="12" height="4" rx="2" fill="#10B981"/>
+    <path d="M12,12 c2,-6 6,-6 8,0" stroke="#059669" stroke-width="2" stroke-linecap="round" fill="none" opacity=".7"/>
+  </g>
+
+  <!-- Rumah ramah -->
+  <g transform="translate(220,64)">
+    <path d="M-40 28 L0 -6 L40 28" fill="#10B981"/>
+    <rect x="-36" y="28" width="72" height="56" rx="8" fill="#D1FAE5"/>
+    <rect x="-4" y="56" width="16" height="28" rx="3" fill="#34D399"/>
+    <path d="M-18 50 c0 -4 3 -7 7 -7 c4 0 7 3 7 7 c0 7 -7 11 -7 11 s-7 -4 -7 -11z" fill="#10B981" opacity=".9"/>
+    <path d="M16 50 c8 -8 18 -8 24 -4 c-6 10 -16 12 -24 4z" fill="#34D399" opacity=".8"/>
+    <circle cx="12" cy="56" r="2" fill="#10B981"/>
+  </g>
+
+  <!-- Empat tempat pilah -->
+  <g transform="translate(188,168)">
+    <rect x="-64" y="0" width="20" height="28" rx="4" fill="#F59E0B"/>
+    <rect x="-38" y="0" width="20" height="28" rx="4" fill="#10B981"/>
+    <rect x="-12" y="0" width="20" height="28" rx="4" fill="#3B82F6"/>
+    <rect x="14"  y="0" width="20" height="28" rx="4" fill="#EF4444"/>
+    <ellipse cx="-54" cy="30" rx="10" ry="3" fill="rgba(0,0,0,.08)"/>
+    <ellipse cx="-28" cy="30" rx="10" ry="3" fill="rgba(0,0,0,.08)"/>
+    <ellipse cx="-2"  cy="30" rx="10" ry="3" fill="rgba(0,0,0,.08)"/>
+    <ellipse cx="24"  cy="30" rx="10" ry="3" fill="rgba(0,0,0,.08)"/>
+  </g>
+
+  <!-- Rute statis (backup saat reduced motion) -->
+  <path d="M60,118 C110,100 140,132 168,132 C190,132 200,148 198,162"
+        stroke="#34D399" stroke-width="6" stroke-linecap="round" opacity=".18" fill="none"/>
+
+  <!-- Animasi rute + langkah kecil + pulsa -->
+  <defs>
+    <path id="route" d="M60,118 C110,100 140,132 168,132 C190,132 200,148 198,162"/>
+  </defs>
+
+  <g class="svg-motion">
+    <use href="#route" stroke="#34D399" stroke-width="6" fill="none"
+         stroke-linecap="round" opacity=".5" stroke-dasharray="12 12">
+      <animate attributeName="stroke-dashoffset" from="0" to="-240" dur="4.5s" repeatCount="indefinite"/>
+    </use>
+
+    <circle r="5" fill="#10B981">
+      <animateMotion dur="4.5s" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#route" href="#route"/>
+      </animateMotion>
+    </circle>
+
+    <g transform="translate(198,162)">
+      <circle r="6" fill="#34D399" opacity=".35">
+        <animate attributeName="r" from="6" to="40" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" from=".35" to="0" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="6" fill="#34D399" opacity=".35">
+        <animate attributeName="r" from="6" to="40" dur="2s" begin="-1s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" from=".35" to="0" dur="2s" begin="-1s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+</svg>

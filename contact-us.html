@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GreenCycle | Contact Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="assets/css/components/navbar.css" />
+  <link rel="stylesheet" href="assets/css/components/cta.css" />
+  <link rel="icon" type="image/svg" href="assets/images/logo.svg">
+  <link rel="stylesheet" href="css/home.css" />
+  <meta name="description"
+    content="Edukasi sortir sampah dengan game interaktif. Pilah organik, anorganik, dan B3. Ajak keluarga menjaga lingkungan!" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="flex flex-col min-h-screen text-slate-800">
+  <header id="siteHeader" class="header header-solid">
+    <div class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="assets/images/logo.svg" alt="GreenCycle logo" class="w-7 h-7" />
+        <span class="font-bold text-lg">GreenCycle</span>
+      </a>
+      <nav class="hidden md:block">
+        <ul class="flex items-center gap-6">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="overview.html">Overview</a>
+          </li>
+          <li>
+            <a href="tips-and-trick.html">Tips & Trick</a>
+          </li>
+          <li>
+            <a href="waste-bank.html">Waste Bank</a>
+          </li>
+          <li>
+            <a href="contact-us.html">Contact Us</a>
+          </li>
+          <li>
+            <a href="game.html" class="cta cta-sm">Game</a>
+          </li>
+        </ul>
+      </nav>
+      <button id="openMenu" class="md:hidden p-2 rounded-md border border-slate-200 bg-white/70 backdrop-blur"
+        aria-expanded="false" aria-controls="mobileMenu">
+        <img id="iconHamburger" src="assets/images/hamburger.svg" alt="menu" class="h-6 w-6" />
+        <img id="iconClose" src="assets/images/close.svg" alt="close" class="h-6 w-6 hidden" />
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100">
+      <ul class="p-4 space-y-2">
+        <li>
+          <a class="block p-2 rounded hover:bg-slate-50" href="index.html">Home</a>
+        </li>
+        <li>
+          <a class="block p-2 rounded hover:bg-slate-50" href="overview.html">Overview</a>
+        </li>
+        <li>
+          <a class="block p-2 rounded hover:bg-slate-50" href="tips-and-trick.html">Tips & Trick</a>
+        </li>
+        <li>
+          <a class="block p-2 rounded hover:bg-slate-50" href="waste-bank.html">Waste Bank</a>
+        </li>
+        <li>
+          <a class="block p-2 rounded hover:bg-slate-50" href="contact-us.html">Contact Us</a>
+        </li>
+        <li>
+          <a class="block p-2 rounded hover:bg-slate-50 font-pixelify" href="game.html">Play Game</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Konten utama -->
+  <main class=" main-content flex-grow mt-20">
+    <!-- Contact -->
+    <section id="contact" class="py-16 border-t border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
+        <!-- Info -->
+        <div>
+          <h2 class="text-3xl font-bold mb-4">Hubungi Kami</h2>
+          <p class="text-slate-600 mb-4">
+            Email, telepon, atau isi form di samping. Kami siap bantu edukasi &
+            support teknis.
+          </p>
+          <div class="text-sm space-y-2">
+            <p><strong>Email:</strong>
+              <a href="mailto:hai@greencycle.com" class="hover:text-blue-600">hai@greencycle.com</a>
+            </p>
+            <p><strong>Telepon:</strong>
+              <a href="tel:+6285889307500" class="hover:text-blue-600">+62-858-9307-500</a>
+            </p>
+            <p><strong>Dukungan:</strong> Siap membantu Anda baik untuk pertanyaan umum maupun teknis.</p>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form class="bg-white rounded-2xl shadow-lg p-6 space-y-4" id="contact-form">
+          <div class="grid grid-cols-2 gap-4">
+            <input type="text" name="first_name" placeholder="Nama depan"
+              class="p-3 border border-slate-300 rounded focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+              required />
+            <input type="text" name="last_name" placeholder="Nama belakang"
+              class="p-3 border border-slate-300 rounded focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+              required />
+          </div>
+          <input type="email" name="reply_to" placeholder="Email"
+            class="w-full p-3 border border-slate-300 rounded focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+            required />
+          <textarea name="message" placeholder="Pesan Anda" rows="4"
+            class="w-full p-3 border border-slate-300 rounded focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+            required></textarea>
+          <button type="submit"
+            class="w-full bg-emerald-600 hover:bg-emerald-700 active:scale-95 transition text-white font-semibold py-3 rounded">
+            Kirim
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+
+  <div id="successModal"
+    class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 transition-opacity duration-300">
+    <div
+      class="bg-white rounded-xl shadow-2xl p-6 md:p-8 w-full max-w-sm text-center transform scale-95 opacity-0 transition-transform transition-opacity duration-300">
+      <div class="flex flex-col items-center mb-4">
+        <div class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-full mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-1">Pesan Berhasil Terkirim!</h3>
+      </div>
+
+      <p class="text-gray-700 mb-4">
+        Terima kasih <span id="userName" class="font-semibold text-green-600"></span>,
+        kami sudah kirim balasan otomatis ke email kamu .
+      </p>
+
+      <button onclick="closeModal()"
+        class="w-full bg-green-600 hover:bg-green-700 active:scale-95 transition text-white font-semibold py-2 rounded">
+        OK
+      </button>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="mt-auto border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700">
+    <div
+      class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm">
+      <p>© 2025 GreenCycle - Perempuan Inovasi</p>
+      <nav class="flex items-center gap-4">
+        <a href="contact-us.html" class="hover:text-slate-900">Contact Us</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/header.solid.js"></script>
+</body>
+
+</html>

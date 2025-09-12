@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GreenCycle | Overview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta
+      name="description"
+      content="Overview GreenCycle: gerakan sortir sampah dipimpin perempuan—mulai dari rumah. Data singkat & ajakan main game."
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="icon" type="image/svg" href="assets/images/logo.svg">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--navbar-->
+   
+    <link rel="stylesheet" href="assets/css/components/navbar.css" />
+    <link rel="stylesheet" href="assets/css/components/cta.css" />
+
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="css/overview.css">
+    
+  </head>
+  <body class="min-h-screen flex flex-col text-slate-800 overflow-x-hidden">
+    <!-- Header -->
+     <header id="siteHeader" class="header header-solid">
+      <div
+        class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between"
+      >
+        <a href="index.html" class="flex items-center gap-2">
+          <img
+            src="assets/images/logo.svg"
+            alt="GreenCycle logo"
+            class="w-7 h-7"
+          />
+          <span class="font-bold text-lg">GreenCycle</span>
+        </a>
+        <nav class="hidden md:block">
+          <ul class="flex items-center gap-6">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="overview.html">Overview</a>
+            </li>
+            <li>
+              <a href="tips-and-trick.html">Tips & Trick</a>
+            </li>
+            <li>
+              <a href="waste-bank.html">Waste Bank</a>
+            </li>
+            <li>
+              <a href="contact-us.html">Contact Us</a>
+            </li>
+            <li>
+              <a href="game.html" class="cta cta-sm">Game</a>
+            </li>
+          </ul>
+        </nav>
+        <button
+          id="openMenu"
+          class="md:hidden p-2 rounded-md border border-slate-200 bg-white/70 backdrop-blur"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <img
+            id="iconHamburger"
+            src="assets/images/hamburger.svg"
+            alt="menu"
+            class="h-6 w-6"
+          />
+          <img
+            id="iconClose"
+            src="assets/images/close.svg"
+            alt="close"
+            class="h-6 w-6 hidden"
+          />
+        </button>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100">
+        <ul class="p-4 space-y-2">
+          <li>
+            <a class="block p-2 rounded hover:bg-slate-50" href="index.html"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a class="block p-2 rounded hover:bg-slate-50" href="overview.html"
+              >Overview</a
+            >
+          </li>
+          <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50"
+              href="tips-and-trick.html"
+              >Tips & Trick</a
+            >
+          </li>
+           <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50"
+              href="waste-bank.html"
+              >Waste Bank</a
+            >
+          </li>
+          <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50"
+              href="contact-us.html"
+              >Contact Us</a
+            >
+          </li>
+          <li>
+            <a
+              class="block p-2 rounded hover:bg-slate-50 font-pixelify"
+              href="game.html"
+              >Play Game</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+    
+    <!-- Main -->
+    <main class="flex-1">
+      <!-- LATAR BELAKANG (judul) -->
+      <section class="relative">
+        <div
+          class="absolute inset-0 -z-10 bg-gradient-to-b from-[#eefcf5] via-[#f3fdf8] to-transparent"
+        ></div>
+        <div class="w-fit max-w-6xl mx-auto px-4 pt-10 md:pt-14">
+          <h1
+            class="mt-12 text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900"
+          >
+            Sudahkan Kamu Memilah Sampah Hari Ini?
+          </h1>
+
+          <!-- COUNTER (setelah judul, kotak tanpa warna) -->
+          <div
+            class=" md:w-4/5 mx-auto mt-6 md:mt-8 counter-shell rounded-2xl px-4  py-1 text-white "
+          >
+            <div class="mt-4 grid grid-cols-3 md:grid-cols-3 gap-3 md:gap-8">
+              <!-- 1. sampah belum terpilah-->
+              <div class="text-center counter-tile">
+                <div
+                  class="stat-number text-4xl md:text-5xl sm- counter font-extrabold"
+                  data-target="81"
+                  data-suffix="%"
+                >
+                  0%
+                </div>
+                <div class="mt-2 text-slate-300 text-sm" >
+                  Sampah berakhir belum terpilah
+                </div>
+              </div>
+              <!-- 2. Rumah tangga -->
+              <div class="text-center counter-tile">
+                <div
+                  class="stat-number text-4xl md:text-5xl counter font-extrabold"
+                  data-target="51"
+                  data-suffix="%"
+                >
+                  0%
+                </div>
+                <div class="mt-2 text-slate-300 text-sm">
+                  Rumah tangga belum memilah sampah
+                </div>
+              </div>
+              <!-- 3. tidak ingin repot -->
+              <div class="text-center counter-tile">
+                <div
+                  class="stat-number text-4xl md:text-5xl counter font-extrabold"
+                  data-target="79"
+                  data-suffix="%"
+                >
+                  0%
+                </div>
+                <div class="mt-2 text-slate-300 text-sm">
+                  Tidak ingin repot memilah sampah
+                </div>
+              </div>
+             
+            </div>
+            <p class="mt-3 text-xs text-slate-400 pb-2" >
+              <i>Sumber: waste4change.com</i>
+            </p>
+          </div>
+
+          <!-- Narasi setelah counter -->
+          <div class="pb-10 md:pb-14 max-w-5xl mx-auto">
+            <p
+              class="md:w-4/5 mx-auto mt-6 text-lg text-slate-700 leading-relaxed text-center "
+            >
+             Sampah yang tidak dipilah dengan benar bisa menimbulkan banyak masalah. Tumpukan sampah bercampur menimbulkan bau tak sedap, mencemari tanah dan air, bahkan mengganggu kesehatan masyarakat. Selain itu, sampah yang seharusnya bisa didaur ulang justru berakhir sia-sia di tempat pembuangan.
+             <br><br>
+
+            Namun perubahan selalu bisa dimulai dari hal kecil. Seorang <b>Perempuan Muda</b> berani mengambil langkah pertama dengan membiasakan diri memilah sampah dari rumahnya sendiri. Dari tindakan sederhana ini, ia ingin menginspirasi banyak orang untuk ikut menjaga kebersihan lingkungan.
+            <br><br>
+
+            Lewat <b>Green Cycle</b>, pemain diajak belajar cara memilah sampah dengan benar — mulai dari membedakan sampah organik, anorganik, hingga sampah daur ulang. Dengan cara yang seru dan interaktif, game ini mengajarkan bahwa kebiasaan kecil bisa membawa dampak besar bagi bumi.
+              <br><br>
+              <b class="text-green-800">Ayo, selamatkan bumi kita dengan mulai memilah sampah dari sekarang!</b>
+            </p>
+              
+            </p>
+
+            <div class="mt-16 wrap w-11/12 mx-auto flex justify-center items-center">
+                      <!-- Parent C -->
+              <div class="relative">
+                <img id="imgC" src="assets/images/c.png" alt="perempuan membawa sampah">
+                <img id="imgA" src="assets/images/a.png" draggable="true" alt="botol sampah" class="shake">
+                <img id="imgB" src="assets/images/b.png" alt="tempat sampah kuning">
+                <img id="imgE" src="assets/images/e.png" alt="tulisan klik dan drag" class="shake2">
+              </div class="mt-16">
+              <img id="imgD" src="assets/images/d.png" alt="bantu perempuan memilah sampah">
+            </div>
+<br>
+            <div id="mainButton" class="text-center mt-8">
+                <a
+                href="game.html"
+                class="inline-block mt-5 sm:mt-6 px-5 py-3 cta"
+              >
+                Mulai main
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="left-0 right-0 border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700 mt-auto">
+      <div
+        class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm"
+      >
+        <p>© 2025 GreenCycle - Perempuan Inovasi</p>
+        <nav class="flex items-center gap-4">
+          <a href="contact-us.html" class="hover:text-slate-900">Contact Us</a>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/overview.js" defer></script>
+    <script src="js/header.solid.js" defer></script>
+  </body>
+</html>
