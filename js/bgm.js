@@ -69,7 +69,6 @@
     localStorage.setItem("bgm:volume", String(targetVolume));
     if (current && enabled) current.volume = targetVolume;
   }
-
   let duckTimer = null;
   function duck() {
     if (!current || !enabled) return;
