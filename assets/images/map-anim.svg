@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 320 236" fill="none" preserveAspectRatio="xMidYMid meet">
+  <style>
+    @media (prefers-reduced-motion: reduce){ .pulse { display:none !important; } }
+  </style>
+
+  <!-- Garis “jalan” -->
+  <path d="M0 160 C60 140, 120 180, 180 150 S260 130, 320 150"
+        stroke="#0EA5E9" stroke-width="8" fill="none" opacity=".5"/>
+  <path d="M0 86  C60 104, 120 74,  180 92  S260 110, 320 100"
+        stroke="#38BDF8" stroke-width="6" fill="none" opacity=".5"/>
+
+  <!-- Blok aksen -->
+  <rect x="28"  y="40"  width="72" height="44" rx="10" fill="#BAE6FD"/>
+  <rect x="220" y="36"  width="60" height="40" rx="10" fill="#BAE6FD"/>
+  <rect x="216" y="164" width="72" height="48" rx="12" fill="#BAE6FD"/>
+
+  <!-- Pin kecil -->
+  <g fill="#0EA5E9">
+    <circle cx="90"  cy="112" r="5" opacity=".9"/>
+    <circle cx="258" cy="124" r="5" opacity=".85"/>
+    <circle cx="204" cy="188" r="5" opacity=".8"/>
+  </g>
+
+  <!-- Pin utama + bayangan -->
+  <g transform="translate(160,112)">
+    <!-- pulsa -->
+    <g class="pulse">
+      <circle r="14" fill="#7DD3FC" opacity=".25">
+        <animate attributeName="r" from="14" to="64" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" from=".25" to="0" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="14" fill="#7DD3FC" opacity=".25">
+        <animate attributeName="r" from="14" to="64" dur="2.2s" begin="-1.1s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" from=".25" to="0" dur="2.2s" begin="-1.1s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- badan pin -->
+    <path d="M0 -28c12 0 22 9.2 22 21.2 0 16.5-22 35.6-22 35.6S-22 9.7-22 -6.8C-22 -18.8-12 -28 0 -28Z"
+          fill="#3B82F6"/>
+    <circle cx="0" cy="-7" r="6.5" fill="#fff"/>
+
+    <!-- bayangan -->
+    <ellipse cx="0" cy="28" rx="22" ry="5" fill="rgba(0,0,0,.15)"/>
+  </g>
+</svg>
