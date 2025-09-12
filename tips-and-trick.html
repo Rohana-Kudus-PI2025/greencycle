@@ -16,7 +16,7 @@
       rel="stylesheet"
     />
   </head>
-  <body class="text-slate-800">
+  <body class="min-h-dvh flex flex-col text-slate-800">
     <header id="siteHeader" class="header header-solid">
       <div
         class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between"
@@ -105,9 +105,8 @@
       </div>
     </header>
 
-    <main class="pt-20 pb-16">
+    <main class="flex-1 pt-20 pb-16">
       <section class="max-w-6xl mx-auto px-4">
-        <!-- “struk” -->
         <div class="mx-auto max-w-md">
           <div class="relative">
             <div
@@ -120,7 +119,6 @@
             <article
               class="bg-white border border-slate-300 rounded-lg shadow-sm font-mono"
             >
-              <!-- Header toko -->
               <div class="text-center px-4 pt-5">
                 <h2 class="text-base tracking-widest font-bold">
                   TOKO GREENCYCLE
@@ -180,6 +178,67 @@
                   </button>
                 </form>
               </div>
+              <div class="px-4 pb-4 text-xs text-slate-600 space-y-2">
+                <p>
+                  Contoh cepat:
+                  <button
+                    type="button"
+                    class="ex-code underline hover:text-emerald-700"
+                    data-code="3017620422003"
+                  >
+                    3017620422003</button
+                  >,
+                  <button
+                    type="button"
+                    class="ex-code underline hover:text-emerald-700"
+                    data-code="8996001600146"
+                  >
+                    8996001600146
+                  </button>
+                </p>
+
+                <!-- Fallback tanpa barcode -->
+                <div class="pt-2">
+                  <p class="mb-2">Atau pilih jenis kemasan:</p>
+                  <div id="fallbackCats" class="flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      class="btn-cat px-3 py-1.5 rounded-md border text-emerald-800 border-emerald-300 bg-emerald-50 hover:bg-emerald-100 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                      data-cat="plastik"
+                    >
+                      Plastik
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-cat px-3 py-1.5 rounded border border-slate-300 hover:bg-slate-50"
+                      data-cat="kertas"
+                    >
+                      Kertas
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-cat px-3 py-1.5 rounded-md border text-cyan-800 border-cyan-300 bg-cyan-50 hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-300"
+                      data-cat="kaca"
+                    >
+                      Kaca
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-cat px-3 py-1.5 rounded-md border text-slate-800 border-slate-300 bg-slate-50 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                      data-cat="logam"
+                    >
+                      Logam
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-cat px-3 py-1.5 rounded-md border text-fuchsia-800 border-fuchsia-300 bg-fuchsia-50 hover:bg-fuchsia-100 focus:outline-none focus:ring-2 focus:ring-fuchsia-300"
+                      data-cat="komposit"
+                    >
+                      Komposit
+                    </button>
+                  </div>
+                </div>
+              </div>
 
               <div class="border-t border-dashed border-slate-300"></div>
 
@@ -228,7 +287,7 @@
         </p>
       </section>
 
-      <!-- Modal Tips (sederhana, tanpa tema pastel) -->
+      <!-- modal tip -->
       <div
         id="tipsModal"
         class="fixed inset-0 z-[60] hidden"
@@ -236,10 +295,8 @@
         aria-modal="true"
         aria-labelledby="tipsTitle"
       >
-        <!-- Backdrop -->
         <div id="modalBackdrop" class="absolute inset-0 bg-black/60"></div>
 
-        <!-- Wrapper agar panel di atas backdrop -->
         <div class="relative min-h-full overflow-y-auto z-10">
           <div class="mx-auto my-10 w-full max-w-xl px-4">
             <div
@@ -280,7 +337,7 @@
       </div>
     </main>
     <footer
-      class="absolute bottom-0 left-0 right-0 border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700"
+      class="mt-auto border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700"
     >
       <div
         class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm"

@@ -9,6 +9,9 @@ const modalClose = document.getElementById("modalClose");
 const modalOk = document.getElementById("modalOk");
 const modalBackdrop = document.getElementById("modalBackdrop");
 
+const exampleBtns = document.querySelectorAll(".ex-code");
+const catContainer = document.getElementById("fallbackCats");
+
 // helpers
 const escapeHTML = (str) =>
   String(str || "")
@@ -41,6 +44,10 @@ function closeModal() {
   modal.classList.add("hidden");
   modalBody.innerHTML = "";
   document.documentElement.classList.remove("overflow-hidden");
+  if (input) {
+    input.focus();
+    input.select();
+  }
 }
 
 [modalClose, modalOk, modalBackdrop].forEach((el) => {
@@ -84,29 +91,38 @@ function collectPackagingSignals(product) {
     product.packaging_text_en ||
     product.packaging ||
     "";
-  if (packagingText) texts.push(String(packagingText).toLowerCase());
+
+  if (packagingText) texts.push(String(packagingText));
+
+  if (product.product_name) texts.push(String(product.product_name));
+  if (product.product_name_id) texts.push(String(product.product_name_id));
+  if (product.product_name_en) texts.push(String(product.product_name_en));
+  if (product.brands) texts.push(String(product.brands));
+  if (product.categories) texts.push(String(product.categories));
+  if (Array.isArray(product.categories_tags)) {
+    product.categories_tags.forEach((t) => tags.push(String(t)));
+  }
 
   if (Array.isArray(product.packaging_materials_tags)) {
-    product.packaging_materials_tags.forEach((t) =>
-      tags.push(String(t).toLowerCase())
-    );
+    product.packaging_materials_tags.forEach((t) => tags.push(String(t)));
   }
 
   if (Array.isArray(product.packagings)) {
     product.packagings.forEach((p) => {
-      if (p?.material) texts.push(String(p.material).toLowerCase());
-      if (p?.shape) texts.push(String(p.shape).toLowerCase());
-      if (p?.recycling) texts.push(String(p.recycling).toLowerCase());
+      if (p?.material) texts.push(String(p.material));
+      if (p?.shape) texts.push(String(p.shape));
+      if (p?.recycling) texts.push(String(p.recycling));
     });
   }
 
   if (Array.isArray(product.packaging_tags)) {
-    product.packaging_tags.forEach((t) => tags.push(String(t).toLowerCase()));
+    product.packaging_tags.forEach((t) => tags.push(String(t)));
   }
 
+  const allText = [texts.join(" "), tags.join(" ")].join(" ").toLowerCase();
   return {
     packagingText: packagingText || "-",
-    allText: [texts.join(" "), tags.join(" ")].join(" ").toLowerCase(),
+    allText,
     packagings: Array.isArray(product.packagings) ? product.packagings : [],
   };
 }
@@ -146,19 +162,67 @@ function detectCategory(allText) {
   return { key: "lainnya", label: "Lainnya / Perlu dicek" };
 }
 
+function isConfectionery(allText = "") {
+  return /\b(snickers|mars|twix|kitkat|silverqueen|beng[-\s]?beng|candy|chocolate|cokelat|snack|keripik|bumbu|seasoning|permen|wafer|royco|sachet)\b/i.test(
+    allText
+  );
+}
+
+function detectSubKey(allText, key) {
+  const t = ` ${String(allText).toLowerCase()} `;
+  if (key === "plastik") {
+    // pakai isConfectionery agar snack/sachet otomatis ke plastik tipis
+    if (isConfectionery(allText)) return "plastik_tipis";
+
+    const THIN_RE =
+      /(wrapper|flow[- ]?wrap|film|sachet|stick(?:\s|-)?pack|pouch|refill|metalli[sz]ed|foil|multilayer|laminated|flexible|snack|candy|chocolate|cokelat|bumbu|seasoning|keripik|wafer|bar(?!\s*code))/;
+    const THICK_RE =
+      /(bottle|botol|jar|stoples|tub|container|kanister|cup(?!\s*seal)|gallon|jerigen|hdpe|pp|pet(?!\s*film))/;
+
+    if (THIN_RE.test(t)) return "plastik_tipis";
+    if (THICK_RE.test(t)) return "plastik_tebal";
+  }
+  return null;
+}
+
 /* ---------- Awareness lingkungan (sederhana) ---------- */
 function buildEnvAwareness(product, catKey, allText = "", packagings = []) {
   const out = [];
   const t = ` ${String(allText).toLowerCase()} `;
 
-  // Eco-Score A–E
-  const eco = (product.ecoscore_grade || "").toString().toUpperCase();
-  if (eco) {
-    out.push({
-      tone: ["A", "B"].includes(eco) ? "good" : "warn",
-      text: `Eco-Score ${eco}`,
-    });
+  // --- Eco-Score (produk, bukan kemasan) ---
+  const ecoRaw = (product.ecoscore_grade || "").toString().toUpperCase();
+  const ECO_VALID = new Set(["A", "B", "C", "D", "E"]);
+  const ecoData = product.ecoscore_data || {};
+  const hasDetails = !!(
+    ecoData?.adjustments ||
+    ecoData?.scores ||
+    ecoData?.agribalyse
+  );
+
+  if (ECO_VALID.has(ecoRaw)) {
+    if (hasDetails) {
+      out.push({
+        tone: ["A", "B"].includes(ecoRaw) ? "good" : "warn",
+        text: `Eco-Score ${ecoRaw} (produk, bukan kemasan)`,
+      });
+    } else {
+      out.push({
+        tone: "note",
+        text: `Eco-Score ${ecoRaw} (estimasi kategori)`,
+      });
+    }
   }
+
+  // --- Deteksi larangan daur ulang / residu ---
+  const antiRecycle =
+    /\b(discard|do\s*not\s*recycle|not\s*recycl|non[-\s]*recycl|household\s*waste|residu)\b/i.test(
+      allText
+    ) ||
+    (Array.isArray(packagings) &&
+      packagings.some((p) =>
+        /\b(discard|not\s*recycl)/i.test(String(p?.recycling || ""))
+      ));
 
   // Bisa didaur ulang?
   const recyclingTags = (product.packaging_recycling_tags || []).map((s) =>
@@ -169,15 +233,37 @@ function buildEnvAwareness(product, catKey, allText = "", packagings = []) {
     recyclingTags.some((r) => /recyclable|recycle/.test(r)) ||
     (Array.isArray(packagings) &&
       packagings.some((p) => /recycle/i.test(String(p?.recycling || ""))));
-  if (canRecycle)
-    out.push({ tone: "good", text: "Kemasan bisa didaur ulang ♻️" });
 
-  // Komposit/sachet -> sulit daur ulang
+  if (antiRecycle) {
+    out.push({
+      tone: "warn",
+      text: "Label: jangan didaur ulang / buang ke residu",
+    });
+  } else if (canRecycle) {
+    out.push({ tone: "good", text: "Kemasan bisa didaur ulang ♻️" });
+  }
+
+  // Komposit/sachet → sulit didaur ulang
   const isComposite =
     catKey === "komposit" || /sachet|laminated|multilayer|tetra/.test(t);
   if (isComposite)
     out.push({ tone: "warn", text: "Kemasan campuran — sulit didaur ulang" });
 
+  // Film/wrapper/pouch umumnya sulit didaur ulang, tapi jangan dobel kalau sudah ada antiRecycle
+  if (
+    /\b(wrapper|flow[- ]?wrap|film|sachet|pouch|stick(?:\s|-)?pack)\b/i.test(
+      allText
+    ) &&
+    !canRecycle &&
+    !antiRecycle
+  ) {
+    out.push({
+      tone: "warn",
+      text: "Plastik tipis (film) umumnya sulit didaur ulang",
+    });
+  }
+
+  // dedupe
   const seen = new Set();
   return out.filter((b) =>
     seen.has(b.text) ? false : (seen.add(b.text), true)
@@ -230,21 +316,67 @@ function pickOne(arr = [], fallback = "") {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function composeHouseholdTips(catKey) {
+function shuffleArray(arr = []) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function pickSample(arr = [], n = 4) {
+  const copy = shuffleArray(arr);
+  return copy.slice(0, Math.min(n, copy.length));
+}
+
+// Tips terkurasi untuk plastik tipis (bungkus snack/sachet)
+// default: kota/label tidak jelas; antiRecycle: kalau ada label "discard/not recycle"
+const OVERRIDE_TIPS = {
+  plastik_tipis: {
+    default: [
+      "Usap sisa makanan dengan tisu; tidak perlu dicuci lama.",
+      "Keringkan lalu simpan di kantong khusus film plastik.",
+      "Lipat kecil-kecil atau gulung supaya ringkas di rumah.",
+      "Kalau ada drop-off film plastik di kota kamu, kumpulkan minimal satu kantong sebelum setor.",
+      "Kurangi pembelian sachet; pilih ukuran keluarga lalu pindah ke wadah.",
+      "Tempel label 'plastik tipis' di kantong agar keluarga ikut pilah.",
+    ],
+    antiRecycle: [
+      "Ikuti label pabrik: buang ke residu setelah kering dan bersih dari sisa makanan.",
+      "Satukan bungkus-bungkus kecil ke satu bungkus lebih besar lalu ikat agar tidak tercecer.",
+      "Jangan cuci berlebihan—hemat air; cukup dilap agar tidak lengket.",
+      "Pertimbangkan ganti ke isi ulang/kemasan besar untuk kurangi sachet baru.",
+    ],
+  },
+};
+
+function composeHouseholdTips(catKey, { antiRecycle = false } = {}) {
   const key = catKey || "lainnya";
+  const baseKey = key.startsWith("plastik_") ? "plastik" : key;
+
+  // Override khusus plastik tipis: jangan pakai bucket reuse acak
+  if (key === "plastik_tipis") {
+    const pool = antiRecycle
+      ? OVERRIDE_TIPS.plastik_tipis.antiRecycle
+      : OVERRIDE_TIPS.plastik_tipis.default;
+    return pickSample(pool, 4);
+  }
+
+  // default behaviour (ambil 1 dari tiap bucket)
   const b = TIPS_BUCKETS;
+  const clean = b.clean[key] || b.clean[baseKey] || b.clean.lainnya || [];
+  const space = b.space[key] || b.space[baseKey] || b.space.lainnya || [];
+  const reuse = b.reuse[key] || b.reuse[baseKey] || b.reuse.lainnya || [];
+  const habit = b.habit[key] || b.habit[baseKey] || b.habit.lainnya || [];
 
-  const clean = b.clean[key] || b.clean.lainnya || [];
-  const space = b.space[key] || b.space.lainnya || [];
-  const reuse = b.reuse[key] || b.reuse.lainnya || [];
-  const habit = b.habit[key] || b.habit.lainnya || [];
-
-  return [
+  const picked = [
     pickOne(clean),
     pickOne(space),
     pickOne(reuse),
     pickOne(habit),
   ].filter(Boolean);
+  return shuffleArray(picked);
 }
 
 function renderTipsCard({
@@ -255,17 +387,20 @@ function renderTipsCard({
   readableCategory,
   tips,
   awarenessHtml = "",
+  showImage = true,
 }) {
   const title = brand ? `${name} — ${brand}` : name;
 
-  const imgEl = imageUrl
+  const imgEl = !showImage
+    ? ""
+    : imageUrl
     ? `<div class="w-full bg-white/80 border-b border-black/10">
-         <img src="${imageUrl}" alt="${escapeHTML(title)}"
-              class="w-full h-40 sm:h-48 object-contain" loading="lazy">
-       </div>`
+           <img src="${imageUrl}" alt="${escapeHTML(title)}"
+                class="w-full h-40 sm:h-48 object-contain" loading="lazy">
+         </div>`
     : `<div class="w-full h-32 sm:h-40 bg-white/60 flex items-center justify-center text-slate-500 text-sm border-b border-black/10">
-         Foto produk tidak tersedia
-       </div>`;
+           Foto produk tidak tersedia
+         </div>`;
 
   const tipsList = tips
     .map((t) => `<li class="pl-2">• ${escapeHTML(t)}</li>`)
@@ -277,6 +412,7 @@ function renderTipsCard({
         ${imgEl}
         <div class="p-3">
           <h4 class="font-semibold text-slate-900">${escapeHTML(title)}</h4>
+          <p class="text-[11px] text-slate-500 mt-0.5">Eco-Score menilai produk, bukan hanya kemasan.</p>
           <p class="text-xs text-slate-700 mt-1">
             Jenis kemasan: <span class="font-medium">${escapeHTML(
               readableCategory
@@ -297,6 +433,46 @@ function renderTipsCard({
       </div>
     </div>
   `;
+}
+
+function labelFromKey(key = "") {
+  if (key === "plastik_tipis") return "Plastik Tipis (sachet/wrapper)";
+  if (key === "plastik_tebal") return "Plastik Tebal (botol/kotak)";
+  return key ? key[0].toUpperCase() + key.slice(1) : "Lainnya";
+}
+
+exampleBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const code = btn.getAttribute("data-code")?.trim();
+    if (!code || !input) return;
+    input.value = code;
+    form?.dispatchEvent(
+      new Event("submit", { bubbles: true, cancelable: true })
+    );
+  });
+});
+
+if (catContainer) {
+  catContainer.addEventListener("click", async (e) => {
+    const btn = e.target.closest("[data-cat]");
+    if (!btn) return;
+    const key = btn.getAttribute("data-cat") || "lainnya";
+    await bucketsReady.catch(() => {});
+    const tips = composeHouseholdTips(key);
+
+    const html = renderTipsCard({
+      name: "Tips tanpa barcode",
+      brand: "",
+      packagingText: "-",
+      imageUrl: "",
+      readableCategory: labelFromKey(key),
+      tips,
+      awarenessHtml: "",
+      showImage: false,
+    });
+
+    openModal(html);
+  });
 }
 
 //submit
@@ -340,9 +516,20 @@ if (form && input) {
 
       const { packagingText, allText, packagings } =
         collectPackagingSignals(product);
-      const { key, label } = detectCategory(allText);
+      const { key } = detectCategory(allText);
+      const subKey = detectSubKey(allText, key) || key;
 
-      const tips = composeHouseholdTips(key);
+      const antiRecycle =
+        /\b(discard|do\s*not\s*recycle|not\s*recycl|non[-\s]*recycl|household\s*waste|residu)\b/i.test(
+          allText
+        ) ||
+        (Array.isArray(packagings) &&
+          packagings.some((p) =>
+            /\b(discard|not\s*recycl)/i.test(String(p?.recycling || ""))
+          ));
+
+      const tips = composeHouseholdTips(subKey, { antiRecycle });
+
       const awareness = buildEnvAwareness(product, key, allText, packagings);
       const awarenessHtml = renderAwarenessBadges(awareness);
 
@@ -351,7 +538,7 @@ if (form && input) {
         brand,
         packagingText,
         imageUrl,
-        readableCategory: label,
+        readableCategory: labelFromKey(subKey),
         tips,
         awarenessHtml,
       });
