@@ -86,12 +86,11 @@
             color: #2563eb;
         }
 
+
         #game-area {
             background-image: url("./assets/images/bg.jpg");
             background-repeat: no-repeat;
             background-size: cover;
-            /* atau cover */
-            /* biar ada ruang buat nampilin gambar */
         }
 
         .pixel-btn.yellow {
@@ -148,12 +147,7 @@
 </head>
 
 <body class="min-h-screen flex flex-col text-slate-800 overflow-x-hidden">
-
     <header id="siteHeader" class="header header-solid fixed inset-x-0 top-0 z-50 bg-white">
-
-
-    <header id="siteHeader" class="header header-solid fixed inset-x-0 top-0 z-50 bg-white">
-
         <div class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
                 <img src="assets/images/logo.svg" alt="GreenCycle logo" class="w-7 h-7" />
@@ -213,65 +207,32 @@
     </header>
 
     <!-- HUD fixed overlay -->
-
-<div id="hud-fixed"
-     class="fixed top-16 inset-x-0 z-50 opacity-0 -translate-y-2 pointer-events-none
-            transition-all duration-300 ease-out">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="flex items-center justify-between bg-white/80 backdrop-blur
-                border border-slate-200 rounded-xl shadow px-4 py-2 text-sm">
-      <div class="flex items-center gap-2">
-        <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span id="hud-fixed-level" class="font-semibold">Level 1</span>
-      </div>
-
-      <div class="flex items-center gap-4">
-        <span>Score <b id="hud-fixed-score">0</b></span>
-        <span id="hud-fixed-lives">❤️❤️❤️❤️❤️</span>
-        <span>Time <b id="hud-fixed-time">00:30</b></span>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-    <main class="flex-1">
-        <!-- background lembut biar senada Overview -->
-
-        <section id="game-area"
-            class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] min-h-[45vh] pt-16 md:pt-20">
-
-=======
     <div id="hud-fixed"
         class="fixed top-16 inset-x-0 z-50 opacity-0 -translate-y-2 pointer-events-none
                 transition-all duration-300 ease-out">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex items-center justify-between bg-white/80 backdrop-blur
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex items-center justify-between bg-white/80 backdrop-blur
                     border border-slate-200 rounded-xl shadow px-4 py-2 text-sm">
-                <div class="flex items-center gap-2">
-                    <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span id="hud-fixed-level" class="font-semibold">Level 1</span>
-                </div>
-
-                <div class="flex items-center gap-4">
-                    <span>Score <b id="hud-fixed-score">0</b></span>
-                    <span id="hud-fixed-lives">❤️❤️❤️❤️❤️</span>
-                    <span>Time <b id="hud-fixed-time">00:30</b></span>
-                </div>
-            </div>
+        <div class="flex items-center gap-2">
+            <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span id="hud-fixed-level" class="font-semibold">Level 1</span>
         </div>
+
+        <div class="flex items-center gap-4">
+            <span>Score <b id="hud-fixed-score">0</b></span>
+            <span id="hud-fixed-lives">❤️❤️❤️❤️❤️</span>
+            <span>Time <b id="hud-fixed-time">00:30</b></span>
+        </div>
+        </div>
+    </div>
     </div>
 
 
     <main class="flex-1">
         <section id="game-area"
             class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] min-h-[45vh] pt-16 md:pt-20">
-
             <div class="max-w-6xl mx-auto px-4 pt-8 md:pt-12 pb-10">
-                <h1 class="mb-8 font-bold sm:text-4xl text-3xl animate-bounce text-cyan-800 text-center">Saatnya Pilah
-                    Sampah!</h1>
+                <h1 class="mb-8 font-bold sm:text-4xl text-3xl animate-bounce text-cyan-800 text-center">Saatnya Pilah Sampah!</h1>
                 <!-- HUD -->
                 <section class="grid grid-rows-1.5 gap-4 items-start mb-6">
 
@@ -293,7 +254,7 @@
                             class="bg-[rgba(245,245,245,0.8)] border border-slate-200 rounded-xl px-4 py-3 shadow-soft flex items-center justify-between">
                             <div class="text-sm">
                                 <div class="text-2xl font-bold">🔊</div>
-
+                                
                             </div>
                             <div class="flex items-center gap-2">
                                 <button id="music-toggle"
@@ -344,24 +305,10 @@
                             <span id="hud-time" class="font-bold text-slate-700">00:30</span>
                         </div>
                     </div>
-
-
-
-
-                </section>
-
-
-
-                <!-- Item draggable -->
-                <section class="grid place-items-center mb-10">
-
-
-
                 </section>
 
                 <!-- Item draggable -->
                 <section class="grid place-items-center mb-10">
-
                     <div id="drag-wrap"
                         class="relative grid place-items-center aspect-square h-64 w-64 p-4 rounded-2xl bg-[rgba(105,240,172,0.5)] border border-slate-200 shadow-ring overflow-hidden"
                         data-category="recycle">
@@ -381,8 +328,7 @@
                     </div>
 
 
-                    <p class="mt-3 text-base text-slate-600 bg-[rgba(234,255,142,0.8)] p-2 rounded-xl">Drag item ke
-                        tempat sampah yang benar ↓</p>
+                    <p class="mt-3 text-base text-slate-600 bg-[rgba(234,255,142,0.8)] p-2 rounded-xl">Drag item ke tempat sampah yang benar ↓</p>
 
 
                 </section>
@@ -472,8 +418,7 @@
                 </section>
                 <div class="flex justify-center mt-20">
                     <button id="reset">
-                        <p class="mt-3 text-base text-slate-600 bg-[rgba(255,255,255,0.8)] p-2 rounded-xl">⚠️ Tombol
-                            reset akan mengulang skor dan level dari awal ↓</p>
+                        <p class="mt-3 text-base text-slate-600 bg-[rgba(255,255,255,0.8)] p-2 rounded-xl">⚠️ Tombol reset akan mengulang skor dan level dari awal ↓</p>
                         <a class="pixel pixel-btn yellow cursor-pointer select-none mt-5">Reset Progres</a>
                     </button>
                 </div>
@@ -481,11 +426,7 @@
         </section>
     </main>
 
-
-    <!-- Footer (sama gaya Overview) -->
-
     <!-- Footer -->
-
     <footer class="mt-auto border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700">
         <div
             class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm">
@@ -566,13 +507,12 @@
     </div>
 
 
-    <!-- game logic -->
+
+    <!-- Scripts -->
     <script src="./js/data.js" defer></script>
     <script src="./js/hud-fixed.js" defer></script>
 
     <script>
-
-        // opsional: biar fetch ke API Ninjas jalan
         window.API_NINJAS_KEY = 'IpDtw+Wntva8tDjf9w8jKg==8cAnPgygDBegLIWm'
     </script>
     <script src="./js/sfx.js" defer></script>
