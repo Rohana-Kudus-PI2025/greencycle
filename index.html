@@ -1,194 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Gerakan edukasi sortir sampah yang dipimpin perempuan—mainkan game pilah organik, kertas, daur ulang, dan sampah residu. Ajak keluarga, jaga lingkungan."
-    />
-    <title>GreenCycle - Home</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/components/navbar.css" />
-    <link rel="stylesheet" href="assets/css/components/cta.css" />
-    <link rel="stylesheet" href="css/home.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body class="text-slate-800">
-    <header id="siteHeader" class="header header-transparent">
-      <div
-        class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between"
-      >
-        <a href="index.html" class="flex items-center gap-2">
-          <img
-            src="assets/images/logo.svg"
-            alt="GreenCycle logo"
-            class="w-7 h-7"
-          />
-          <span class="font-bold text-lg">GreenCycle</span>
-        </a>
-        <nav class="hidden md:block">
-          <ul class="flex items-center gap-6">
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-            <li>
-              <a href="overview.html">Overview</a>
-            </li>
-            <li>
-              <a href="tips-and-trick.html">Tips & Trick</a>
-            </li>
-            <li>
-              <a href="waste-bank.html">Waste Bank</a>
-            </li>
-            <li>
-              <a href="contact-us.html">Contact Us</a>
-            </li>
-            <li>
-              <a href="game.html" class="cta cta-sm">Game</a>
-            </li>
-          </ul>
-        </nav>
-        <button
-          id="openMenu"
-          class="md:hidden p-2 rounded-md border border-slate-200 text-white"
-        >
-          <img
-            id="iconHamburger"
-            src="assets/images/hamburger-white.svg"
-            data-src-light="assets/images/hamburger.svg"
-            data-src-dark="assets/images/hamburger-white.svg"
-            alt="menu"
-            class="h-6 w-6"
-          />
-          <img
-            id="iconClose"
-            src="assets/images/close-white.svg"
-            data-src-light="assets/images/close.svg"
-            data-src-dark="assets/images/close-white.svg"
-            alt="close"
-            class="h-6 w-6 hidden"
-          />
-        </button>
-      </div>
-      <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100">
-        <ul class="p-4 space-y-2">
-          <li>
-            <a class="block p-2 rounded hover:bg-slate-50" href="index.html"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a class="block p-2 rounded hover:bg-slate-50" href="overview.html"
-              >Overview</a
-            >
-          </li>
-          <li>
-            <a
-              class="block p-2 rounded hover:bg-slate-50"
-              href="tips-and-trick.html"
-              >Tips & Trick</a
-            >
-          </li>
-          <li>
-            <a
-              class="block p-2 rounded hover:bg-slate-50"
-              href="waste-bank.html"
-              >Waste Bank</a
-            >
-          </li>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Gerakan edukasi sortir sampah yang dipimpin perempuan—mainkan game pilah organik, kertas, daur ulang, dan sampah residu. Ajak keluarga, jaga lingkungan." />
+  <title>GreenCycle | Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/components/navbar.css" />
+  <link rel="stylesheet" href="assets/css/components/cta.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg" href="assets/images/logo.svg">
+</head>
+
+<body class="text-slate-800">
+  <header id="siteHeader" class="header header-transparent">
+    <div class="max-w-6xl mx-auto h-16 px-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="assets/images/logo.svg" alt="GreenCycle logo" class="w-7 h-7" />
+        <span class="font-bold text-lg">GreenCycle</span>
+      </a>
+      <nav class="hidden md:block">
+        <ul class="flex items-center gap-6">
           <li>
-            <a
-              class="block p-2 rounded hover:bg-slate-50"
-              href="contact-us.html"
-              >Contact Us</a
-            >
+            <a href="index.html">Home</a>
           </li>
           <li>
-            <a class="block p-2 rounded hover:bg-slate-50" href="game.html"
+            <a href="overview.html">Overview</a>
+          </li>
+          <li>
+            <a href="tips-and-trick.html">Tips & Trick</a>
+          </li>
+          <li>
+            <a href="waste-bank.html">Waste Bank</a>
+          </li>
+          <li>
+            <a href="contact-us.html">Contact Us</a>
+          </li>
+          <li>
+            <a href="game.html" class="cta cta-sm">Game</a>
+          </li>
+        </ul>
+      </nav>
+      <button id="openMenu" class="md:hidden p-2 rounded-md border border-slate-200 text-white">
+        <img id="iconHamburger" src="assets/images/hamburger-white.svg" data-src-light="assets/images/hamburger.svg"
+          data-src-dark="assets/images/hamburger-white.svg" alt="menu" class="h-6 w-6" />
+        <img id="iconClose" src="assets/images/close-white.svg" data-src-light="assets/images/close.svg"
+          data-src-dark="assets/images/close-white.svg" alt="close" class="h-6 w-6 hidden" />
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100">
+      <ul class="p-4 space-y-2">
+        <li>
+          <a class="block p-2 rounded hover:bg-slate-50" href="index.html">Home</a>
+        </li>
+        <li>
+          <a class="block p-2 rounded hover:bg-slate-50" href="overview.html">Overview</a>
+        </li>
+        <li>
+          <a class="block p-2 rounded hover:bg-slate-50" href="tips-and-trick.html">Tips & Trick</a>
+        </li>
+        <li>
+          <a class="block p-2 rounded hover:bg-slate-50" href="waste-bank.html">Waste Bank</a>
+        </li>
+
+        <li>
+          <a class="block p-2 rounded hover:bg-slate-50" href="contact-us.html">Contact Us</a>
+        </li>
+        <li>
+          <a class="block p-2 rounded hover:bg-slate-50 font-pixelify""
               >Play Game</a
             >
           </li>
         </ul>
       </div>
     </header>
-    <div class="relative h-[200svh]" id="pin-stage">
-      <section class="sticky top-0 h-[100svh] z-[1]">
-        <div class="swiper h-full">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide relative">
-              <img
-                src="assets/images/slider1.jpg"
-                class="absolute inset-0 w-full h-full object-cover"
-              />
-              <div class="overlay"></div>
-              <div
-                class="relative z-10 max-w-5xl mx-auto h-full px-4 flex items-center"
-              >
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white">
-                  Perubahan besar dimulai dari langkah kecil.
-                </h1>
+    <div class=" relative h-[200svh]" id="pin-stage">
+            <section class="sticky top-0 h-[100svh] z-[1]">
+              <div class="swiper h-full">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide relative">
+                    <img src="assets/images/slider1.jpg" class="absolute inset-0 w-full h-full object-cover" />
+                    <div class="overlay"></div>
+                    <div class="relative z-10 max-w-5xl mx-auto h-full px-4 flex items-center">
+                      <h1 class="text-4xl md:text-6xl font-extrabold text-white">
+                        Perubahan besar dimulai dari langkah kecil.
+                      </h1>
+                    </div>
+                  </div>
+                  <div class="swiper-slide relative">
+                    <img src="assets/images/slider2.jpg" class="absolute inset-0 w-full h-full object-cover" />
+                    <div class="overlay"></div>
+                    <div class="relative z-10 max-w-5xl mx-auto h-full px-4 flex items-center">
+                      <h1 class="text-4xl md:text-6xl font-extrabold text-white">
+                        Perempuan berdaya, lingkungan terjaga.
+                      </h1>
+                    </div>
+                  </div>
+                  <div class="swiper-slide relative">
+                    <img src="assets/images/slider3.jpg" class="absolute inset-0 w-full h-full object-cover" />
+                    <div class="overlay"></div>
+                    <div class="relative z-10 max-w-5xl mx-auto h-full px-4 flex items-center">
+                      <h1 class="text-4xl md:text-6xl font-extrabold text-white">
+                        Rumah tangga sadar, masa depan terpelihara.
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination !bottom-6"></div>
+                <div class="swiper-button-next hidden md:block"></div>
+                <div class="swiper-button-prev hidden md:block"></div>
               </div>
-            </div>
-            <div class="swiper-slide relative">
-              <img
-                src="assets/images/slider2.jpg"
-                class="absolute inset-0 w-full h-full object-cover"
-              />
-              <div class="overlay"></div>
-              <div
-                class="relative z-10 max-w-5xl mx-auto h-full px-4 flex items-center"
-              >
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white">
-                  Perempuan berdaya, lingkungan terjaga.
-                </h1>
-              </div>
-            </div>
-            <div class="swiper-slide relative">
-              <img
-                src="assets/images/slider3.jpg"
-                class="absolute inset-0 w-full h-full object-cover"
-              />
-              <div class="overlay"></div>
-              <div
-                class="relative z-10 max-w-5xl mx-auto h-full px-4 flex items-center"
-              >
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white">
-                  Rumah tangga sadar, masa depan terpelihara.
-                </h1>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination !bottom-6"></div>
-          <div class="swiper-button-next hidden md:block"></div>
-          <div class="swiper-button-prev hidden md:block"></div>
-        </div>
-      </section>
+            </section>
     </div>
 
-    <section
-      id="heroFrame"
-      class="relative -mt-[100svh] z-[2] h-[100svh] overflow-visible bg-white text-slate-800"
-    >
+    <section id="heroFrame" class="relative -mt-[100svh] z-[2] h-[100svh] overflow-visible bg-white text-slate-800">
       <div id="rollBox" class="roll-wrap h-full">
         <div class="roll-content h-full">
           <canvas id="frameBG" class="absolute inset-0 w-full h-full"></canvas>
-          <div
-            class="relative z-10 max-w-6xl mx-auto px-4 h-full grid md:grid-cols-2 items-center gap-6 md:gap-10"
-          >
+          <div class="relative z-10 max-w-6xl mx-auto px-4 h-full grid md:grid-cols-2 items-center gap-6 md:gap-10">
             <div class="min-w-0">
-              <h2
-                class="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight text-slate-900"
-              >
+              <h2 class="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight text-slate-900">
                 GREENCYCLE
               </h2>
               <p class="mt-3 sm:mt-4 text-slate-600 text-base sm:text-lg">
@@ -197,34 +133,20 @@
                 Main sebentar, pahami kategori organik, kertas, daur ulang, dan
                 sampah residu, lalu praktikkan di rumah dan lingkungan sekitar.
               </p>
-              <a
-                href="game.html"
-                class="inline-block mt-5 sm:mt-6 px-5 py-3 cta"
-              >
+              <a href="game.html" class="inline-block mt-5 sm:mt-6 px-5 py-3 cta">
                 Mulai main
               </a>
             </div>
-            <div
-              id="stageSlot"
-              class="min-h-0 h-[min(40svh,360px)] md:h-[60%] lg:h-[65%]"
-            ></div>
+            <div id="stageSlot" class="min-h-0 h-[min(40svh,360px)] md:h-[60%] lg:h-[65%]"></div>
           </div>
 
-          <canvas
-            id="frameFG"
-            class="absolute inset-0 w-full h-full pointer-events-none z-20"
-          ></canvas>
+          <canvas id="frameFG" class="absolute inset-0 w-full h-full pointer-events-none z-20"></canvas>
         </div>
       </div>
     </section>
 
-    <section
-      id="section-overview"
-      class="relative overflow-hidden bg-emerald-50 min-h-screen pt-16 flex items-center"
-    >
-      <div
-        class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center gap-10 w-full"
-      >
+    <section id="section-overview" class="relative overflow-hidden bg-emerald-50 min-h-screen pt-16 flex items-center">
+      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center gap-10 w-full">
         <div class="order-2 md:order-1">
           <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
             Perempuan Berdaya, Rumah Lebih Ramah
@@ -235,52 +157,30 @@
             <span class="font-medium text-emerald-700">GreenCycle</span>
             membiasakan pilah sampah sejak dini.
           </p>
-          <a
-            href="overview.html"
-            class="mt-6 inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-900 font-medium"
-          >
+          <a href="overview.html"
+            class="mt-6 inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-900 font-medium">
             Lihat Overview
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M5 12h14M13 5l7 7-7 7"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </a>
         </div>
         <div class="order-1 md:order-2 flex justify-center">
           <div class="relative w-[320px] h-[236px] rounded-2xl overflow-hidden">
-            <object
-              type="image/svg+xml"
-              data="assets/images/overview-anim.svg"
-              class="absolute inset-0 w-full h-full"
-              role="img"
-              aria-label="Dari dapur ke pilah sampah menuju rumah yang lebih ramah"
-            ></object>
+            <object type="image/svg+xml" data="assets/images/overview-anim.svg" class="absolute inset-0 w-full h-full"
+              role="img" aria-label="Dari dapur ke pilah sampah menuju rumah yang lebih ramah"></object>
           </div>
         </div>
       </div>
     </section>
 
-    <section
-      id="section-tips"
-      class="relative overflow-hidden bg-amber-50 min-h-screen pt-16 flex items-center"
-    >
-      <div
-        class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center gap-10 w-full"
-      >
+    <section id="section-tips" class="relative overflow-hidden bg-amber-50 min-h-screen pt-16 flex items-center">
+      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center gap-10 w-full">
         <div class="flex justify-center">
           <div class="relative w-56 h-40 rounded-xl overflow-hidden">
-            <object
-              type="image/svg+xml"
-              data="assets/images/tips-barcode.svg"
-              class="absolute inset-0 w-full h-full"
-              role="img"
-              aria-label="Barcode dengan garis pemindai animasi"
-            ></object>
+            <object type="image/svg+xml" data="assets/images/tips-barcode.svg" class="absolute inset-0 w-full h-full"
+              role="img" aria-label="Barcode dengan garis pemindai animasi"></object>
           </div>
         </div>
         <div>
@@ -293,32 +193,20 @@
             langsung memberi tahu kategori sampahnya — praktis dan mudah diikuti
             siapa pun.
           </p>
-          <a
-            href="tips-and-trick.html"
-            class="mt-6 inline-flex items-center gap-2 text-amber-700 hover:text-amber-900 font-medium"
-          >
+          <a href="tips-and-trick.html"
+            class="mt-6 inline-flex items-center gap-2 text-amber-700 hover:text-amber-900 font-medium">
             Buka Tips &amp; Trick
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M5 12h14M13 5l7 7-7 7"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </a>
         </div>
       </div>
     </section>
 
-    <section
-      id="section-map"
-      class="relative overflow-hidden bg-sky-50 min-h-screen pt-16 flex items-center"
-    >
-      <div
-        class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center gap-10 w-full"
-      >
+    <section id="section-map" class="relative overflow-hidden bg-sky-50 min-h-screen pt-16 flex items-center">
+      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center gap-10 w-full">
         <div class="order-2 md:order-1">
           <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
             Buang di Tempat yang Tepat
@@ -327,44 +215,27 @@
             Temukan bank sampah terdekat dan setor anorganik secara rutin.
             Ringan dilakukan, berdampak untuk lingkungan.
           </p>
-          <a
-            href="waste-bank.html"
-            class="mt-6 inline-flex items-center gap-2 text-sky-700 hover:text-sky-900 font-medium"
-          >
+          <a href="waste-bank.html"
+            class="mt-6 inline-flex items-center gap-2 text-sky-700 hover:text-sky-900 font-medium">
             Lihat Peta
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M5 12h14M13 5l7 7-7 7"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </a>
         </div>
         <div class="order-1 md:order-2 flex justify-center">
-          <div
-            class="relative w-[320px] h-[236px] bg-sky-50 rounded-2xl overflow-hidden"
-          >
-            <object
-              type="image/svg+xml"
-              data="assets/images/map-anim.svg"
-              class="absolute inset-0 w-full h-full"
-              role="img"
-              aria-label="Peta dengan pin utama berdenyut dan beberapa pin kecil"
-            ></object>
+          <div class="relative w-[320px] h-[236px] bg-sky-50 rounded-2xl overflow-hidden">
+            <object type="image/svg+xml" data="assets/images/map-anim.svg" class="absolute inset-0 w-full h-full"
+              role="img" aria-label="Peta dengan pin utama berdenyut dan beberapa pin kecil"></object>
           </div>
         </div>
       </div>
     </section>
 
-    <footer
-      class="mt-auto border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700"
-    >
+    <footer class="mt-auto border-t border-slate-200 bg-white/90 backdrop-blur text-slate-700">
       <div
-        class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm"
-      >
+        class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-sm">
         <p>© 2025 GreenCycle - Perempuan Inovasi</p>
         <nav class="flex items-center gap-4">
           <a href="contact-us.html" class="hover:text-slate-900">Contact Us</a>
@@ -374,5 +245,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/home.js" defer></script>
-  </body>
+</body>
+
 </html>
