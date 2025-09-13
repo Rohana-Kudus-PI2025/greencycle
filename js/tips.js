@@ -35,7 +35,6 @@ function openModal(html) {
   if (!modal || !modalBody) return;
   modalBody.innerHTML = html;
   modal.classList.remove("hidden");
-  // kunci scroll konten di belakang
   document.documentElement.classList.add("overflow-hidden");
 }
 
@@ -171,7 +170,6 @@ function isConfectionery(allText = "") {
 function detectSubKey(allText, key) {
   const t = ` ${String(allText).toLowerCase()} `;
   if (key === "plastik") {
-    // pakai isConfectionery agar snack/sachet otomatis ke plastik tipis
     if (isConfectionery(allText)) return "plastik_tipis";
 
     const THIN_RE =
@@ -185,12 +183,9 @@ function detectSubKey(allText, key) {
   return null;
 }
 
-/* ---------- Awareness lingkungan (sederhana) ---------- */
 function buildEnvAwareness(product, catKey, allText = "", packagings = []) {
   const out = [];
   const t = ` ${String(allText).toLowerCase()} `;
-
-  // --- Eco-Score (produk, bukan kemasan) ---
   const ecoRaw = (product.ecoscore_grade || "").toString().toUpperCase();
   const ECO_VALID = new Set(["A", "B", "C", "D", "E"]);
   const ecoData = product.ecoscore_data || {};
@@ -214,7 +209,6 @@ function buildEnvAwareness(product, catKey, allText = "", packagings = []) {
     }
   }
 
-  // --- Deteksi larangan daur ulang / residu ---
   const antiRecycle =
     /\b(discard|do\s*not\s*recycle|not\s*recycl|non[-\s]*recycl|household\s*waste|residu)\b/i.test(
       allText
@@ -224,7 +218,6 @@ function buildEnvAwareness(product, catKey, allText = "", packagings = []) {
         /\b(discard|not\s*recycl)/i.test(String(p?.recycling || ""))
       ));
 
-  // Bisa didaur ulang?
   const recyclingTags = (product.packaging_recycling_tags || []).map((s) =>
     String(s).toLowerCase()
   );
@@ -355,7 +348,6 @@ function composeHouseholdTips(catKey, { antiRecycle = false } = {}) {
   const key = catKey || "lainnya";
   const baseKey = key.startsWith("plastik_") ? "plastik" : key;
 
-  // Override khusus plastik tipis: jangan pakai bucket reuse acak
   if (key === "plastik_tipis") {
     const pool = antiRecycle
       ? OVERRIDE_TIPS.plastik_tipis.antiRecycle
@@ -363,7 +355,6 @@ function composeHouseholdTips(catKey, { antiRecycle = false } = {}) {
     return pickSample(pool, 4);
   }
 
-  // default behaviour (ambil 1 dari tiap bucket)
   const b = TIPS_BUCKETS;
   const clean = b.clean[key] || b.clean[baseKey] || b.clean.lainnya || [];
   const space = b.space[key] || b.space[baseKey] || b.space.lainnya || [];

@@ -1,6 +1,4 @@
-// hud-fixed.js
 document.addEventListener("DOMContentLoaded", () => {
-  // ==== SHOW/ HIDE saat scroll ====
   const bar = document.getElementById("hud-fixed");
   const SHOW_AT = 200; // px scroll sebelum muncul
 
@@ -18,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  // ==== MIRROR NILAI dari HUD normal ke HUD mini ====
   const map = [
     { src: "#hud-level", dst: "#hud-fixed-level", html: false },
     { src: "#hud-score", dst: "#hud-fixed-score", html: false },

@@ -84,7 +84,7 @@
 
         const opened = !menu.classList.contains("hidden");
         if (opened) {
-          applyHeader(false); // paksa solid biar kontras
+          applyHeader(false);
         } else {
           updateHeaderState();
         }
@@ -114,7 +114,6 @@
     });
   }
 
-  // ===== roll-in reveal observer
   function initRollObserver() {
     const heroFrame = $("#heroFrame");
     const rollBox = $("#rollBox");
@@ -163,8 +162,6 @@
           ) {
             didSnap = true;
             heroEl.scrollIntoView({ behavior: "smooth", block: "start" });
-            // untuk mengizinkan snap ulang saat user scroll balik, uncomment:
-            // setTimeout(() => { didSnap = false; }, 800);
           }
 
           ticking = false;

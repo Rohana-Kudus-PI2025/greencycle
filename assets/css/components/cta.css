@@ -18,7 +18,8 @@
   filter: brightness(1.03);
   box-shadow: inset 4px 4px 0 #34d399, inset -4px -4px 0 #16a34a,
     0 7px 0 #14532d, 0 12px 0 #00000022;
-  background: #16a34a; /* emerald-600 */
+  background: #16a34a;
+  /* emerald-600 */
 }
 
 .cta:active {

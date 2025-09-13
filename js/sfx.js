@@ -1,4 +1,3 @@
-// js/sfx.js — hanya bunyi di tombol, bukan link <a>
 (() => {
   const SOURCES = {
     click: "assets/audio/mixkit-arcade-game-jump-coin-216.wav",
@@ -6,7 +5,6 @@
     wrong: "assets/audio/mixkit-game-show-wrong-answer-buzz-950.wav",
   };
 
-  // Preload + clone
   const pool = {};
   function base(name) {
     if (!pool[name]) {
@@ -25,11 +23,9 @@
     window.dispatchEvent(new CustomEvent("sfx:played", { detail: name }));
   }
 
-  // hanya target button, pixel-btn, atau [role="button"]
   const clickableSel = 'button, .pixel-btn, [role="button"]';
   const isClickable = (t) => t?.closest?.(clickableSel);
 
-  // pointerdown = lebih cepat dari click
   document.addEventListener(
     "pointerdown",
     (e) => {
@@ -40,7 +36,6 @@
     { capture: true }
   );
 
-  // keyboard support (Enter/Space)
   document.addEventListener(
     "keydown",
     (e) => {
@@ -55,7 +50,6 @@
   window.SFX = {
     play,
     unlock() {
-      // iOS unlock
       const a = new Audio(SOURCES.click);
       a.volume = 0.0001;
       a.play().finally(() => {});

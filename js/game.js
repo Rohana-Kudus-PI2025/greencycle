@@ -113,7 +113,6 @@ function touchDailyStreak() {
     renderStreakHUD(st);
     showToast("💤 Streak putus. Start lagi: 1", false);
   } else {
-    // gap < 0 (jam sistem mundur/aneh) → anggap no-op
     renderStreakHUD(st);
   }
 }
@@ -138,7 +137,7 @@ let timer = null;
 // ===== Current item
 let currentItem = null;
 
-// ===== Answer lock (anti double-trigger)
+// ===== Answer lock
 let processingAnswer = false;
 function withAnswerLock(fn) {
   if (processingAnswer || !running) return;
@@ -335,7 +334,7 @@ function handleCorrect(binEl) {
       resetTimer();
       running = true;
     }
-    return; // stop di sini supaya tidak auto lanjut sebelum user klik
+    return;
   }
 
   showToast(`✅ Correct! (${streak}/${STREAK_TARGET})`, true);
@@ -404,7 +403,7 @@ function handleTimeUp() {
   resetTimer();
 }
 
-// ===== Drag source (1x, pakai guard running)
+// ===== Drag source
 itemWrap.addEventListener("dragstart", (e) => {
   if (!running) {
     e.preventDefault();
@@ -422,7 +421,7 @@ itemWrap.addEventListener("dragend", () => {
     );
 });
 
-// ===== Drop targets (single source of truth)
+// ===== Drop targets
 document.querySelectorAll(".bin").forEach((bin) => {
   bin.addEventListener("dragover", (e) => e.preventDefault());
 
@@ -450,7 +449,7 @@ document.querySelectorAll(".bin").forEach((bin) => {
     });
   });
 
-  // Click fallback (mobile) — juga lewat lock
+  // Click fallback (mobile)
   bin.addEventListener("click", () => {
     if (!running) return;
     const from = itemWrap.dataset.category;

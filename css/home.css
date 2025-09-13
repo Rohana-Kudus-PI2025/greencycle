@@ -29,11 +29,9 @@
   position: absolute;
   inset: 0 0 auto 0;
   height: 36px;
-  background: radial-gradient(
-      120% 60% at 50% -40%,
+  background: radial-gradient(120% 60% at 50% -40%,
       rgba(0, 0, 0, 0.18),
-      transparent 60%
-    ),
+      transparent 60%),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);
   opacity: 0;
   transform: translateY(-20px);
@@ -71,16 +69,20 @@ canvas {
     top: 0%;
     opacity: 0;
   }
+
   10% {
     opacity: 1;
   }
+
   50% {
     top: 50%;
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     top: 100%;
     opacity: 0;
@@ -96,10 +98,12 @@ canvas {
     transform: scale(1);
     opacity: 0.6;
   }
+
   70% {
     transform: scale(1.8);
     opacity: 0;
   }
+
   100% {
     transform: scale(1.8);
     opacity: 0;
@@ -115,6 +119,7 @@ canvas {
     transform: scale(0.6);
     opacity: 0.4;
   }
+
   100% {
     transform: scale(1.6);
     opacity: 0;
@@ -126,6 +131,7 @@ canvas {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .animate-ping-slow,
   .animate-radar {
     animation: none !important;
@@ -140,9 +146,11 @@ canvas {
     --gutter: calc((100vw - var(--container-w)) / 2);
     --safe: max(var(--gutter), 1rem);
   }
+
   .swiper-button-prev {
     left: var(--safe);
   }
+
   .swiper-button-next {
     right: var(--safe);
   }

@@ -68,7 +68,7 @@ window.ITEMS = [
   },
   {
     id: "sisa_apel",
-    name: "Sisa Apel (Apple Core)",
+    name: "Sisa Apel",
     file: "food/sisa-apel.jpeg",
     category: "food",
     explain:
@@ -415,7 +415,7 @@ window.ITEMS = [
   },
   {
     id: "tv",
-    name: "TV/E-waste",
+    name: "TV",
     file: "sampah/tv.jpeg",
     category: "trash",
     explain:
