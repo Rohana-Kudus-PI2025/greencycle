@@ -1,7 +1,9 @@
-GreenCycle
+# GreenCycle
+
 GreenCycle Game adalah edugame yang memberdayakan perempuan, khususnya ibu rumah tangga, untuk memilah sampah dengan cara menyenangkan. Lewat game sortir yang interaktif & fun, tips daur ulang, dan fitur bank sampah yang menunjukkan lokasi pembuangan terdekat, aplikasi ini membantu mengurangi timbulan sampah, mendukung ekonomi sirkular, dan menumbuhkan kebiasaan hijau di keluarga maupun komunitas.
 
 # Features
+
 - Sorting Game (60s): drag & drop item ke bin yang tepat (Food/Organik, Recycle, Paper, Residual).
 - HUD (Heads-Up Display) & Progression: skor, level naik tiap streak benar, timer, dan “nyawa”.
 - Daily Streak: simpan streak, level, dan skor di localStorage sehingga progres tetap ada walau refresh.
@@ -10,13 +12,16 @@ GreenCycle Game adalah edugame yang memberdayakan perempuan, khususnya ibu rumah
 - Contact Form: terhubung ke EmailJS (auto-reply) ketika user kirim pesan.
 
 # Tech Stack
+
 - Vanilla HTML/CSS/JS (TailwindCSS via CDN)
 - EmailJS untuk contact form (client-side, pakai public key)
-- External API 
-    - https://api-ninjas.com
-    - https://world.openfoodfacts.org/
+- External API
+  - https://api-ninjas.com
+  - https://world.openfoodfacts.org/
 
 # Project Structure
+
+```plaintext
 greencycle/
 ├─ assets/                # icons, images, audio, component styles
 ├─ css/                   # global
@@ -41,3 +46,4 @@ cd greencycle
 - Lives: mulai dengan beberapa nyawa; salah / habis waktu ⇒ -1 nyawa.
 - HUD: lihat skor, level, nyawa, waktu, dan progress bar.
 - Persistence: skor, level, streak disimpan via localStorage.
+```
