@@ -33,17 +33,24 @@ greencycle/
 ├─ game.html
 └─ contact-us.html
 
-# Getting Started
-1) Clone
-git clone https://github.com/Rohana-Kudus-PI2025/greencycle.git
-cd greencycle
+```
 
-2) Jalankan secara lokal
+# Getting Started
+
+1. Clone
+   git clone https://github.com/Rohana-Kudus-PI2025/greencycle.git
+   cd greencycle
+
+2. Jalankan secara lokal
 
 # Game Mechanics
+
 - Goal: capai skor setinggi mungkin dalam 30 detik.
 - Level Up: 5 jawaban benar beruntun ⇒ naik level (timer reset per level).
 - Lives: mulai dengan beberapa nyawa; salah / habis waktu ⇒ -1 nyawa.
 - HUD: lihat skor, level, nyawa, waktu, dan progress bar.
 - Persistence: skor, level, streak disimpan via localStorage.
+
+```
+
 ```
