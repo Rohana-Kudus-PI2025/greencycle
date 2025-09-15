@@ -4,7 +4,7 @@ GreenCycle Game adalah edugame yang memberdayakan perempuan, khususnya ibu rumah
 
 # Features
 
-- Sorting Game (60s): drag & drop item ke bin yang tepat (Food/Organik, Recycle, Paper, Residual).
+- Sorting Game (30s): drag & drop item ke bin yang tepat (Food/Organik, Recycle, Paper, Residual).
 - HUD (Heads-Up Display) & Progression: skor, level naik tiap streak benar, timer, dan “nyawa”.
 - Daily Streak: simpan streak, level, dan skor di localStorage sehingga progres tetap ada walau refresh.
 - Tips & Trick: halaman input barcode kemasan untuk melihat tips & trick pengelolahannya
