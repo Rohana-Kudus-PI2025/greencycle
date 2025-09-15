@@ -50,7 +50,3 @@ greencycle/
 - Lives: mulai dengan beberapa nyawa; salah / habis waktu ⇒ -1 nyawa.
 - HUD: lihat skor, level, nyawa, waktu, dan progress bar.
 - Persistence: skor, level, streak disimpan via localStorage.
-
-```
-
-```
